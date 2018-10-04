@@ -125,8 +125,11 @@ E:\Developer\ThotMVC\ThotMVC\bin\es\EntityFramework.SqlServer.resources.dll
 E:\Developer\ThotMVC\ThotMVC\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 E:\Developer\ThotMVC\ThotMVC\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 E:\Developer\ThotMVC\ThotMVC\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csprojAssemblyReference.cache
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.CoreCompileInputs.cache
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.CopyComplete
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.dll
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.pdb
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.departamentos.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.GenerateResource.cache
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.actualizaDepartamentos.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.municipios.resources

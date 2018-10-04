@@ -9,7 +9,8 @@ namespace ThotMVC.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            //Para produccion quitar
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(ThotMVC.Models.ApplicationDbContext context)
