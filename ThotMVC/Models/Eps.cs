@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
 namespace ThotMVC.Models
 {
-    public class Especialidades
+    public class Eps
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -12,12 +15,13 @@ namespace ThotMVC.Models
         public Int64 Id { get; set; }
 
         [Display(Name = "Código")]
-        [Required(ErrorMessage = "Digite el código de la especialidad")]
+        [Required(ErrorMessage = "Digite el código de la EPS")]
         public Int64 Codigo { get; set; }
 
         [Display(Name = "Nombre")]
-        [Required(ErrorMessage = "Digite el nombre de la especialidad")]
+        [Required(ErrorMessage = "Digite el nombre de la EPS")]
         public string Nombre { get; set; }
+        public string Descripcion { get; set; }
 
         [Display(Name = "Estado")]
         public bool Activo { get; set; }

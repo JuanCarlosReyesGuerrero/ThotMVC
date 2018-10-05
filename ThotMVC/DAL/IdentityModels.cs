@@ -72,5 +72,16 @@ namespace ThotMVC.Models
         public DbSet<TipoRespuestas> TipoRespuestas { get; set; }
         public DbSet<TipoSectorEducaciones> TipoSectorEducaciones { get; set; }
         public DbSet<Zonas> Zonas { get; set; }
+
+        public DbSet<AporteParafiscales> AporteParafiscales { get; set; }
+        public DbSet<Ars> Ars { get; set; }
+        public DbSet<Cargos> Cargos { get; set; }
+        public DbSet<ClasesFuncionarios> ClasesFuncionarios { get; set; }
+        public DbSet<Cursos> Cursos { get; set; }
+        public DbSet<Eps> Eps { get; set; }
+        public DbSet<Equivalencias> Equivalencias { get; set; }
+        public DbSet<EscalaNacionales> EscalaNacionales { get; set; }
+        public DbSet<EstadoCiviles> EstadoCiviles { get; set; }
+        Grados
     }
 }
