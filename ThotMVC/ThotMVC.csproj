@@ -212,6 +212,10 @@
     <Compile Include="Migrations\201810051658419_inicial2.Designer.cs">
       <DependentUpon>201810051658419_inicial2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810052001071_inicial3.cs" />
+    <Compile Include="Migrations\201810052001071_inicial3.Designer.cs">
+      <DependentUpon>201810052001071_inicial3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -228,9 +232,20 @@
     <Compile Include="Models\FuenteRecursos.cs" />
     <Compile Include="Models\Generos.cs" />
     <Compile Include="Models\Idiomas.cs" />
+    <Compile Include="Models\Instituciones.cs" />
     <Compile Include="Models\Jornadas.cs" />
+    <Compile Include="Models\Metodologias.cs" />
     <Compile Include="Models\Municipios.cs" />
+    <Compile Include="Models\Nucleos.cs" />
+    <Compile Include="Models\Prestadores.cs" />
+    <Compile Include="Models\PropiedadJuridicas.cs" />
+    <Compile Include="Models\RegimenCostos.cs" />
+    <Compile Include="Models\Resguardos.cs" />
     <Compile Include="Models\Sedes.cs" />
+    <Compile Include="Models\TarifaAnuales.cs" />
+    <Compile Include="Models\TipoDiscapacidades.cs" />
+    <Compile Include="Models\TipoNovedades.cs" />
+    <Compile Include="Models\TipoSectorEducaciones.cs" />
     <Compile Include="Models\Zonas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -320,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810051658419_inicial2.resx">
       <DependentUpon>201810051658419_inicial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810052001071_inicial3.resx">
+      <DependentUpon>201810052001071_inicial3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

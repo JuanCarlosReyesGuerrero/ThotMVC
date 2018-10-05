@@ -42,7 +42,6 @@ namespace ThotMVC.Models
         public DbSet<Especialidades> Especialidades { get; set; }
         public DbSet<Sedes> Sedes { get; set; }
         public DbSet<Zonas> Zonas { get; set; }
-
         public DbSet<AsociacionPrivadas> AsociacionPrivadas { get; set; }
         public DbSet<Calendarios> Calendarios { get; set; }
         public DbSet<CapacidadExcepcionales> CapacidadExcepcionales { get; set; }
@@ -52,6 +51,18 @@ namespace ThotMVC.Models
         public DbSet<FuenteRecursos> FuenteRecursos { get; set; }
         public DbSet<Generos> Generos { get; set; }
         public DbSet<Idiomas> Idiomas { get; set; }
-        public DbSet<Jornadas> Jornadas { get; set; }        
+        public DbSet<Jornadas> Jornadas { get; set; }
+
+        
+        public DbSet<TipoSectorEducaciones> TipoSectorEducaciones { get; set; }
+        public DbSet<PropiedadJuridicas> PropiedadJuridicas { get; set; }
+        public DbSet<Nucleos> Nucleos { get; set; }        
+        public DbSet<TipoDiscapacidades> TipoDiscapacidades { get; set; }
+        public DbSet<Resguardos> Resguardos { get; set; }
+        public DbSet<TipoNovedades> TipoNovedades { get; set; }
+        public DbSet<Metodologias> Metodologias { get; set; }
+        public DbSet<Prestadores> Prestadores { get; set; }
+        public DbSet<RegimenCostos> RegimenCostos { get; set; }
+        public DbSet<TarifaAnuales> TarifaAnuales { get; set; }
     }
 }
