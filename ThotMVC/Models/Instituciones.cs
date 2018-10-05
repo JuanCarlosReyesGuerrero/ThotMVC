@@ -30,17 +30,17 @@ namespace ThotMVC.Models
         [Display(Name = "Calendario")]
         [Required(ErrorMessage = "Seleccionar el calendario")]
         [ForeignKey("Calendarios")]
-        public String CalendarioId { get; set; }
+        public Int64 CalendarioId { get; set; }
 
         [Display(Name = "Sector educación")]
         [Required(ErrorMessage = "Seleccionar el sector de educación")]
         [ForeignKey("TipoSectorEducaciones")]
-        public String TipoSectorEducacionId { get; set; }
+        public Int64 TipoSectorEducacionId { get; set; }
 
         [Display(Name = "Propiedad jurídica")]
         [Required(ErrorMessage = "Seleccionar la propiedad jurídica")]
         [ForeignKey("PropiedadJuridicas")]
-        public String PropiedadJuridicaId { get; set; }
+        public Int64 PropiedadJuridicaId { get; set; }
 
         [Display(Name = "Número de sedes")]
         public Int32 InstitucionNumeroSedes { get; set; }
@@ -48,7 +48,7 @@ namespace ThotMVC.Models
         [Display(Name = "Nucleo")]
         [Required(ErrorMessage = "Seleccionar el núcleo")]
         [ForeignKey("Nucleos")]
-        public String NucleoId { get; set; }
+        public Int64 NucleoId { get; set; }
 
         [Display(Name = "Género")]
         [Required(ErrorMessage = "Seleccionar el género")]
@@ -61,7 +61,7 @@ namespace ThotMVC.Models
         [Display(Name = "Discapacidad")]
         [Required(ErrorMessage = "Seleccionar la discapacidad")]
         [ForeignKey("TipoDiscapacidades")]
-        public String DiscapacidadesId { get; set; }
+        public Int64 DiscapacidadesId { get; set; }
 
         [Display(Name = "Capacidades excepcionales")]
         [Required(ErrorMessage = "Seleccionar la capacidad excepcional")]
@@ -81,17 +81,17 @@ namespace ThotMVC.Models
         [Display(Name = "Tipo de novedad")]
         [Required(ErrorMessage = "Seleccionar el tipo de novedad")]
         [ForeignKey("TipoNovedades")]
-        public String NovedadId { get; set; }
+        public Int64 NovedadId { get; set; }
 
         [Display(Name = "Metodología")]
         [Required(ErrorMessage = "Seleccionar la metodología")]
         [ForeignKey("Metodologias")]
-        public String MetodologiaId { get; set; }
+        public Int64 MetodologiaId { get; set; }
 
         [Display(Name = "Prestador de servicio")]
         [Required(ErrorMessage = "Seleccionar el prestador de servicio")]
         [ForeignKey("Prestadores")]
-        public String PrestadorServicioId { get; set; }
+        public Int64 PrestadorServicioId { get; set; }
 
         [Display(Name = "Decreto de creación")]
         public String InstitucionDecretoCreacion { get; set; }

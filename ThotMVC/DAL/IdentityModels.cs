@@ -36,33 +36,41 @@ namespace ThotMVC.Models
         //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         //}
 
-        public DbSet<Departamentos> Departamentos { get; set; }
-        public DbSet<Municipios> Municipios { get; set; }
+
         public DbSet<Asignaturas> Asignaturas { get; set; }
-        public DbSet<Especialidades> Especialidades { get; set; }
-        public DbSet<Sedes> Sedes { get; set; }
-        public DbSet<Zonas> Zonas { get; set; }
         public DbSet<AsociacionPrivadas> AsociacionPrivadas { get; set; }
         public DbSet<Calendarios> Calendarios { get; set; }
         public DbSet<CapacidadExcepcionales> CapacidadExcepcionales { get; set; }
+        public DbSet<Departamentos> Departamentos { get; set; }
         public DbSet<Escalafones> Escalafones { get; set; }
+        public DbSet<Especialidades> Especialidades { get; set; }
         public DbSet<Estratos> Estratos { get; set; }
         public DbSet<Etnias> Etnias { get; set; }
         public DbSet<FuenteRecursos> FuenteRecursos { get; set; }
         public DbSet<Generos> Generos { get; set; }
         public DbSet<Idiomas> Idiomas { get; set; }
+        public DbSet<Instituciones> Instituciones { get; set; }
         public DbSet<Jornadas> Jornadas { get; set; }
-
-        
-        public DbSet<TipoSectorEducaciones> TipoSectorEducaciones { get; set; }
-        public DbSet<PropiedadJuridicas> PropiedadJuridicas { get; set; }
-        public DbSet<Nucleos> Nucleos { get; set; }        
-        public DbSet<TipoDiscapacidades> TipoDiscapacidades { get; set; }
-        public DbSet<Resguardos> Resguardos { get; set; }
-        public DbSet<TipoNovedades> TipoNovedades { get; set; }
         public DbSet<Metodologias> Metodologias { get; set; }
+        public DbSet<Municipios> Municipios { get; set; }
+        public DbSet<Nucleos> Nucleos { get; set; }
+        public DbSet<PoblacionVictimaConflictos> PoblacionVictimaConflictos { get; set; }
         public DbSet<Prestadores> Prestadores { get; set; }
+        public DbSet<Profesiones> Profesiones { get; set; }
+        public DbSet<PropiedadJuridicas> PropiedadJuridicas { get; set; }
         public DbSet<RegimenCostos> RegimenCostos { get; set; }
+        public DbSet<Resguardos> Resguardos { get; set; }
+        public DbSet<Sedes> Sedes { get; set; }
+        public DbSet<Sisbenes> Sisbenes { get; set; }
+        public DbSet<SituacionAcademicas> SituacionAcademicas { get; set; }
         public DbSet<TarifaAnuales> TarifaAnuales { get; set; }
+        public DbSet<TipoCaracteres> TipoCaracteres { get; set; }
+        public DbSet<TipoCondiciones> TipoCondiciones { get; set; }
+        public DbSet<TipoDiscapacidades> TipoDiscapacidades { get; set; }
+        public DbSet<TipoIdentificaciones> TipoIdentificaciones { get; set; }
+        public DbSet<TipoNovedades> TipoNovedades { get; set; }
+        public DbSet<TipoRespuestas> TipoRespuestas { get; set; }
+        public DbSet<TipoSectorEducaciones> TipoSectorEducaciones { get; set; }
+        public DbSet<Zonas> Zonas { get; set; }
     }
 }

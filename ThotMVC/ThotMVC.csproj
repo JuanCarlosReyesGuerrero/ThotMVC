@@ -216,6 +216,10 @@
     <Compile Include="Migrations\201810052001071_inicial3.Designer.cs">
       <DependentUpon>201810052001071_inicial3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810052041161_inicial4.cs" />
+    <Compile Include="Migrations\201810052041161_inicial4.Designer.cs">
+      <DependentUpon>201810052041161_inicial4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -237,14 +241,22 @@
     <Compile Include="Models\Metodologias.cs" />
     <Compile Include="Models\Municipios.cs" />
     <Compile Include="Models\Nucleos.cs" />
+    <Compile Include="Models\PoblacionVictimaConflictos.cs" />
     <Compile Include="Models\Prestadores.cs" />
+    <Compile Include="Models\Profesiones.cs" />
     <Compile Include="Models\PropiedadJuridicas.cs" />
     <Compile Include="Models\RegimenCostos.cs" />
     <Compile Include="Models\Resguardos.cs" />
     <Compile Include="Models\Sedes.cs" />
+    <Compile Include="Models\Sisbenes.cs" />
+    <Compile Include="Models\SituacionAcademicas.cs" />
     <Compile Include="Models\TarifaAnuales.cs" />
+    <Compile Include="Models\TipoCaracteres.cs" />
+    <Compile Include="Models\TipoCondiciones.cs" />
     <Compile Include="Models\TipoDiscapacidades.cs" />
+    <Compile Include="Models\TipoIdentificaciones.cs" />
     <Compile Include="Models\TipoNovedades.cs" />
+    <Compile Include="Models\TipoRespuestas.cs" />
     <Compile Include="Models\TipoSectorEducaciones.cs" />
     <Compile Include="Models\Zonas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -338,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810052001071_inicial3.resx">
       <DependentUpon>201810052001071_inicial3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810052041161_inicial4.resx">
+      <DependentUpon>201810052041161_inicial4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
