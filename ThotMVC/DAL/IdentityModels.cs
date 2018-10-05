@@ -42,5 +42,16 @@ namespace ThotMVC.Models
         public DbSet<Especialidades> Especialidades { get; set; }
         public DbSet<Sedes> Sedes { get; set; }
         public DbSet<Zonas> Zonas { get; set; }
+
+        public DbSet<AsociacionPrivadas> AsociacionPrivadas { get; set; }
+        public DbSet<Calendarios> Calendarios { get; set; }
+        public DbSet<CapacidadExcepcionales> CapacidadExcepcionales { get; set; }
+        public DbSet<Escalafones> Escalafones { get; set; }
+        public DbSet<Estratos> Estratos { get; set; }
+        public DbSet<Etnias> Etnias { get; set; }
+        public DbSet<FuenteRecursos> FuenteRecursos { get; set; }
+        public DbSet<Generos> Generos { get; set; }
+        public DbSet<Idiomas> Idiomas { get; set; }
+        public DbSet<Jornadas> Jornadas { get; set; }        
     }
 }

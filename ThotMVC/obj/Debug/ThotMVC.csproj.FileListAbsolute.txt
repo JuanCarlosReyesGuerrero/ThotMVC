@@ -133,3 +133,4 @@ E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csprojAssemblyReference.cache
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.InicialUsuarios.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.GenerateResource.cache
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.Departamentos.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial2.resources
