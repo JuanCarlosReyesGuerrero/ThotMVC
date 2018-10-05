@@ -36,7 +36,11 @@ namespace ThotMVC.Models
         //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         //}
 
-        public DbSet<Department> Departments{ get; set; }
-        public DbSet<Municipality> Municipalities { get; set; }
+        public DbSet<Departamentos> Departamentos { get; set; }
+        public DbSet<Municipios> Municipios { get; set; }
+        public DbSet<Asignaturas> Asignaturas { get; set; }
+        public DbSet<Especialidades> Especialidades { get; set; }
+        public DbSet<Sedes> Sedes { get; set; }
+        public DbSet<Zonas> Zonas { get; set; }
     }
 }

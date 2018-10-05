@@ -129,7 +129,7 @@ E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.CoreCompileInputs.cache
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.CopyComplete
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.dll
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.pdb
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.departamentos.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csprojAssemblyReference.cache
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.InicialUsuarios.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.GenerateResource.cache
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.actualizaDepartamentos.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.municipios.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.Departamentos.resources
