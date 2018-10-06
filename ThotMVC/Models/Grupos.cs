@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace ThotMVC.Models
 {
-    public class Grados
+    public class Grupos
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,24 +12,14 @@ namespace ThotMVC.Models
         public Int64 Id { get; set; }
 
         [Display(Name = "Código")]
-        [Required(ErrorMessage = "Digite el código del grado")]
+        [Required(ErrorMessage = "Digite el código del grupo")]
         public Int64 Codigo { get; set; }
 
         [Display(Name = "Nombre")]
-        [Required(ErrorMessage = "Digite el nombre del grado")]
+        [Required(ErrorMessage = "Digite el nombre del grupo")]
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
 
-        [Display(Name = "Sede")]
-        [Required(ErrorMessage = "Seleccionar una sede")]
-        [ForeignKey("Sedes")]
-        public Int64 SedeId { get; set; }
-
-        [Display(Name = "Institucion")]
-        [Required(ErrorMessage = "Seleccionar una institucion")]
-        [ForeignKey("Instituciones")]
-        public Int64 InstitucionId { get; set; }
-                
         [Display(Name = "Estado")]
         public bool Activo { get; set; }
 
@@ -47,8 +34,5 @@ namespace ThotMVC.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? FechaModifica { get; set; }
-
-        public virtual Sedes Sedes { get; set; }
-        public virtual Instituciones Instituciones { get; set; }
     }
 }

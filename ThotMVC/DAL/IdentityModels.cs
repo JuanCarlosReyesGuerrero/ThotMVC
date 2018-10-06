@@ -82,6 +82,10 @@ namespace ThotMVC.Models
         public DbSet<Equivalencias> Equivalencias { get; set; }
         public DbSet<EscalaNacionales> EscalaNacionales { get; set; }
         public DbSet<EstadoCiviles> EstadoCiviles { get; set; }
-        Grados
+
+        public DbSet<Grados> Grados { get; set; }
+        public DbSet<Grupos> Grupos { get; set; }
+        public DbSet<Profesores> Profesores { get; set; }
+        public DbSet<ValoracionLetras> ValoracionLetras { get; set; }
     }
 }
