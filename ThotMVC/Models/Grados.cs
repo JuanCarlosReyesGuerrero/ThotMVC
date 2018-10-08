@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace ThotMVC.Models
 {
@@ -27,11 +24,6 @@ namespace ThotMVC.Models
         [Required(ErrorMessage = "Seleccionar una sede")]
         [ForeignKey("Sedes")]
         public Int64 SedeId { get; set; }
-
-        [Display(Name = "Institucion")]
-        [Required(ErrorMessage = "Seleccionar una institucion")]
-        [ForeignKey("Instituciones")]
-        public Int64 InstitucionId { get; set; }
                 
         [Display(Name = "Estado")]
         public bool Activo { get; set; }
@@ -48,7 +40,6 @@ namespace ThotMVC.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? FechaModifica { get; set; }
 
-        public virtual Sedes Sedes { get; set; }
-        public virtual Instituciones Instituciones { get; set; }
+        public virtual Sedes Sedes { get; set; }        
     }
 }

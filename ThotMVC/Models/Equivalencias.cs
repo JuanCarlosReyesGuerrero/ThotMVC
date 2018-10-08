@@ -15,10 +15,10 @@ namespace ThotMVC.Models
         [Required(ErrorMessage = "Digite el código de la equivalencia")]
         public Int64 Codigo { get; set; }
 
-        //[Display(Name = "Nombre")]
-        //[Required(ErrorMessage = "Digite el nombre de la equivalencia")]
-        //public string Nombre { get; set; }
-        //public string Descripcion { get; set; }
+        [Display(Name = "Nombre")]
+        [Required(ErrorMessage = "Digite el nombre de la equivalencia")]
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
 
         [Display(Name = "Rango numerico")]
         [Required(ErrorMessage = "Digite el rango numerico")]
@@ -32,12 +32,7 @@ namespace ThotMVC.Models
         [Display(Name = "Sede")]
         [Required(ErrorMessage = "Seleccionar una sede")]
         [ForeignKey("Sedes")]
-        public Int64 SedeId { get; set; }
-
-        [Display(Name = "Institucion")]
-        [Required(ErrorMessage = "Seleccionar una institucion")]
-        [ForeignKey("Instituciones")]
-        public Int64 InstitucionId { get; set; }	
+        public Int64 SedeId { get; set; }       
 
         [Display(Name = "Estado")]
         public bool Activo { get; set; }
@@ -55,7 +50,6 @@ namespace ThotMVC.Models
         public DateTime? FechaModifica { get; set; }
 
         public virtual ValoracionLetras ValoracionLetras { get; set; }
-        public virtual Sedes Sedes { get; set; }
-        public virtual Instituciones Instituciones { get; set; }
+        public virtual Sedes Sedes { get; set; }        
     }
 }
