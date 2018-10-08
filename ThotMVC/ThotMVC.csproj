@@ -224,6 +224,10 @@
     <Compile Include="Migrations\201810060109046_inicial5.Designer.cs">
       <DependentUpon>201810060109046_inicial5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810081553191_inicial6.cs" />
+    <Compile Include="Migrations\201810081553191_inicial6.Designer.cs">
+      <DependentUpon>201810081553191_inicial6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -235,6 +239,7 @@
     <Compile Include="Models\CapacidadExcepcionales.cs" />
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\ClasesFuncionarios.cs" />
+    <Compile Include="Models\Clasificaciones.cs" />
     <Compile Include="Models\Cursos.cs" />
     <Compile Include="Models\Departamentos.cs" />
     <Compile Include="Models\Eps.cs" />
@@ -246,16 +251,24 @@
     <Compile Include="Models\EstadoCiviles.cs" />
     <Compile Include="Models\Estratos.cs" />
     <Compile Include="Models\Etnias.cs" />
+    <Compile Include="Models\FactorRhs.cs" />
     <Compile Include="Models\FuenteRecursos.cs" />
+    <Compile Include="Models\GeneroEstudiantes.cs" />
     <Compile Include="Models\Generos.cs" />
     <Compile Include="Models\Grados.cs" />
     <Compile Include="Models\Grupos.cs" />
     <Compile Include="Models\Idiomas.cs" />
     <Compile Include="Models\Instituciones.cs" />
     <Compile Include="Models\Jornadas.cs" />
+    <Compile Include="Models\Juicios.cs" />
+    <Compile Include="Models\Materias.cs" />
     <Compile Include="Models\Metodologias.cs" />
     <Compile Include="Models\Municipios.cs" />
+    <Compile Include="Models\NivelEducativoDocentes.cs" />
+    <Compile Include="Models\NivelEducativos.cs" />
     <Compile Include="Models\Nucleos.cs" />
+    <Compile Include="Models\Parentescos.cs" />
+    <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\PoblacionVictimaConflictos.cs" />
     <Compile Include="Models\Prestadores.cs" />
     <Compile Include="Models\Profesiones.cs" />
@@ -267,13 +280,16 @@
     <Compile Include="Models\Sisbenes.cs" />
     <Compile Include="Models\SituacionAcademicas.cs" />
     <Compile Include="Models\TarifaAnuales.cs" />
+    <Compile Include="Models\TipoAcademicos.cs" />
     <Compile Include="Models\TipoCaracteres.cs" />
     <Compile Include="Models\TipoCondiciones.cs" />
+    <Compile Include="Models\TipoDevengos.cs" />
     <Compile Include="Models\TipoDiscapacidades.cs" />
     <Compile Include="Models\TipoIdentificaciones.cs" />
     <Compile Include="Models\TipoNovedades.cs" />
     <Compile Include="Models\TipoRespuestas.cs" />
     <Compile Include="Models\TipoSectorEducaciones.cs" />
+    <Compile Include="Models\TipoVinculaciones.cs" />
     <Compile Include="Models\ValoracionLetras.cs" />
     <Compile Include="Models\Zonas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -373,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810060109046_inicial5.resx">
       <DependentUpon>201810060109046_inicial5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810081553191_inicial6.resx">
+      <DependentUpon>201810081553191_inicial6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

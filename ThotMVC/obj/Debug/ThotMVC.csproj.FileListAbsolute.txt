@@ -275,3 +275,5 @@ D:\Developments\ThotMVC\ThotMVC\bin\es\Microsoft.AspNet.Identity.Owin.resources.
 D:\Developments\ThotMVC\ThotMVC\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.CopyComplete
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial5.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial5.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial6.resources

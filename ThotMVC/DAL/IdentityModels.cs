@@ -87,5 +87,20 @@ namespace ThotMVC.Models
         public DbSet<Grupos> Grupos { get; set; }
         public DbSet<Profesores> Profesores { get; set; }
         public DbSet<ValoracionLetras> ValoracionLetras { get; set; }
+
+
+
+
+        public DbSet<FactorRhs> FactorRhs { get; set; }
+        public DbSet<GeneroEstudiantes> GeneroEstudiantes { get; set; }
+        public DbSet<Juicios> Juicios { get; set; }
+        public DbSet<Materias> Materias { get; set; }
+        public DbSet<NivelEducativos> NivelEducativos { get; set; }
+        public DbSet<NivelEducativoDocentes> NivelEducativoDocentes { get; set; }
+        public DbSet<Parentescos> Parentescos { get; set; }
+        public DbSet<Periodos> Periodos { get; set; }
+        public DbSet<TipoAcademicos> TipoAcademicos { get; set; }
+        public DbSet<TipoDevengos> TipoDevengos { get; set; }
+        public DbSet<TipoVinculaciones> TipoVinculaciones { get; set; }       
     }
 }
