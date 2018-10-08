@@ -278,3 +278,4 @@ D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial5.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial5.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial6.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.actualizaInstituciones.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.updateARS.resources
