@@ -236,6 +236,10 @@
     <Compile Include="Migrations\201810082045478_updateARS.Designer.cs">
       <DependentUpon>201810082045478_updateARS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810101410254_arregloSedes.cs" />
+    <Compile Include="Migrations\201810101410254_arregloSedes.Designer.cs">
+      <DependentUpon>201810101410254_arregloSedes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -406,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810082045478_updateARS.resx">
       <DependentUpon>201810082045478_updateARS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810101410254_arregloSedes.resx">
+      <DependentUpon>201810101410254_arregloSedes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
