@@ -240,6 +240,10 @@
     <Compile Include="Migrations\201810101410254_arregloSedes.Designer.cs">
       <DependentUpon>201810101410254_arregloSedes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810101928032_libretaMilitar.cs" />
+    <Compile Include="Migrations\201810101928032_libretaMilitar.Designer.cs">
+      <DependentUpon>201810101928032_libretaMilitar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -273,6 +277,7 @@
     <Compile Include="Models\Instituciones.cs" />
     <Compile Include="Models\Jornadas.cs" />
     <Compile Include="Models\Juicios.cs" />
+    <Compile Include="Models\LibretaMilitares.cs" />
     <Compile Include="Models\Materias.cs" />
     <Compile Include="Models\Metodologias.cs" />
     <Compile Include="Models\Municipios.cs" />
@@ -413,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810101410254_arregloSedes.resx">
       <DependentUpon>201810101410254_arregloSedes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810101928032_libretaMilitar.resx">
+      <DependentUpon>201810101928032_libretaMilitar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

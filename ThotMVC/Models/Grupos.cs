@@ -13,12 +13,17 @@ namespace ThotMVC.Models
 
         [Display(Name = "Código")]
         [Required(ErrorMessage = "Digite el código del grupo")]
-        public Int64 Codigo { get; set; }
+        public string Codigo { get; set; }
 
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Digite el nombre del grupo")]
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+
+        [Display(Name = "Sede")]
+        [Required(ErrorMessage = "Seleccionar una sede")]
+        [ForeignKey("Sedes")]
+        public Int64 SedeId { get; set; }
 
         [Display(Name = "Estado")]
         public bool Activo { get; set; }
@@ -34,5 +39,7 @@ namespace ThotMVC.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? FechaModifica { get; set; }
+
+        public virtual Sedes Sedes { get; set; }
     }
 }

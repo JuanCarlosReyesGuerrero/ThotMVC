@@ -9,15 +9,15 @@ namespace ThotMVC.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Number")]
-        public Int64 FuenteRecursoId { get; set; }
+        public Int64 Id { get; set; }
 
         [Display(Name = "Código")]
         [Required(ErrorMessage = "Digite el código de la fuente de recursos")]
-        public Int64 FuenteRecursoCodigo { get; set; }
+        public string Codigo { get; set; }
 
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Digite el nombre de la fuente de recursos")]
-        public string FuenteRecursoNombre { get; set; }
+        public string Nombre { get; set; }
 
         [Display(Name = "Estado")]
         public bool Activo { get; set; }

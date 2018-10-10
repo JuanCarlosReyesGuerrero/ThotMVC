@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ThotMVC.Models
 {
-    public class Especialidades
+    public class LibretaMilitares
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -12,11 +12,11 @@ namespace ThotMVC.Models
         public Int64 Id { get; set; }
 
         [Display(Name = "Código")]
-        [Required(ErrorMessage = "Digite el código de la especialidad")]
+        [Required(ErrorMessage = "Digite el código de la libreta militar")]
         public string Codigo { get; set; }
 
         [Display(Name = "Nombre")]
-        [Required(ErrorMessage = "Digite el nombre de la especialidad")]
+        [Required(ErrorMessage = "Digite el nombre de la libreta militar")]
         public string Nombre { get; set; }
 
         [Display(Name = "Estado")]
