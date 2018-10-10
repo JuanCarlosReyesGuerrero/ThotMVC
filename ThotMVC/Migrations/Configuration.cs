@@ -21,6 +21,8 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
+            #region "Metadatos1"
+
             context.AporteParafiscales.AddOrUpdate(x => x.Id,
                 new AporteParafiscales() { Codigo = 1, Nombre = "Pago EPS", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new AporteParafiscales() { Codigo = 2, Nombre = "Pago Pensión", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -999,10 +1001,270 @@
                 new Resguardos() { Codigo = "644", Nombre = "ZIT-SEK DEL QUECAL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new Resguardos() { Codigo = "662", Nombre = "ESCOPETERA Y PIRZA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
-            
-           
+
+            #endregion
+
+            #region "Metadatos2"
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+new Eps() { Codigo = "EPS003", Nombre = " CAFESALUD EPS", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+new Eps() { Codigo = "EPS009", Nombre = " CAJA DE COMPENSACION FAMILIAR COMFENALCO ANTIOQUIA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+           );
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new Zonas() { Codigo = "1", Nombre = "Urbana", Descripcion = "URBANA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Zonas() { Codigo = "2", Nombre = "Rural", Descripcion = "RURAL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                       );
 
 
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new ValoracionLetras() { Codigo = "D", Nombre = "Deficiente", ValorNumerico = "0", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new ValoracionLetras() { Codigo = "I", Nombre = "Insuficiente", ValorNumerico = "0", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new ValoracionLetras() { Codigo = "A", Nombre = "Aceptable", ValorNumerico = "0", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new ValoracionLetras() { Codigo = "S", Nombre = "Sobresaliente", ValorNumerico = "0", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new ValoracionLetras() { Codigo = "E", Nombre = "Exelente", ValorNumerico = "0", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                       );
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new TipoVinculaciones() { Codigo = "1", Nombre = "En Propiedad", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoVinculaciones() { Codigo = "2", Nombre = "Interino", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoVinculaciones() { Codigo = "3", Nombre = "Contrato de trabajo", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoVinculaciones() { Codigo = "4", Nombre = "En periodo de prueba", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoVinculaciones() { Codigo = "5", Nombre = "Nombramiento medio tiempo", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoVinculaciones() { Codigo = "6", Nombre = "Nombramiento provisional", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoVinculaciones() { Codigo = "7", Nombre = "Por orden de prestacion de servicios", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new TipoSectorEducaciones() { Codigo = "1", Nombre = "Oficial", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoSectorEducaciones() { Codigo = "2", Nombre = "No Oficial", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new TipoRespuestas() { Codigo = "N", Nombre = "No", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoRespuestas() { Codigo = "S", Nombre = "Si", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new TipoNovedades() { Codigo = "01", Nombre = "Establecimiento no Presenta Novedades", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoNovedades() { Codigo = "02", Nombre = "Institución Cerrada", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoNovedades() { Codigo = "03", Nombre = "Institución Nueva", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new TipoIdentificaciones() { Codigo = "1", Nombre = "C.C", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoIdentificaciones() { Codigo = "2", Nombre = "T.I", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoIdentificaciones() { Codigo = "3", Nombre = "C.E", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoIdentificaciones() { Codigo = "5", Nombre = "R.C", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoIdentificaciones() { Codigo = "6", Nombre = "NIP", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoIdentificaciones() { Codigo = "7", Nombre = "NUIP", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoIdentificaciones() { Codigo = "8", Nombre = "NISE", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoIdentificaciones() { Codigo = "9", Nombre = "CCabildo", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new TipoDiscapacidades() { Codigo = "1", Nombre = "Sordera Profunda", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "2", Nombre = "Hipoacusia o Baja audición", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "3", Nombre = "Baja visión diagnosticada", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "4", Nombre = "Ceguera", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "5", Nombre = "Parálisis cerebral", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "6", Nombre = "Lesión neuromuscular", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "7", Nombre = "Autismo", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "8", Nombre = "Deficiencia cognitiva (Retardo Mental)", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "9", Nombre = "Síndrome de Down", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "10", Nombre = "Múltiple", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDiscapacidades() { Codigo = "99", Nombre = "No aplica", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new TipoDevengos() { Codigo = "1", Nombre = "Asignación Básica Mensual", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "10", Nombre = "Auxilio de Transporte", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "11", Nombre = "Bonificación de Servicios", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "12", Nombre = "Bonificación Especial de Recreación", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "13", Nombre = "Prima de Servicio", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "14", Nombre = "Prima de Vacaciones", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "15", Nombre = "Prima de Navidad", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "16", Nombre = "Otras Primas", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "17", Nombre = "Otras Bonificaciones", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "18", Nombre = "Honorarios", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "2", Nombre = "Sobresueldos (del 10% al 40%)", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "3", Nombre = "Horas Extras Dominicales y Festivos", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "4", Nombre = "Retroactivos", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "5", Nombre = "Prima de Antigüedad", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "6", Nombre = "Prima de Grado, de Escalafón y de Clima", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "7", Nombre = "Recargo de la Jornada Nocturna", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "8", Nombre = "Subsidio de Alimentación", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoDevengos() { Codigo = "9", Nombre = "Prima de Alimentación", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new TipoCondiciones() { Codigo = "3", Nombre = "Desertó", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoCondiciones() { Codigo = "5", Nombre = "Trasladado a otra institución educativa", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoCondiciones() { Codigo = "9", Nombre = "No Aplica", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new TipoCaracteres() { Codigo = "0", Nombre = "No aplica", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoCaracteres() { Codigo = "1", Nombre = "Académico", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new TipoCaracteres() { Codigo = "2", Nombre = "Técnico", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new SituacionAcademicas() { Codigo = "0", Nombre = "No estudió Vigencia Anterior, que para este año se refiere a no haber estudiado en vigencia anterior", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new SituacionAcademicas() { Codigo = "1", Nombre = "Aprobó", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new SituacionAcademicas() { Codigo = "2", Nombre = "Reprobó", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new SituacionAcademicas() { Codigo = "8", Nombre = "No culminó Estudios", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new Sisbenes() { Codigo = "1", Nombre = "1", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Sisbenes() { Codigo = "2", Nombre = "2", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Sisbenes() { Codigo = "3", Nombre = "3", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Sisbenes() { Codigo = "4", Nombre = "4", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Sisbenes() { Codigo = "5", Nombre = "5", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Sisbenes() { Codigo = "6", Nombre = "6", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Sisbenes() { Codigo = "9", Nombre = "No Aplica", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new RegimenCostos() { Codigo = "1", Nombre = "Libertad Vigilada", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new RegimenCostos() { Codigo = "2", Nombre = "Libertad Regulada", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new RegimenCostos() { Codigo = "3", Nombre = "Régimen Controlado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                           );
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new propiedadJuridicas() { Codigo = "1", Nombre = "Oficial 01", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "2", Nombre = "Oficial 02", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "3", Nombre = "Oficial 03", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "11", Nombre = "No oficial 11", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "12", Nombre = "No oficial 12", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "13", Nombre = "No oficial 13", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "14", Nombre = "No oficial 14", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "15", Nombre = "No oficial 15", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "16", Nombre = "No oficial 16", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "17", Nombre = "No oficial 17", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new propiedadJuridicas() { Codigo = "99", Nombre = "No oficial 99", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                               );
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new profesiones() { Codigo = "1", Nombre = "Bachillerato pedagógico", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new profesiones() { Codigo = "2", Nombre = "Normalista Superior", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new profesiones() { Codigo = "3", Nombre = "Otro bachillerato", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new profesiones() { Codigo = "4", Nombre = "Técnico o tecnológico pedagógico", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new profesiones() { Codigo = "5", Nombre = "Otro Técnico o tecnológico", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new profesiones() { Codigo = "6", Nombre = "Profesional pedagógico", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new profesiones() { Codigo = "7", Nombre = "Otro profesional", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new profesiones() { Codigo = "8", Nombre = "Postgrado pedagógico", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new profesiones() { Codigo = "9", Nombre = "Otro postgrado", SedeId = "NULL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                               );
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new Prestadores() { Codigo = "1", Nombre = "Oficial", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Prestadores() { Codigo = "2", Nombre = "No Oficial", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                               );
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new PoblacionVictimaConflictos() { Codigo = "1", Nombre = "En situación de desplazamiento", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new PoblacionVictimaConflictos() { Codigo = "2", Nombre = "Desvinculados de grupos armados", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new PoblacionVictimaConflictos() { Codigo = "3", Nombre = "Hijos de adultos desmovilizados", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new PoblacionVictimaConflictos() { Codigo = "9", Nombre = "No Aplica", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                               );
+
+
+
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new Parentescos() { Codigo = "1", Nombre = "Madre", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Parentescos() { Codigo = "2", Nombre = "Padre", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Parentescos() { Codigo = "3", Nombre = "Ti@", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Parentescos() { Codigo = "4", Nombre = "Herman@", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new Parentescos() { Codigo = "5", Nombre = "Abuel@", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                                   );
+
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new NivelEducativosDocentes() { Codigo = "1", Nombre = "Bachillerato pedagógico", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativosDocentes() { Codigo = "2", Nombre = "Normalista Superior", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativosDocentes() { Codigo = "3", Nombre = "Otro bachillerato", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativosDocentes() { Codigo = "4", Nombre = "Técnico o tecnológico pedagógico", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativosDocentes() { Codigo = "5", Nombre = "Otro Técnico o tecnológico", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativosDocentes() { Codigo = "6", Nombre = "Profesional pedagógico", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativosDocentes() { Codigo = "7", Nombre = "Otro profesional", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativosDocentes() { Codigo = "8", Nombre = "Postgrado pedagógico", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativosDocentes() { Codigo = "9", Nombre = "Otro postgrado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                                   );
+
+
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new NivelEducativos() { Codigo = "1", Nombre = "Preescolar", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativos() { Codigo = "2", Nombre = "Básica Primaria", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativos() { Codigo = "3", Nombre = "Básica Secundaria", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new NivelEducativos() { Codigo = "4", Nombre = "Media", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                               );
+
+
+
+
+
+
+            context.AporteParafiscales.AddOrUpdate(x => x.Id,
+           new metodologias() { Codigo = "1", Nombre = "Educación Tradicional", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "2", Nombre = "Escuela nueva", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "3", Nombre = "Post primaria", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "4", Nombre = "Telesecundaria", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "5", Nombre = "SER", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "6", Nombre = "CAFAM", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "7", Nombre = "SAT", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "8", Nombre = "Etnoeducación", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "9", Nombre = "Aceleración del Aprendizaje", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "10", Nombre = "Programa para Jóvenes en extraedad y Adultos (Decreto 3011)", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "11", Nombre = "Preescolar Escolarizado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "12", Nombre = "Preescolar No Escolarizado/Semiescolarizado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+           new metodologias() { Codigo = "13", Nombre = "SAT presencial", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+                       );
+
+            #endregion
 
 
 
