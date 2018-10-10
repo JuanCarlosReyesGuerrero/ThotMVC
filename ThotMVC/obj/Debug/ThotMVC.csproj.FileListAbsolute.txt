@@ -281,3 +281,5 @@ E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.actualizaInstituciones
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.updateARS.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.arregloSedes.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.libretaMilitar.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.eliminaResguardos.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.CreateResguardos.resources

@@ -244,6 +244,14 @@
     <Compile Include="Migrations\201810101928032_libretaMilitar.Designer.cs">
       <DependentUpon>201810101928032_libretaMilitar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810102256542_eliminaResguardos.cs" />
+    <Compile Include="Migrations\201810102256542_eliminaResguardos.Designer.cs">
+      <DependentUpon>201810102256542_eliminaResguardos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810102258577_CreateResguardos.cs" />
+    <Compile Include="Migrations\201810102258577_CreateResguardos.Designer.cs">
+      <DependentUpon>201810102258577_CreateResguardos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -421,6 +429,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810101928032_libretaMilitar.resx">
       <DependentUpon>201810101928032_libretaMilitar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810102256542_eliminaResguardos.resx">
+      <DependentUpon>201810102256542_eliminaResguardos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810102258577_CreateResguardos.resx">
+      <DependentUpon>201810102258577_CreateResguardos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
