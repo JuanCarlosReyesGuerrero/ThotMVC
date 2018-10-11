@@ -100,6 +100,8 @@ namespace ThotMVC.Models
         public DbSet<TipoDevengos> TipoDevengos { get; set; }
         public DbSet<TipoVinculaciones> TipoVinculaciones { get; set; }
 
-        public DbSet<LibretaMilitares> LibretaMilitares { get; set; }        
+        public DbSet<LibretaMilitares> LibretaMilitares { get; set; }
+
+        public System.Data.Entity.DbSet<ThotMVC.Models.Clasificaciones> Clasificaciones { get; set; }
     }
 }
