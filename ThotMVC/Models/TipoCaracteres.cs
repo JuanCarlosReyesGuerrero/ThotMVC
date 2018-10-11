@@ -13,7 +13,7 @@ namespace ThotMVC.Models
 
         [Display(Name = "Código")]
         [Required(ErrorMessage = "Digite el código del tipo de carácter")]
-        public Int64 Codigo { get; set; }
+        public string Codigo { get; set; }
 
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Digite el nombre del tipo de carácter")]

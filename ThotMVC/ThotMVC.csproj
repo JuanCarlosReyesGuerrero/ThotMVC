@@ -204,53 +204,9 @@
     <Compile Include="Migrations\201810051351253_InicialUsuarios.Designer.cs">
       <DependentUpon>201810051351253_InicialUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810051352023_Departamentos.cs" />
-    <Compile Include="Migrations\201810051352023_Departamentos.Designer.cs">
-      <DependentUpon>201810051352023_Departamentos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810051658419_inicial2.cs" />
-    <Compile Include="Migrations\201810051658419_inicial2.Designer.cs">
-      <DependentUpon>201810051658419_inicial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810052001071_inicial3.cs" />
-    <Compile Include="Migrations\201810052001071_inicial3.Designer.cs">
-      <DependentUpon>201810052001071_inicial3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810052041161_inicial4.cs" />
-    <Compile Include="Migrations\201810052041161_inicial4.Designer.cs">
-      <DependentUpon>201810052041161_inicial4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810060109046_inicial5.cs" />
-    <Compile Include="Migrations\201810060109046_inicial5.Designer.cs">
-      <DependentUpon>201810060109046_inicial5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810081553191_inicial6.cs" />
-    <Compile Include="Migrations\201810081553191_inicial6.Designer.cs">
-      <DependentUpon>201810081553191_inicial6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810081643576_actualizaInstituciones.cs" />
-    <Compile Include="Migrations\201810081643576_actualizaInstituciones.Designer.cs">
-      <DependentUpon>201810081643576_actualizaInstituciones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810082045478_updateARS.cs" />
-    <Compile Include="Migrations\201810082045478_updateARS.Designer.cs">
-      <DependentUpon>201810082045478_updateARS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810101410254_arregloSedes.cs" />
-    <Compile Include="Migrations\201810101410254_arregloSedes.Designer.cs">
-      <DependentUpon>201810101410254_arregloSedes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810101928032_libretaMilitar.cs" />
-    <Compile Include="Migrations\201810101928032_libretaMilitar.Designer.cs">
-      <DependentUpon>201810101928032_libretaMilitar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810102256542_eliminaResguardos.cs" />
-    <Compile Include="Migrations\201810102256542_eliminaResguardos.Designer.cs">
-      <DependentUpon>201810102256542_eliminaResguardos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810102258577_CreateResguardos.cs" />
-    <Compile Include="Migrations\201810102258577_CreateResguardos.Designer.cs">
-      <DependentUpon>201810102258577_CreateResguardos.cs</DependentUpon>
+    <Compile Include="Migrations\201810110127028_DBInicial1.cs" />
+    <Compile Include="Migrations\201810110127028_DBInicial1.Designer.cs">
+      <DependentUpon>201810110127028_DBInicial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
@@ -400,41 +356,8 @@
     <EmbeddedResource Include="Migrations\201810051351253_InicialUsuarios.resx">
       <DependentUpon>201810051351253_InicialUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810051352023_Departamentos.resx">
-      <DependentUpon>201810051352023_Departamentos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810051658419_inicial2.resx">
-      <DependentUpon>201810051658419_inicial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810052001071_inicial3.resx">
-      <DependentUpon>201810052001071_inicial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810052041161_inicial4.resx">
-      <DependentUpon>201810052041161_inicial4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810060109046_inicial5.resx">
-      <DependentUpon>201810060109046_inicial5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810081553191_inicial6.resx">
-      <DependentUpon>201810081553191_inicial6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810081643576_actualizaInstituciones.resx">
-      <DependentUpon>201810081643576_actualizaInstituciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810082045478_updateARS.resx">
-      <DependentUpon>201810082045478_updateARS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810101410254_arregloSedes.resx">
-      <DependentUpon>201810101410254_arregloSedes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810101928032_libretaMilitar.resx">
-      <DependentUpon>201810101928032_libretaMilitar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810102256542_eliminaResguardos.resx">
-      <DependentUpon>201810102256542_eliminaResguardos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810102258577_CreateResguardos.resx">
-      <DependentUpon>201810102258577_CreateResguardos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810110127028_DBInicial1.resx">
+      <DependentUpon>201810110127028_DBInicial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
