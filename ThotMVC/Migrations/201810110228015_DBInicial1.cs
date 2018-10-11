@@ -620,18 +620,18 @@ namespace ThotMVC.Migrations
                 "dbo.Instituciones",
                 c => new
                     {
-                        InstitucionId = c.Long(nullable: false, identity: true),
-                        InstitucionCodigoDane = c.String(nullable: false),
-                        InstitucionNombre = c.String(nullable: false),
-                        InstitucionNit = c.String(nullable: false),
-                        InstitucionNombreRector = c.String(nullable: false),
+                        Id = c.Long(nullable: false, identity: true),
+                        CodigoDane = c.String(nullable: false),
+                        Nombre = c.String(nullable: false),
+                        Nit = c.String(nullable: false),
+                        NombreRector = c.String(nullable: false),
                         CalendarioId = c.Long(nullable: false),
                         TipoSectorEducacionId = c.Long(nullable: false),
                         PropiedadJuridicaId = c.Long(nullable: false),
-                        InstitucionNumeroSedes = c.Int(nullable: false),
+                        NumeroSedes = c.Int(nullable: false),
                         NucleoId = c.Long(nullable: false),
                         GeneroId = c.Long(nullable: false),
-                        InstitucionSubsidio = c.Boolean(nullable: false),
+                        Subsidio = c.Boolean(nullable: false),
                         DiscapacidadesId = c.Long(nullable: false),
                         CapacidadesExcepcionalesId = c.Long(nullable: false),
                         EtniasId = c.Long(nullable: false),
@@ -639,22 +639,22 @@ namespace ThotMVC.Migrations
                         NovedadId = c.Long(nullable: false),
                         MetodologiaId = c.Long(nullable: false),
                         PrestadorServicioId = c.Long(nullable: false),
-                        InstitucionDecretoCreacion = c.String(),
-                        InstitucionDirector = c.String(),
-                        InstitucionSecretaria = c.String(),
-                        InstitucionAprobacion = c.String(),
-                        InstitucionLema = c.String(),
-                        InstitucionEscudo = c.String(),
+                        DecretoCreacion = c.String(),
+                        Director = c.String(),
+                        Secretaria = c.String(),
+                        Aprobacion = c.String(),
+                        Lema = c.String(),
+                        Escudo = c.String(),
                         DepartamentoId = c.Long(nullable: false),
                         MunicipioId = c.Long(nullable: false),
                         ZonaId = c.Long(nullable: false),
-                        InstitucionBarrio = c.String(),
-                        InstitucionDireccion = c.String(),
-                        InstitucionTelefono = c.String(),
-                        InstitucionFax = c.String(),
-                        InstitucionSitioWeb = c.String(),
-                        InstitucionEmail = c.String(),
-                        InstitucionNumeroLiciencia = c.String(),
+                        Barrio = c.String(),
+                        Direccion = c.String(),
+                        Telefono = c.String(),
+                        Fax = c.String(),
+                        SitioWeb = c.String(),
+                        Email = c.String(),
+                        NumeroLiciencia = c.String(),
                         RegimenCostoId = c.Long(nullable: false),
                         IdiomaId = c.Long(nullable: false),
                         AsociacionId = c.Long(nullable: false),
@@ -665,7 +665,7 @@ namespace ThotMVC.Migrations
                         UsuarioModifica = c.Long(),
                         FechaModifica = c.DateTime(),
                     })
-                .PrimaryKey(t => t.InstitucionId)
+                .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AsociacionPrivadas", t => t.AsociacionId, cascadeDelete: true)
                 .ForeignKey("dbo.Calendarios", t => t.CalendarioId, cascadeDelete: true)
                 .ForeignKey("dbo.CapacidadExcepcionales", t => t.CapacidadesExcepcionalesId, cascadeDelete: true)
@@ -922,7 +922,7 @@ namespace ThotMVC.Migrations
                         FechaModifica = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Clasificaciones", t => t.ClasificacionId, cascadeDelete: true)
+                .ForeignKey("dbo.Clasificaciones", t => t.ClasificacionId, cascadeDelete: false)
                 .ForeignKey("dbo.Grados", t => t.GradoId, cascadeDelete: false)
                 .ForeignKey("dbo.Grupos", t => t.GrupoId, cascadeDelete: false)
                 .ForeignKey("dbo.Jornadas", t => t.JornadaId, cascadeDelete: false)

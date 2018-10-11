@@ -13,7 +13,7 @@ namespace ThotMVC.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201810110127028_DBInicial1"; }
+            get { return "201810110228015_DBInicial1"; }
         }
         
         string IMigrationMetadata.Source

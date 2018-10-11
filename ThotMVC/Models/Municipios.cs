@@ -28,7 +28,7 @@ namespace ThotMVC.Models
         [ForeignKey("Departamentos")]
         public Int64 DepartamentoId { get; set; }
 
-        public string DepartamentoCode { get; set; }
+        public string DepartamentoCodigo { get; set; }
 
         [Display(Name = "Estado")]
         public bool Activo { get; set; }

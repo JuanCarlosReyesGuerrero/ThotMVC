@@ -279,3 +279,5 @@ E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.libretaMilitar.resourc
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.eliminaResguardos.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.CreateResguardos.resources
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.DBInicial1.resources
+D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.Municipio.resources
+D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.Municipio2.resources

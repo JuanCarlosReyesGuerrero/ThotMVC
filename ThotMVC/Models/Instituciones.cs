@@ -9,23 +9,23 @@ namespace ThotMVC.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Number")]
-        public Int64 InstitucionId { get; set; }
+        public Int64 Id { get; set; }
 
         [Display(Name = "Código Dane")]
         [Required(ErrorMessage = "Digete el código Dane")]
-        public String InstitucionCodigoDane { get; set; }
+        public String CodigoDane { get; set; }
 
         [Display(Name = "Nombre Institución")]
         [Required(ErrorMessage = "Digite el nombre de la institución")]
-        public String InstitucionNombre { get; set; }
+        public String Nombre { get; set; }
 
         [Display(Name = "NIT")]
         [Required(ErrorMessage = "Digite el nit de la institución")]
-        public String InstitucionNit { get; set; }
+        public String Nit { get; set; }
 
         [Display(Name = "Nombre del rector")]
         [Required(ErrorMessage = "Digite el nombre del rector")]
-        public String InstitucionNombreRector { get; set; }
+        public String NombreRector { get; set; }
 
         [Display(Name = "Calendario")]
         [Required(ErrorMessage = "Seleccionar el calendario")]
@@ -43,7 +43,7 @@ namespace ThotMVC.Models
         public Int64 PropiedadJuridicaId { get; set; }
 
         [Display(Name = "Número de sedes")]
-        public Int32 InstitucionNumeroSedes { get; set; }
+        public Int32 NumeroSedes { get; set; }
 
         [Display(Name = "Nucleo")]
         [Required(ErrorMessage = "Seleccionar el núcleo")]
@@ -56,7 +56,7 @@ namespace ThotMVC.Models
         public Int64 GeneroId { get; set; }
 
         [Display(Name = "Subsidio")]
-        public Boolean InstitucionSubsidio { get; set; }
+        public Boolean Subsidio { get; set; }
 
         [Display(Name = "Discapacidad")]
         [Required(ErrorMessage = "Seleccionar la discapacidad")]
@@ -94,22 +94,22 @@ namespace ThotMVC.Models
         public Int64 PrestadorServicioId { get; set; }
 
         [Display(Name = "Decreto de creación")]
-        public String InstitucionDecretoCreacion { get; set; }
+        public String DecretoCreacion { get; set; }
 
         [Display(Name = "Nombre del director")]
-        public String InstitucionDirector { get; set; }
+        public String Director { get; set; }
 
         [Display(Name = "Nombre de la secretaria")]
-        public String InstitucionSecretaria { get; set; }
+        public String Secretaria { get; set; }
 
         [Display(Name = "Aprobación")]
-        public String InstitucionAprobacion { get; set; }
+        public String Aprobacion { get; set; }
 
         [Display(Name = "Lema")]
-        public String InstitucionLema { get; set; }
+        public String Lema { get; set; }
 
         [Display(Name = "Archivo imagen del escudo")]
-        public String InstitucionEscudo { get; set; }
+        public String Escudo { get; set; }
 
         [Display(Name = "Departamento")]
         [Required(ErrorMessage = "Seleccionar un departamento")]
@@ -127,25 +127,25 @@ namespace ThotMVC.Models
         public Int64 ZonaId { get; set; }
 
         [Display(Name = "Barrio")]
-        public String InstitucionBarrio { get; set; }
+        public String Barrio { get; set; }
 
         [Display(Name = "Dirección")]
-        public String InstitucionDireccion { get; set; }
+        public String Direccion { get; set; }
 
         [Display(Name = "teléfono")]
-        public String InstitucionTelefono { get; set; }
+        public String Telefono { get; set; }
 
         [Display(Name = "Fax")]
-        public String InstitucionFax { get; set; }
+        public String Fax { get; set; }
 
         [Display(Name = "Sitio Web")]
-        public String InstitucionSitioWeb { get; set; }
+        public String SitioWeb { get; set; }
 
         [Display(Name = "Correo electrónico")]
-        public String InstitucionEmail { get; set; }
+        public String Email { get; set; }
 
         [Display(Name = "Número de liciencia")]
-        public String InstitucionNumeroLiciencia { get; set; }
+        public String NumeroLiciencia { get; set; }
 
         [Display(Name = "Régimen de costos")]
         [Required(ErrorMessage = "Seleccionar el régimen de costos")]
