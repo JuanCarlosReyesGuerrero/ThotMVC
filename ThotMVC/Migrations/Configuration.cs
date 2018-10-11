@@ -29,7 +29,7 @@
                 new AporteParafiscales() { Codigo = 3, Nombre = "Pago ARP", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new AporteParafiscales() { Codigo = 4, Nombre = "Pago Cesantías", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
-            
+
             context.Ars.AddOrUpdate(x => x.Id,
                 new Ars() { Codigo = "ESS190", Nombre = "ASOCIACION DE AUTORIDADES TRADICIONALES EMMANUEL E.PS.. INDIGENA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new Ars() { Codigo = "ESS184", Nombre = "ASOCIACION DE CABILDOS DEL RESGUARDO  INDIGENA ZENU DE SAN ANDRES DE SOTAVENTO CORDOVA Y SUCRE - MANEXKA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -185,23 +185,23 @@
                 new Especialidades() { Codigo = "16", Nombre = "Promoción Social", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
            );
 
-           context.EstadoCiviles.AddOrUpdate(x => x.Id,
-               new EstadoCiviles() { Codigo = "1", Nombre = "Soltero", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new EstadoCiviles() { Codigo = "2", Nombre = "Casado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new EstadoCiviles() { Codigo = "3", Nombre = "Divorciado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new EstadoCiviles() { Codigo = "4", Nombre = "Viudo", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new EstadoCiviles() { Codigo = "5", Nombre = "Unión libre", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new EstadoCiviles() { Codigo = "6", Nombre = "Separado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
-           );
-
-           context.Estratos.AddOrUpdate(x => x.Id,
-               new Estratos() { Codigo = "1", Nombre = "1", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Estratos() { Codigo = "2", Nombre = "2", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Estratos() { Codigo = "3", Nombre = "3", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Estratos() { Codigo = "4", Nombre = "4", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Estratos() { Codigo = "5", Nombre = "5", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Estratos() { Codigo = "6", Nombre = "6", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+            context.EstadoCiviles.AddOrUpdate(x => x.Id,
+                new EstadoCiviles() { Codigo = "1", Nombre = "Soltero", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new EstadoCiviles() { Codigo = "2", Nombre = "Casado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new EstadoCiviles() { Codigo = "3", Nombre = "Divorciado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new EstadoCiviles() { Codigo = "4", Nombre = "Viudo", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new EstadoCiviles() { Codigo = "5", Nombre = "Unión libre", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new EstadoCiviles() { Codigo = "6", Nombre = "Separado", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
+
+            context.Estratos.AddOrUpdate(x => x.Id,
+                new Estratos() { Codigo = "1", Nombre = "1", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new Estratos() { Codigo = "2", Nombre = "2", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new Estratos() { Codigo = "3", Nombre = "3", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new Estratos() { Codigo = "4", Nombre = "4", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new Estratos() { Codigo = "5", Nombre = "5", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+                new Estratos() { Codigo = "6", Nombre = "6", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+             );
 
             context.Etnias.AddOrUpdate(x => x.Id,
                new Etnias() { Codigo = "00", Nombre = "No Aplica", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -301,13 +301,13 @@
                new FactorRhs() { Codigo = "7", Nombre = "AB−", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new FactorRhs() { Codigo = "8", Nombre = "AB+", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
-           
+
             context.LibretaMilitares.AddOrUpdate(x => x.Id,
                 new LibretaMilitares() { Codigo = "1", Nombre = "Primera", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new LibretaMilitares() { Codigo = "2", Nombre = "Segunda", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
 
-            context.Idiomas.AddOrUpdate(x => x.Id,     
+            context.Idiomas.AddOrUpdate(x => x.Id,
                new Idiomas() { Codigo = "0", Nombre = "No Aplica", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new Idiomas() { Codigo = "1", Nombre = "Inglés", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new Idiomas() { Codigo = "10", Nombre = "Francés-Italiano", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -321,9 +321,9 @@
                new Idiomas() { Codigo = "7", Nombre = "Inglés-Italiano", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new Idiomas() { Codigo = "8", Nombre = "Inglés-Alemán", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new Idiomas() { Codigo = "9", Nombre = "Inglés-Hebreo", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
-            );            
+            );
 
-            context.GeneroEstudiantes.AddOrUpdate(x => x.Id,     
+            context.GeneroEstudiantes.AddOrUpdate(x => x.Id,
                new GeneroEstudiantes() { Codigo = "1", Nombre = "Masculino", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new GeneroEstudiantes() { Codigo = "2", Nombre = "Femenino", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new GeneroEstudiantes() { Codigo = "3", Nombre = "Mixto", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
@@ -341,8 +341,8 @@
                 new FuenteRecursos() { Codigo = "3", Nombre = "Recursos adicionales presupuesto nacional MEN", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new FuenteRecursos() { Codigo = "4", Nombre = "Otros Recursos de la Nación", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new FuenteRecursos() { Codigo = "5", Nombre = "Recursos Propios", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
-            );            
-            
+            );
+
             context.Resguardos.AddOrUpdate(x => x.Id,
                 new Resguardos() { Codigo = "0", Nombre = "NO APLICA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new Resguardos() { Codigo = "1", Nombre = "ABEJERO", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -1027,7 +1027,7 @@
                 new TipoIdentificaciones() { Codigo = "8", Nombre = "NISE", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new TipoIdentificaciones() { Codigo = "9", Nombre = "CCabildo", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
-            
+
             context.TipoDiscapacidades.AddOrUpdate(x => x.Id,
                 new TipoDiscapacidades() { Codigo = "1", Nombre = "Sordera Profunda", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new TipoDiscapacidades() { Codigo = "2", Nombre = "Hipoacusia o Baja audición", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -1222,7 +1222,7 @@
                 new Departamentos() { Codigo = "94", Nombre = "GUAINIA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new Departamentos() { Codigo = "95", Nombre = "GUAVIARE", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new Departamentos() { Codigo = "97", Nombre = "VAUPES", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-                new Departamentos() { Codigo = "99", Nombre = "VICHADA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }    
+                new Departamentos() { Codigo = "99", Nombre = "VICHADA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
 
             context.Municipios.AddOrUpdate(x => x.Id,
@@ -2350,100 +2350,146 @@
 
             #endregion
 
-
-
-
-
-
-
-
-
             #region TablaPrincipal
-         
+
+            context.TarifaAnuales.AddOrUpdate(x => x.Id,
+                new TarifaAnuales()
+                {
+                    Codigo = "1",
+                    Nombre = "Tarifa Prueba",
+                    Activo = true,
+                    UsuarioRegistra = 1,
+                    FechaRegistro = DateTime.Now,
+                    UsuarioModifica = 1,
+                    FechaModifica = DateTime.Now
+                }
+            );
+
+            context.Nucleos.AddOrUpdate(x => x.Id,
+                new Nucleos()
+                {
+                    Codigo = "1",
+                    Nombre = "Nucleo principal",
+                    Direccion = "Calle 20",
+                    Telefono = "55555",
+                    DepartamentoId = 17,
+                    MunicipioId = 714,
+                    NombreDirector = "Pepito",
+                    TelefonoDirector = "55555",
+                    Activo = true,
+                    UsuarioRegistra = 1,
+                    FechaRegistro = DateTime.Now,
+                    UsuarioModifica = 1,
+                    FechaModifica = DateTime.Now
+                }
+            );
+
             context.Instituciones.AddOrUpdate(x => x.Id,
                 new Instituciones()
                 {
-                    CodigoDane = "352287000018"
-                    //Nombre = "INSTITUCION EDUCATIVA MUNICIPIO DE FUNES SEDE 2",
-                    //Nit = "234234324-9",
-                    //NombreRector = "rector3",
-                    //CalendarioId = 1,
-                    //TipoSectorEducacionId = 1,
-                    //PropiedadJuridicaId = 8,
-                    //NumeroSedes = 1,
-                    ////NucleoId = null,
-                    //GeneroId = 3,
-                    //Subsidio = true,
-                    //DiscapacidadesId = 11,
-                    //CapacidadesExcepcionalesId = 4,
-                    //EtniasId = 1,
-                    //ResguardosId = 1,
-                    //NovedadId = 1,
-                    //MetodologiaId = 1,
-                    //PrestadorServicioId = 1,
-                    //DecretoCreacion = "8888888888",
-                    //Director = "Nombre Director",
-                    //Secretaria = "Nombre Secretaria",
-                    //Aprobacion = "3333333",
-                    //Lema = "Escribir un lema",
-                    //Escudo = "",
-                    //DepartamentoId = 17,
-                    //MunicipioId = 734,
-                    //ZonaId = 1,
-                    //Barrio = "Funes",
-                    //Direccion = "Barrio Trinidad",
-                    //Telefono = "5555555",
-                    //Fax = "44444444",
-                    //SitioWeb = "www.prueba.com",
-                    //Email = "prueba@prueba.com",
-                    //NumeroLiciencia = "00000000000",
-                    //RegimenCostoId = 1,
-                    //IdiomaId = 1,
-                    //AsociacionId = 1,
-                    //TarifaAnualId = 1,
-                    //Activo = true,
-                    //UsuarioRegistra = 1,
-                    //FechaRegistro = DateTime.Now,
-                    //UsuarioModifica = 1,
-                    //FechaModifica = DateTime.Now
+                    CodigoDane = "352287000018",
+                    Nombre = "INSTITUCION EDUCATIVA MUNICIPIO DE FUNES SEDE 2",
+                    Nit = "234234324-9",
+                    NombreRector = "Pepito Perez",
+                    CalendarioId = 1,
+                    TipoSectorEducacionId = 1,
+                    PropiedadJuridicaId = 1,
+                    NumeroSedes = 1,
+                    NucleoId = 1,
+                    GeneroId = 1,
+                    Subsidio = true,
+                    DiscapacidadesId = 1,
+                    CapacidadesExcepcionalesId = 1,
+                    EtniasId = 1,
+                    ResguardosId = 1,
+                    NovedadId = 1,
+                    MetodologiaId = 1,
+                    PrestadorServicioId = 1,
+                    DecretoCreacion = "55555",
+                    Director = "Homero",
+                    Secretaria = "Marge",
+                    Aprobacion = "333",
+                    Lema = "Lema de la institución",
+                    Escudo = "",
+                    DepartamentoId = 17,
+                    MunicipioId = 714,
+                    ZonaId = 1,
+                    Barrio = "Centro",
+                    Direccion = "Calle 9",
+                    Telefono = "55555",
+                    Fax = "55555",
+                    SitioWeb = "www.prueba.com",
+                    Email = "prueba@prueba.com",
+                    NumeroLiciencia = "985647",
+                    RegimenCostoId = 1,
+                    IdiomaId = 1,
+                    AsociacionId = 1,
+                    TarifaAnualId = 1,
+                    Activo = true,
+                    UsuarioRegistra = 1,
+                    FechaRegistro = DateTime.Now,
+                    UsuarioModifica = 1,
+                    FechaModifica = DateTime.Now
                 }
-             );
-             
+            );
+
+            context.Sedes.AddOrUpdate(x => x.Id,
+                new Sedes()
+                {
+                    Codigo = "1",
+                    CodigoDaneNuevo = "565656565",
+                    CodigoDaneAntiguo = "12121212",
+                    CodigoConsecutivo = "1",
+                    Nombre = "Instititución Educativa Municipio de Funes Sede 2",
+                    DepartamentoId = 17,
+                    MunicipioId = 714,
+                    ZonaId = 1,
+                    Barrio = "Centro",
+                    Direccion = "Calle 8",
+                    Telefono = "5555",
+                    Fax = "66666",
+                    Email = "prueba@prueba.com",
+                    Novedad = "1",
+                    JornadaCompleta = true,
+                    JornadaManana = true,
+                    JornadaTarde = true,
+                    JornadaNoche = true,
+                    JornadaFinSemana = true,
+                    EspecialidadId = 1,
+                    FechaCreacion = DateTime.Now,
+                    Director = "Pepito",
+                    Secretaria = "Marge",
+                    EscalaValoracionNacional = true,
+                    RangoNumerico = true,
+                    NumeroInicial = 1,
+                    NumeroFinal = 99,
+                    ValoracionLetras = true,
+                    Juicios = true,
+                    Activo = true,
+                    UsuarioRegistra = 1,
+                    FechaRegistro = DateTime.Now,
+                    UsuarioModifica = 1,
+                    FechaModifica = DateTime.Now
+                }
+            );
+
             #endregion
 
+            #region Tabla Dependen Sedes
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            /*              
             context.EscalaNacionales.AddOrUpdate(x => x.Id,
                 new EscalaNacionales() { Codigo = "1", Nombre = "Desempeño Bajo", CriterioEvalaluacion = "No alcanza todos los logros mínimos propuestos", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new EscalaNacionales() { Codigo = "2", Nombre = "Desempeño Básico", CriterioEvalaluacion = ".", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new EscalaNacionales() { Codigo = "3", Nombre = "Desempeño Alto", CriterioEvalaluacion = ".", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new EscalaNacionales() { Codigo = "4", Nombre = "Desempeño Superior", CriterioEvalaluacion = ".", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
-           
+
             context.Asignaturas.AddOrUpdate(x => x.Id,
                 new Asignaturas() { Codigo = "BIOLO", Nombre = "CIENCIAS NATURALES (BIOLOGIA)", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new Asignaturas() { Codigo = "FISI", Nombre = "CIENCIAS NATURALES (FISICA)", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
 
-            context.Jornadas.AddOrUpdate(x => x.Id,           
+            context.Jornadas.AddOrUpdate(x => x.Id,
                new Jornadas() { Codigo = "1", Nombre = "Completa", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new Jornadas() { Codigo = "2", Nombre = "Mañana", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new Jornadas() { Codigo = "3", Nombre = "Tarde", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -2451,29 +2497,29 @@
                new Jornadas() { Codigo = "5", Nombre = "Fin de Semana", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
 
-             context.Grupos.AddOrUpdate(x => x.Id,         
-               new Grupos() { Codigo = "1", Nombre = "A", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grupos() { Codigo = "2", Nombre = "B", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grupos() { Codigo = "3", Nombre = "C", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
-            );
+            context.Grupos.AddOrUpdate(x => x.Id,
+              new Grupos() { Codigo = "1", Nombre = "A", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grupos() { Codigo = "2", Nombre = "B", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grupos() { Codigo = "3", Nombre = "C", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+           );
 
-             context.Grados.AddOrUpdate(x => x.Id,
-               new Grados() { Codigo = "-2", Nombre = "Pre-Jardin", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "-1", Nombre = "Jardin", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "0", Nombre = "Transición", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "1", Nombre = "Primero", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "2", Nombre = "Segundo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "3", Nombre = "Tercero", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "4", Nombre = "Cuarto", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "5", Nombre = "Quinto", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "6", Nombre = "Sexto", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "7", Nombre = "Séptimo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "8", Nombre = "Octavo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "9", Nombre = "Noveno", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "10", Nombre = "Décimo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "11", Nombre = "Onceavo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-               new Grados() { Codigo = "12", Nombre = "Doceavo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
-            );
+            context.Grados.AddOrUpdate(x => x.Id,
+              new Grados() { Codigo = "-2", Nombre = "Pre-Jardin", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "-1", Nombre = "Jardin", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "0", Nombre = "Transición", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "1", Nombre = "Primero", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "2", Nombre = "Segundo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "3", Nombre = "Tercero", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "4", Nombre = "Cuarto", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "5", Nombre = "Quinto", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "6", Nombre = "Sexto", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "7", Nombre = "Séptimo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "8", Nombre = "Octavo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "9", Nombre = "Noveno", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "10", Nombre = "Décimo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "11", Nombre = "Onceavo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
+              new Grados() { Codigo = "12", Nombre = "Doceavo", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
+           );
 
             context.ValoracionLetras.AddOrUpdate(x => x.Id,
                new ValoracionLetras() { Codigo = "D", Nombre = "Deficiente", ValorNumerico = 0, SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -2483,12 +2529,7 @@
                new ValoracionLetras() { Codigo = "E", Nombre = "Exelente", ValorNumerico = 0, SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
 
-            */
-
-
-
-
-
+            #endregion
         }
     }
 }

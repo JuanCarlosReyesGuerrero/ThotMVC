@@ -204,17 +204,9 @@
     <Compile Include="Migrations\201810051351253_InicialUsuarios.Designer.cs">
       <DependentUpon>201810051351253_InicialUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810110228015_DBInicial1.cs" />
-    <Compile Include="Migrations\201810110228015_DBInicial1.Designer.cs">
-      <DependentUpon>201810110228015_DBInicial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810110313005_Municipio.cs" />
-    <Compile Include="Migrations\201810110313005_Municipio.Designer.cs">
-      <DependentUpon>201810110313005_Municipio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810110335191_Municipio2.cs" />
-    <Compile Include="Migrations\201810110335191_Municipio2.Designer.cs">
-      <DependentUpon>201810110335191_Municipio2.cs</DependentUpon>
+    <Compile Include="Migrations\201810111514512_DBinicial1.cs" />
+    <Compile Include="Migrations\201810111514512_DBinicial1.Designer.cs">
+      <DependentUpon>201810111514512_DBinicial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
@@ -364,14 +356,8 @@
     <EmbeddedResource Include="Migrations\201810051351253_InicialUsuarios.resx">
       <DependentUpon>201810051351253_InicialUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810110228015_DBInicial1.resx">
-      <DependentUpon>201810110228015_DBInicial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810110313005_Municipio.resx">
-      <DependentUpon>201810110313005_Municipio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810110335191_Municipio2.resx">
-      <DependentUpon>201810110335191_Municipio2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810111514512_DBinicial1.resx">
+      <DependentUpon>201810111514512_DBinicial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

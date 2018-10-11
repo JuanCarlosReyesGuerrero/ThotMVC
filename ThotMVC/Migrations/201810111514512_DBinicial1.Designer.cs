@@ -7,13 +7,13 @@ namespace ThotMVC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class DBInicial1 : IMigrationMetadata
+    public sealed partial class DBinicial1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DBInicial1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DBinicial1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201810110228015_DBInicial1"; }
+            get { return "201810111514512_DBinicial1"; }
         }
         
         string IMigrationMetadata.Source

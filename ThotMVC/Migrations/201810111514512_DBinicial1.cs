@@ -3,7 +3,7 @@ namespace ThotMVC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class DBInicial1 : DbMigration
+    public partial class DBinicial1 : DbMigration
     {
         public override void Up()
         {
@@ -62,7 +62,7 @@ namespace ThotMVC.Migrations
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
-                        Codigo = c.Long(nullable: false),
+                        Codigo = c.String(),
                         CodigoDaneNuevo = c.String(nullable: false),
                         CodigoDaneAntiguo = c.String(nullable: false),
                         CodigoConsecutivo = c.String(nullable: false),
@@ -146,7 +146,7 @@ namespace ThotMVC.Migrations
                         Nombre = c.String(nullable: false),
                         CodigoUnificado = c.String(nullable: false),
                         DepartamentoId = c.Long(nullable: false),
-                        DepartamentoCode = c.String(),
+                        DepartamentoCodigo = c.String(),
                         Activo = c.Boolean(nullable: false),
                         UsuarioRegistra = c.Long(),
                         FechaRegistro = c.DateTime(),
@@ -922,7 +922,7 @@ namespace ThotMVC.Migrations
                         FechaModifica = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Clasificaciones", t => t.ClasificacionId, cascadeDelete: false)
+                .ForeignKey("dbo.Clasificaciones", t => t.ClasificacionId, cascadeDelete: true)
                 .ForeignKey("dbo.Grados", t => t.GradoId, cascadeDelete: false)
                 .ForeignKey("dbo.Grupos", t => t.GrupoId, cascadeDelete: false)
                 .ForeignKey("dbo.Jornadas", t => t.JornadaId, cascadeDelete: false)

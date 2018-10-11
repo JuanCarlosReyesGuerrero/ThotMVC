@@ -132,10 +132,6 @@ E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.pdb
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csprojAssemblyReference.cache
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.InicialUsuarios.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.GenerateResource.cache
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.Departamentos.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial2.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial3.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial4.resources
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csprojAssemblyReference.cache
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.InicialUsuarios.resources
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.GenerateResource.cache
@@ -270,14 +266,7 @@ D:\Developments\ThotMVC\ThotMVC\bin\es\Microsoft.AspNet.Identity.Core.resources.
 D:\Developments\ThotMVC\ThotMVC\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 D:\Developments\ThotMVC\ThotMVC\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.CopyComplete
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial5.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.inicial6.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.actualizaInstituciones.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.updateARS.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.arregloSedes.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.libretaMilitar.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.eliminaResguardos.resources
-E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.CreateResguardos.resources
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.DBInicial1.resources
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.Municipio.resources
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.Municipio2.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.DBinicial1.resources

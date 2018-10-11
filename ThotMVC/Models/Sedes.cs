@@ -12,7 +12,7 @@ namespace ThotMVC.Models
         public Int64 Id { get; set; }
 
         [Display(Name = "Código")]
-        public Int64 Codigo { get; set; }
+        public string Codigo { get; set; }
 
         [Display(Name = "Código Dane nuevo")]
         [Required(ErrorMessage = "Digite el código Dane nuevo")]
