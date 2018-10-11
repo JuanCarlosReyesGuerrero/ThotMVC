@@ -1,0 +1,368 @@
+﻿@model ThotMVC.Models.Instituciones
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Instituciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AsociacionPrivadas.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AsociacionPrivadas.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calendarios.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calendarios.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CapacidadExcepcionales.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CapacidadExcepcionales.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamentos.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamentos.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etnias.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etnias.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Generos.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Generos.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Idiomas.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Idiomas.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Metodologias.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Metodologias.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Municipios.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Municipios.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nucleos.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nucleos.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prestadores.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prestadores.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropiedadJuridicas.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropiedadJuridicas.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegimenCostos.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegimenCostos.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resguardos.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resguardos.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarifaAnuales.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarifaAnuales.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDiscapacidades.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDiscapacidades.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoNovedades.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoNovedades.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoSectorEducaciones.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoSectorEducaciones.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zonas.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zonas.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoDane)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoDane)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreRector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreRector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroSedes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroSedes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subsidio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subsidio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DecretoCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecretoCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Secretaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secretaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aprobacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aprobacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lema)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Escudo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Escudo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barrio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barrio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SitioWeb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SitioWeb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroLiciencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroLiciencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioRegistra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioRegistra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioModifica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioModifica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaModifica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaModifica)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
