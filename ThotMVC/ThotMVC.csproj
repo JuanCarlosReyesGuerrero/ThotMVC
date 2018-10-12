@@ -271,6 +271,10 @@
     <Compile Include="Migrations\201810111514512_DBinicial1.Designer.cs">
       <DependentUpon>201810111514512_DBinicial1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810122324411_updateCodigos.cs" />
+    <Compile Include="Migrations\201810122324411_updateCodigos.Designer.cs">
+      <DependentUpon>201810122324411_updateCodigos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -758,6 +762,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810111514512_DBinicial1.resx">
       <DependentUpon>201810111514512_DBinicial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810122324411_updateCodigos.resx">
+      <DependentUpon>201810122324411_updateCodigos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
