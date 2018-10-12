@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,42 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: TipoAcademicos
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var tipoAcademicos = db.TipoAcademicos.Include(t => t.Sedes);
-            return View(tipoAcademicos.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var TipoAcademicos = from s in db.TipoAcademicos
+                       select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                TipoAcademicos = TipoAcademicos.Where(s => s.Nombre.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    TipoAcademicos = TipoAcademicos.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    TipoAcademicos = TipoAcademicos.OrderBy(s => s.Codigo);
+                    break;
+                default:  // Name ascending 
+                    TipoAcademicos = TipoAcademicos.OrderBy(s => s.Nombre);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(TipoAcademicos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: TipoAcademicos/Details/5

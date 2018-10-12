@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,42 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Jornadas
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var jornadas = db.Jornadas.Include(j => j.Sedes);
-            return View(jornadas.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var Jornadas = from s in db.Jornadas
+                       select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Jornadas = Jornadas.Where(s => s.Nombre.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    Jornadas = Jornadas.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    Jornadas = Jornadas.OrderBy(s => s.Codigo);
+                    break;
+                default:  // Name ascending 
+                    Jornadas = Jornadas.OrderBy(s => s.Nombre);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(Jornadas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Jornadas/Details/5

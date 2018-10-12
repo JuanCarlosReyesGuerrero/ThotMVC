@@ -132,3 +132,5 @@ D:\Developments\ThotMVC\ThotMVC.Tests\obj\Debug\ThotMVC.Tests.csproj.CoreCompile
 D:\Developments\ThotMVC\ThotMVC.Tests\obj\Debug\ThotMVC.Tests.csproj.CopyComplete
 D:\Developments\ThotMVC\ThotMVC.Tests\obj\Debug\ThotMVC.Tests.dll
 D:\Developments\ThotMVC\ThotMVC.Tests\obj\Debug\ThotMVC.Tests.pdb
+E:\Developer\ThotMVC\ThotMVC.Tests\bin\Debug\PagedList.dll
+E:\Developer\ThotMVC\ThotMVC.Tests\bin\Debug\PagedList.xml

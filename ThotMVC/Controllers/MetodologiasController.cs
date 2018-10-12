@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,9 +16,42 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Metodologias
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Metodologias.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var Metodologias = from s in db.Metodologias
+                       select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Metodologias = Metodologias.Where(s => s.Nombre.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    Metodologias = Metodologias.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    Metodologias = Metodologias.OrderBy(s => s.Codigo);
+                    break;
+                default:  // Name ascending 
+                    Metodologias = Metodologias.OrderBy(s => s.Nombre);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(Metodologias.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Metodologias/Details/5

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,9 +16,42 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: TipoSectorEducaciones
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.TipoSectorEducaciones.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var TipoSectorEducaciones = from s in db.TipoSectorEducaciones
+                       select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                TipoSectorEducaciones = TipoSectorEducaciones.Where(s => s.Nombre.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    TipoSectorEducaciones = TipoSectorEducaciones.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    TipoSectorEducaciones = TipoSectorEducaciones.OrderBy(s => s.Codigo);
+                    break;
+                default:  // Name ascending 
+                    TipoSectorEducaciones = TipoSectorEducaciones.OrderBy(s => s.Nombre);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(TipoSectorEducaciones.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: TipoSectorEducaciones/Details/5
