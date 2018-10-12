@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,64 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Nucleos
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var nucleos = db.Nucleos.Include(n => n.Departamentos).Include(n => n.Municipios);
+        //    return View(nucleos.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var nucleos = db.Nucleos.Include(n => n.Departamentos).Include(n => n.Municipios);
-            return View(nucleos.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
+            ViewBag.DepartamentosSortParm = sortOrder == "Departamentos" ? "departamentos_desc" : "Departamentos";
+            ViewBag.MunicipiosSortParm = sortOrder == "Municipios" ? "municipios_desc" : "Municipios";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var nucleos = from s in db.Nucleos.Include(n => n.Departamentos).Include(n => n.Municipios)
+                          select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                nucleos = nucleos.Where(s => s.Nombre.Contains(searchString)
+                                       || s.Departamentos.Nombre.Contains(searchString)
+                                       || s.Municipios.Nombre.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "nombre_desc":
+                    nucleos = nucleos.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Departamentos":
+                    nucleos = nucleos.OrderBy(s => s.Departamentos.Nombre);
+                    break;
+                case "departamentos_desc":
+                    nucleos = nucleos.OrderByDescending(s => s.Departamentos.Nombre);
+                    break;
+                case "Municipios":
+                    nucleos = nucleos.OrderBy(s => s.Municipios.Nombre);
+                    break;
+                case "municipios_desc":
+                    nucleos = nucleos.OrderByDescending(s => s.Municipios.Nombre);
+                    break;
+                default:  // Name ascending 
+                    nucleos = nucleos.OrderBy(s => s.Nombre);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(nucleos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Nucleos/Details/5

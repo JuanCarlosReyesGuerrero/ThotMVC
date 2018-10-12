@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,63 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Equivalencias
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var equivalencias = db.Equivalencias.Include(e => e.Sedes).Include(e => e.ValoracionLetras);
+        //    return View(equivalencias.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var equivalencias = db.Equivalencias.Include(e => e.Sedes).Include(e => e.ValoracionLetras);
-            return View(equivalencias.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
+            ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
+            ViewBag.YYYSortParm = sortOrder == "Sedes" ? "sedes_desc" : "Sedes";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var equivalencias = from s in db.Equivalencias.Include(m => m.Sedes)
+                                select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                equivalencias = equivalencias.Where(s => s.Nombre.Contains(searchString)
+                                       || s.Sedes.Nombre.Contains(searchString)
+                                       || s.Codigo.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "nombre_desc":
+                    equivalencias = equivalencias.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    equivalencias = equivalencias.OrderBy(s => s.Codigo);
+                    break;
+                case "codigo_desc":
+                    equivalencias = equivalencias.OrderByDescending(s => s.Codigo);
+                    break;
+                case "Sedes":
+                    equivalencias = equivalencias.OrderBy(s => s.Sedes.Nombre);
+                    break;
+                case "sedes_desc":
+                    equivalencias = equivalencias.OrderByDescending(s => s.Sedes.Nombre);
+                    break;
+                default:  // Name ascending 
+                    equivalencias = equivalencias.OrderBy(s => s.Nombre);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(equivalencias.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Equivalencias/Details/5

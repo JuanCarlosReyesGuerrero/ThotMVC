@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,63 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: ValoracionLetras
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var valoracionLetras = db.ValoracionLetras.Include(v => v.Sedes);
+        //    return View(valoracionLetras.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var valoracionLetras = db.ValoracionLetras.Include(v => v.Sedes);
-            return View(valoracionLetras.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
+            ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
+            ViewBag.YYYSortParm = sortOrder == "Sedes" ? "sedes_desc" : "Sedes";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var valoracionLetras = from s in db.ValoracionLetras.Include(m => m.Sedes)
+                                   select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                valoracionLetras = valoracionLetras.Where(s => s.Nombre.Contains(searchString)
+                                       || s.Sedes.Nombre.Contains(searchString)
+                                       || s.Codigo.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "nombre_desc":
+                    valoracionLetras = valoracionLetras.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    valoracionLetras = valoracionLetras.OrderBy(s => s.Codigo);
+                    break;
+                case "codigo_desc":
+                    valoracionLetras = valoracionLetras.OrderByDescending(s => s.Codigo);
+                    break;
+                case "Sedes":
+                    valoracionLetras = valoracionLetras.OrderBy(s => s.Sedes.Nombre);
+                    break;
+                case "sedes_desc":
+                    valoracionLetras = valoracionLetras.OrderByDescending(s => s.Sedes.Nombre);
+                    break;
+                default:  // Name ascending 
+                    valoracionLetras = valoracionLetras.OrderBy(s => s.Nombre);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(valoracionLetras.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: ValoracionLetras/Details/5

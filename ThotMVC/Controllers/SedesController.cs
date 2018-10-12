@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,88 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Sedes
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var sedes = db.Sedes.Include(s => s.Departamentos).Include(s => s.Especialidades).Include(s => s.Municipios).Include(s => s.Zonas);
+        //    return View(sedes.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var sedes = db.Sedes.Include(s => s.Departamentos).Include(s => s.Especialidades).Include(s => s.Municipios).Include(s => s.Zonas);
-            return View(sedes.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
+            ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
+            ViewBag.YYYSortParm = sortOrder == "Departamentos" ? "departamentos_desc" : "Departamentos";
+            ViewBag.YYYSortParm = sortOrder == "Especialidades" ? "especialidades_desc" : "Especialidades";
+            ViewBag.YYYSortParm = sortOrder == "Municipios" ? "municipios_desc" : "Municipios";
+            ViewBag.YYYSortParm = sortOrder == "Zonas" ? "zonas_desc" : "Zonas";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var sedes = from s in db.Sedes.Include(s => s.Departamentos).Include(s => s.Especialidades).Include(s => s.Municipios).Include(s => s.Zonas)
+                        select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sedes = sedes.Where(s => s.Nombre.Contains(searchString)
+                                       || s.Departamentos.Nombre.Contains(searchString)
+                                       || s.Especialidades.Nombre.Contains(searchString)
+                                       || s.Municipios.Nombre.Contains(searchString)
+                                       || s.Zonas.Nombre.Contains(searchString)
+                                       || s.Codigo.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "nombre_desc":
+                    sedes = sedes.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    sedes = sedes.OrderBy(s => s.Codigo);
+                    break;
+                case "codigo_desc":
+                    sedes = sedes.OrderByDescending(s => s.Codigo);
+                    break;
+                case "Departamentos":
+                    sedes = sedes.OrderBy(s => s.Departamentos.Nombre);
+                    break;
+                case "departamentos_desc":
+                    sedes = sedes.OrderByDescending(s => s.Departamentos.Nombre);
+                    break;
+                case "Especialidades":
+                    sedes = sedes.OrderBy(s => s.Especialidades.Nombre);
+                    break;
+                case "especialidades_desc":
+                    sedes = sedes.OrderByDescending(s => s.Especialidades.Nombre);
+                    break;
+                case "Municipios":
+                    sedes = sedes.OrderBy(s => s.Municipios.Nombre);
+                    break;
+                case "municipios_desc":
+                    sedes = sedes.OrderByDescending(s => s.Municipios.Nombre);
+                    break;
+                case "Zonas":
+                    sedes = sedes.OrderBy(s => s.Zonas.Nombre);
+                    break;
+                case "zonas_desc":
+                    sedes = sedes.OrderByDescending(s => s.Zonas.Nombre);
+                    break;
+                default:  // Name ascending 
+                    sedes = sedes.OrderBy(s => s.Nombre);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(sedes.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Sedes/Details/5

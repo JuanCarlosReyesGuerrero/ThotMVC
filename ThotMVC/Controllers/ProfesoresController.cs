@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,80 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Profesores
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var profesores = db.Profesores.Include(p => p.Escalafones).Include(p => p.Profesiones).Include(p => p.Sedes).Include(p => p.TipoIdentificaciones);
+        //    return View(profesores.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var profesores = db.Profesores.Include(p => p.Escalafones).Include(p => p.Profesiones).Include(p => p.Sedes).Include(p => p.TipoIdentificaciones);
-            return View(profesores.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
+            ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
+            ViewBag.YYYSortParm = sortOrder == "Escalafones" ? "escalafones_desc" : "Escalafones";
+            ViewBag.YYYSortParm = sortOrder == "Profesiones" ? "profesiones_desc" : "Profesiones";
+            ViewBag.YYYSortParm = sortOrder == "Sedes" ? "sedes_desc" : "Sedes";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var profesores = from s in db.Profesores.Include(p => p.Escalafones).Include(p => p.Profesiones).Include(p => p.Sedes).Include(p => p.TipoIdentificaciones)
+            select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                profesores = profesores.Where(s => s.PrimerNombre.Contains(searchString)
+                                       || s.Escalafones.Nombre.Contains(searchString)
+                                       || s.Profesiones.Nombre.Contains(searchString)
+                                       || s.Sedes.Nombre.Contains(searchString)
+                                       || s.Codigo.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "nombre_desc":
+                    profesores = profesores.OrderByDescending(s => s.PrimerNombre);
+                    break;
+                case "Codigo":
+                    profesores = profesores.OrderBy(s => s.Codigo);
+                    break;
+                case "codigo_desc":
+                    profesores = profesores.OrderByDescending(s => s.Codigo);
+                    break;
+                case "Escalafones":
+                    profesores = profesores.OrderBy(s => s.Escalafones.Nombre);
+                    break;
+                case "escalafones_desc":
+                    profesores = profesores.OrderByDescending(s => s.Escalafones.Nombre);
+                    break;
+                case "Profesiones":
+                    profesores = profesores.OrderBy(s => s.Profesiones.Nombre);
+                    break;
+                case "profesiones_desc":
+                    profesores = profesores.OrderByDescending(s => s.Profesiones.Nombre);
+                    break;
+                case "Sedes":
+                    profesores = profesores.OrderBy(s => s.Sedes.Nombre);
+                    break;
+                case "sedes_desc":
+                    profesores = profesores.OrderByDescending(s => s.Sedes.Nombre);
+                    break;
+                default:  // Name ascending 
+                    profesores = profesores.OrderBy(s => s.PrimerNombre);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(profesores.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Profesores/Details/5

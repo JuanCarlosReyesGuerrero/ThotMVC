@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,64 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: EscalaNacionales
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var escalaNacionales = db.EscalaNacionales.Include(e => e.Sedes);
+        //    return View(escalaNacionales.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var escalaNacionales = db.EscalaNacionales.Include(e => e.Sedes);
-            return View(escalaNacionales.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
+            ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
+            ViewBag.YYYSortParm = sortOrder == "Sedes" ? "sedes_desc" : "Sedes";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var escalaNacionales = from s in db.EscalaNacionales.Include(m => m.Sedes)
+                                   select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                escalaNacionales = escalaNacionales.Where(s => s.Nombre.Contains(searchString)
+                                       || s.Sedes.Nombre.Contains(searchString)
+                                       || s.Codigo.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "nombre_desc":
+                    escalaNacionales = escalaNacionales.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    escalaNacionales = escalaNacionales.OrderBy(s => s.Codigo);
+                    break;
+                case "codigo_desc":
+                    escalaNacionales = escalaNacionales.OrderByDescending(s => s.Codigo);
+                    break;
+                case "Sedes":
+                    escalaNacionales = escalaNacionales.OrderBy(s => s.Sedes.Nombre);
+                    break;
+                case "sedes_desc":
+                    escalaNacionales = escalaNacionales.OrderByDescending(s => s.Sedes.Nombre);
+                    break;
+                default:  // Name ascending 
+                    escalaNacionales = escalaNacionales.OrderBy(s => s.Nombre);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(escalaNacionales.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: EscalaNacionales/Details/5

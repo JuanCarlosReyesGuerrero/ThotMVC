@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,33 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Instituciones
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var instituciones = db.Instituciones.Include(i => i.AsociacionPrivadas).Include(i => i.Calendarios).Include(i => i.CapacidadExcepcionales).Include(i => i.Departamentos).Include(i => i.Etnias).Include(i => i.Generos).Include(i => i.Idiomas).Include(i => i.Metodologias).Include(i => i.Municipios).Include(i => i.Nucleos).Include(i => i.Prestadores).Include(i => i.PropiedadJuridicas).Include(i => i.RegimenCostos).Include(i => i.Resguardos).Include(i => i.TarifaAnuales).Include(i => i.TipoDiscapacidades).Include(i => i.TipoNovedades).Include(i => i.TipoSectorEducaciones).Include(i => i.Zonas);
+        //    return View(instituciones.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;            
+
             var instituciones = db.Instituciones.Include(i => i.AsociacionPrivadas).Include(i => i.Calendarios).Include(i => i.CapacidadExcepcionales).Include(i => i.Departamentos).Include(i => i.Etnias).Include(i => i.Generos).Include(i => i.Idiomas).Include(i => i.Metodologias).Include(i => i.Municipios).Include(i => i.Nucleos).Include(i => i.Prestadores).Include(i => i.PropiedadJuridicas).Include(i => i.RegimenCostos).Include(i => i.Resguardos).Include(i => i.TarifaAnuales).Include(i => i.TipoDiscapacidades).Include(i => i.TipoNovedades).Include(i => i.TipoSectorEducaciones).Include(i => i.Zonas);
-            return View(instituciones.ToList());
+            
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(instituciones.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Instituciones/Details/5

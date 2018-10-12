@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,97 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Materias
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var materias = db.Materias.Include(m => m.Clasificaciones).Include(m => m.Grados).Include(m => m.Grupos).Include(m => m.Jornadas).Include(m => m.Profesores).Include(m => m.Sedes);
+        //    return View(materias.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var materias = db.Materias.Include(m => m.Clasificaciones).Include(m => m.Grados).Include(m => m.Grupos).Include(m => m.Jornadas).Include(m => m.Profesores).Include(m => m.Sedes);
-            return View(materias.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
+            ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
+            ViewBag.YYYSortParm = sortOrder == "Clasificaciones" ? "clasificaciones_desc" : "Clasificaciones";
+            ViewBag.YYYSortParm = sortOrder == "Grados" ? "grados_desc" : "Grados";
+            ViewBag.YYYSortParm = sortOrder == "Grupos" ? "grupos_desc" : "Grupos";
+            ViewBag.YYYSortParm = sortOrder == "Jornadas" ? "jornadas_desc" : "Jornadas";
+            //profesores
+            ViewBag.YYYSortParm = sortOrder == "Sedes" ? "sedes_desc" : "Sedes";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var materias = from s in db.Materias.Include(m => m.Clasificaciones).Include(m => m.Grados).Include(m => m.Grupos).Include(m => m.Jornadas).Include(m => m.Profesores).Include(m => m.Sedes)
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                materias = materias.Where(s => s.Nombre.Contains(searchString)
+                                       || s.Clasificaciones.Nombre.Contains(searchString)
+                                       || s.Grados.Nombre.Contains(searchString)
+                                       || s.Grupos.Nombre.Contains(searchString)
+                                       || s.Jornadas.Nombre.Contains(searchString)
+                                       || s.Sedes.Nombre.Contains(searchString)
+                                       || s.Codigo.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "nombre_desc":
+                    materias = materias.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    materias = materias.OrderBy(s => s.Codigo);
+                    break;
+                case "codigo_desc":
+                    materias = materias.OrderByDescending(s => s.Codigo);
+                    break;
+                case "Clasificaciones":
+                    materias = materias.OrderBy(s => s.Clasificaciones.Nombre);
+                    break;
+                case "clasificaciones_desc":
+                    materias = materias.OrderByDescending(s => s.Clasificaciones.Nombre);
+                    break;
+                case "Grupos":
+                    materias = materias.OrderBy(s => s.Grupos.Nombre);
+                    break;
+                case "grupos_desc":
+                    materias = materias.OrderByDescending(s => s.Grupos.Nombre);
+                    break;
+                case "Jornadas":
+                    materias = materias.OrderBy(s => s.Jornadas.Nombre);
+                    break;
+                case "jornadas_desc":
+                    materias = materias.OrderByDescending(s => s.Jornadas.Nombre);
+                    break;
+                case "Grados":
+                    materias = materias.OrderBy(s => s.Grados.Nombre);
+                    break;
+                case "grados_desc":
+                    materias = materias.OrderByDescending(s => s.Grados.Nombre);
+                    break;
+                case "Sedes":
+                    materias = materias.OrderBy(s => s.Sedes.Nombre);
+                    break;
+                case "sedes_desc":
+                    materias = materias.OrderByDescending(s => s.Sedes.Nombre);
+                    break;
+                default:  // Name ascending 
+                    materias = materias.OrderBy(s => s.Nombre);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(materias.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Materias/Details/5

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,104 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Juicios
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var juicios = db.Juicios.Include(j => j.Grados).Include(j => j.Grupos).Include(j => j.Jornadas).Include(j => j.Materias).Include(j => j.Periodos).Include(j => j.Sedes);
+        //    return View(juicios.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var juicios = db.Juicios.Include(j => j.Grados).Include(j => j.Grupos).Include(j => j.Jornadas).Include(j => j.Materias).Include(j => j.Periodos).Include(j => j.Sedes);
-            return View(juicios.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
+            ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
+            ViewBag.YYYSortParm = sortOrder == "Grados" ? "grados_desc" : "Grados";
+            ViewBag.YYYSortParm = sortOrder == "Grupos" ? "grupos_desc" : "Grupos";
+            ViewBag.YYYSortParm = sortOrder == "Jornadas" ? "jornadas_desc" : "Jornadas";
+            ViewBag.YYYSortParm = sortOrder == "Materias" ? "materias_desc" : "Materias";
+            ViewBag.YYYSortParm = sortOrder == "Periodos" ? "periodos_desc" : "Periodos";
+            ViewBag.YYYSortParm = sortOrder == "Sedes" ? "sedes_desc" : "Sedes";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var juicios = from s in db.Juicios.Include(j => j.Grados).Include(j => j.Grupos).Include(j => j.Jornadas).Include(j => j.Materias).Include(j => j.Periodos).Include(j => j.Sedes)
+                          select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                juicios = juicios.Where(s => s.Nombre.Contains(searchString)
+                                       || s.Grados.Nombre.Contains(searchString)
+                                       || s.Grupos.Nombre.Contains(searchString)
+                                       || s.Jornadas.Nombre.Contains(searchString)
+                                       || s.Materias.Nombre.Contains(searchString)
+                                       || s.Periodos.Nombre.Contains(searchString)
+                                       || s.Sedes.Nombre.Contains(searchString)
+                                       || s.Codigo.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "nombre_desc":
+                    juicios = juicios.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    juicios = juicios.OrderBy(s => s.Codigo);
+                    break;
+                case "codigo_desc":
+                    juicios = juicios.OrderByDescending(s => s.Codigo);
+                    break;
+                case "Grados":
+                    juicios = juicios.OrderBy(s => s.Grados.Nombre);
+                    break;
+                case "grados_desc":
+                    juicios = juicios.OrderByDescending(s => s.Grados.Nombre);
+                    break;
+                case "Grupos":
+                    juicios = juicios.OrderBy(s => s.Grupos.Nombre);
+                    break;
+                case "grupos_desc":
+                    juicios = juicios.OrderByDescending(s => s.Grupos.Nombre);
+                    break;
+                case "Jornadas":
+                    juicios = juicios.OrderBy(s => s.Jornadas.Nombre);
+                    break;
+                case "jornadas_desc":
+                    juicios = juicios.OrderByDescending(s => s.Jornadas.Nombre);
+                    break;
+                case "Materias":
+                    juicios = juicios.OrderBy(s => s.Materias.Nombre);
+                    break;
+                case "materias_desc":
+                    juicios = juicios.OrderByDescending(s => s.Materias.Nombre);
+                    break;
+                case "Periodos":
+                    juicios = juicios.OrderBy(s => s.Periodos.Nombre);
+                    break;
+                case "periodos_desc":
+                    juicios = juicios.OrderByDescending(s => s.Periodos.Nombre);
+                    break;
+                case "Sedes":
+                    juicios = juicios.OrderBy(s => s.Sedes.Nombre);
+                    break;
+                case "sedes_desc":
+                    juicios = juicios.OrderByDescending(s => s.Sedes.Nombre);
+                    break;
+                default:  // Name ascending 
+                    juicios = juicios.OrderBy(s => s.Nombre);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(juicios.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Juicios/Details/5

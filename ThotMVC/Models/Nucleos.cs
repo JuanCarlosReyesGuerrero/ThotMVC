@@ -58,6 +58,6 @@ namespace ThotMVC.Models
         public DateTime? FechaModifica { get; set; }
 
         public virtual Departamentos Departamentos { get; set; }
-        public virtual Municipios Municipios { get; set; }
+        public virtual Municipios Municipios { get; set; }        
     }
 }

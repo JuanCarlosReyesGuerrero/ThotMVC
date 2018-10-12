@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,63 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Municipios
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var municipios = db.Municipios.Include(m => m.Departamentos);
+        //    return View(municipios.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var municipios = db.Municipios.Include(m => m.Departamentos);
-            return View(municipios.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
+            ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
+            ViewBag.DepartamentosSortParm = sortOrder == "Departamentos" ? "departamentos_desc" : "Departamentos";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var municipios = from s in db.Municipios.Include(m => m.Departamentos)
+                             select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                municipios = municipios.Where(s => s.Nombre.Contains(searchString)
+                                       || s.Departamentos.Nombre.Contains(searchString)
+                                       || s.CodigoUnificado.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "nombre_desc":
+                    municipios = municipios.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    municipios = municipios.OrderBy(s => s.CodigoUnificado);
+                    break;
+                case "codigo_desc":
+                    municipios = municipios.OrderByDescending(s => s.CodigoUnificado);
+                    break;
+                case "Departamentos":
+                    municipios = municipios.OrderBy(s => s.Departamentos.Nombre);
+                    break;
+                case "departamentos_desc":
+                    municipios = municipios.OrderByDescending(s => s.Departamentos.Nombre);
+                    break;
+                default:  // Name ascending 
+                    municipios = municipios.OrderBy(s => s.Nombre);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(municipios.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Municipios/Details/5

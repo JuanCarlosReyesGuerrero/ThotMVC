@@ -13,7 +13,7 @@ namespace ThotMVC.Models
 
         [Display(Name = "Código")]
         [Required(ErrorMessage = "Digite el código del juicio")]
-        public Int64 Codigo { get; set; }
+        public string Codigo { get; set; }
 
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Digite el nombre del juicio")]
