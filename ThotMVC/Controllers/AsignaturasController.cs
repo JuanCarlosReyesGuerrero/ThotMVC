@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,42 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Asignaturas
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var asignaturas = db.Asignaturas.Include(a => a.Sedes);
-            return View(asignaturas.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var Asignaturas = from s in db.Asignaturas
+                        select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Asignaturas = Asignaturas.Where(s => s.Nombre.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    Asignaturas = Asignaturas.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    Asignaturas = Asignaturas.OrderBy(s => s.Codigo);
+                    break;
+                default:  // Name ascending 
+                    Asignaturas = Asignaturas.OrderBy(s => s.Nombre);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(Asignaturas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Asignaturas/Details/5

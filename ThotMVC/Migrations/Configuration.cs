@@ -22,7 +22,7 @@
             //  to avoid creating duplicate seed data.
 
             #region "Metadatos1"
-
+            /*
             context.AporteParafiscales.AddOrUpdate(x => x.Id,
                 new AporteParafiscales() { Codigo = 1, Nombre = "Pago EPS", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new AporteParafiscales() { Codigo = 2, Nombre = "Pago Pensión", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -991,11 +991,11 @@
                 new Resguardos() { Codigo = "644", Nombre = "ZIT-SEK DEL QUECAL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new Resguardos() { Codigo = "662", Nombre = "ESCOPETERA Y PIRZA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
-
+            */
             #endregion
 
             #region "Metadatos2"            
-
+            /*
             context.Zonas.AddOrUpdate(x => x.Id,
                 new Zonas() { Codigo = "1", Nombre = "Urbana", Descripcion = "URBANA", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new Zonas() { Codigo = "2", Nombre = "Rural", Descripcion = "RURAL", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
@@ -2347,136 +2347,136 @@
                 new Municipios() { Codigo = "624", Nombre = "SANTA ROSALIA", CodigoUnificado = "99624", DepartamentoId = 33, DepartamentoCodigo = "624", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new Municipios() { Codigo = "773", Nombre = "CUMARIBO", CodigoUnificado = "99773", DepartamentoId = 33, DepartamentoCodigo = "773", Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
-
+            */
             #endregion
 
             #region TablaPrincipal
+            /*
+               context.TarifaAnuales.AddOrUpdate(x => x.Id,
+                   new TarifaAnuales()
+                   {
+                       Codigo = "1",
+                       Nombre = "Tarifa Prueba",
+                       Activo = true,
+                       UsuarioRegistra = 1,
+                       FechaRegistro = DateTime.Now,
+                       UsuarioModifica = 1,
+                       FechaModifica = DateTime.Now
+                   }
+               );
 
-            context.TarifaAnuales.AddOrUpdate(x => x.Id,
-                new TarifaAnuales()
-                {
-                    Codigo = "1",
-                    Nombre = "Tarifa Prueba",
-                    Activo = true,
-                    UsuarioRegistra = 1,
-                    FechaRegistro = DateTime.Now,
-                    UsuarioModifica = 1,
-                    FechaModifica = DateTime.Now
-                }
-            );
-
-            context.Nucleos.AddOrUpdate(x => x.Id,
-                new Nucleos()
-                {
-                    Codigo = "1",
-                    Nombre = "Nucleo principal",
-                    Direccion = "Calle 20",
-                    Telefono = "55555",
-                    DepartamentoId = 17,
-                    MunicipioId = 714,
-                    NombreDirector = "Pepito",
-                    TelefonoDirector = "55555",
-                    Activo = true,
-                    UsuarioRegistra = 1,
-                    FechaRegistro = DateTime.Now,
-                    UsuarioModifica = 1,
-                    FechaModifica = DateTime.Now
-                }
-            );
-
-            context.Instituciones.AddOrUpdate(x => x.Id,
-                new Instituciones()
-                {
-                    CodigoDane = "352287000018",
-                    Nombre = "INSTITUCION EDUCATIVA MUNICIPIO DE FUNES SEDE 2",
-                    Nit = "234234324-9",
-                    NombreRector = "Pepito Perez",
-                    CalendarioId = 1,
-                    TipoSectorEducacionId = 1,
-                    PropiedadJuridicaId = 1,
-                    NumeroSedes = 1,
-                    NucleoId = 1,
-                    GeneroId = 1,
-                    Subsidio = true,
-                    DiscapacidadesId = 1,
-                    CapacidadesExcepcionalesId = 1,
-                    EtniasId = 1,
-                    ResguardosId = 1,
-                    NovedadId = 1,
-                    MetodologiaId = 1,
-                    PrestadorServicioId = 1,
-                    DecretoCreacion = "55555",
-                    Director = "Homero",
-                    Secretaria = "Marge",
-                    Aprobacion = "333",
-                    Lema = "Lema de la institución",
-                    Escudo = "",
-                    DepartamentoId = 17,
-                    MunicipioId = 714,
-                    ZonaId = 1,
-                    Barrio = "Centro",
-                    Direccion = "Calle 9",
-                    Telefono = "55555",
-                    Fax = "55555",
-                    SitioWeb = "www.prueba.com",
-                    Email = "prueba@prueba.com",
-                    NumeroLiciencia = "985647",
-                    RegimenCostoId = 1,
-                    IdiomaId = 1,
-                    AsociacionId = 1,
-                    TarifaAnualId = 1,
-                    Activo = true,
-                    UsuarioRegistra = 1,
-                    FechaRegistro = DateTime.Now,
-                    UsuarioModifica = 1,
-                    FechaModifica = DateTime.Now
-                }
-            );
-
+               context.Nucleos.AddOrUpdate(x => x.Id,
+                   new Nucleos()
+                   {
+                       Codigo = "1",
+                       Nombre = "Nucleo principal",
+                       Direccion = "Calle 20",
+                       Telefono = "55555",
+                       DepartamentoId = 17,
+                       MunicipioId = 714,
+                       NombreDirector = "Pepito",
+                       TelefonoDirector = "55555",
+                       Activo = true,
+                       UsuarioRegistra = 1,
+                       FechaRegistro = DateTime.Now,
+                       UsuarioModifica = 1,
+                       FechaModifica = DateTime.Now
+                   }
+               );
+              
+              context.Instituciones.AddOrUpdate(x => x.Id,
+                  new Instituciones()
+                  {
+                      CodigoDane = "352287000018",
+                      Nombre = "INSTITUCION EDUCATIVA MUNICIPIO DE FUNES SEDE 2",
+                      Nit = "234234324-9",
+                      NombreRector = "Pepito Perez",
+                      CalendarioId = 1,
+                      TipoSectorEducacionId = 1,
+                      PropiedadJuridicaId = 1,
+                      NumeroSedes = 1,
+                      NucleoId = 1,
+                      GeneroId = 1,
+                      Subsidio = true,
+                      DiscapacidadesId = 1,
+                      CapacidadesExcepcionalesId = 1,
+                      EtniasId = 1,
+                      ResguardosId = 1,
+                      NovedadId = 1,
+                      MetodologiaId = 1,
+                      PrestadorServicioId = 1,
+                      DecretoCreacion = "55555",
+                      Director = "Homero",
+                      Secretaria = "Marge",
+                      Aprobacion = "333",
+                      Lema = "Lema de la institución",
+                      Escudo = "",
+                      DepartamentoId = 17,
+                      MunicipioId = 714,
+                      ZonaId = 1,
+                      Barrio = "Centro",
+                      Direccion = "Calle 9",
+                      Telefono = "55555",
+                      Fax = "55555",
+                      SitioWeb = "www.prueba.com",
+                      Email = "prueba@prueba.com",
+                      NumeroLiciencia = "985647",
+                      RegimenCostoId = 1,
+                      IdiomaId = 1,
+                      AsociacionId = 1,
+                      TarifaAnualId = 1,
+                      Activo = true,
+                      UsuarioRegistra = 1,
+                      FechaRegistro = DateTime.Now,
+                      UsuarioModifica = 1,
+                      FechaModifica = DateTime.Now
+                  }
+              );
+            
             context.Sedes.AddOrUpdate(x => x.Id,
-                new Sedes()
-                {
-                    Codigo = "1",
-                    CodigoDaneNuevo = "565656565",
-                    CodigoDaneAntiguo = "12121212",
-                    CodigoConsecutivo = "1",
-                    Nombre = "Instititución Educativa Municipio de Funes Sede 2",
-                    DepartamentoId = 17,
-                    MunicipioId = 714,
-                    ZonaId = 1,
-                    Barrio = "Centro",
-                    Direccion = "Calle 8",
-                    Telefono = "5555",
-                    Fax = "66666",
-                    Email = "prueba@prueba.com",
-                    Novedad = "1",
-                    JornadaCompleta = true,
-                    JornadaManana = true,
-                    JornadaTarde = true,
-                    JornadaNoche = true,
-                    JornadaFinSemana = true,
-                    EspecialidadId = 1,
-                    FechaCreacion = DateTime.Now,
-                    Director = "Pepito",
-                    Secretaria = "Marge",
-                    EscalaValoracionNacional = true,
-                    RangoNumerico = true,
-                    NumeroInicial = 1,
-                    NumeroFinal = 99,
-                    ValoracionLetras = true,
-                    Juicios = true,
-                    Activo = true,
-                    UsuarioRegistra = 1,
-                    FechaRegistro = DateTime.Now,
-                    UsuarioModifica = 1,
-                    FechaModifica = DateTime.Now
-                }
-            );
-
+                  new Sedes()
+                  {
+                      Codigo = "1",
+                      CodigoDaneNuevo = "565656565",
+                      CodigoDaneAntiguo = "12121212",
+                      CodigoConsecutivo = "1",
+                      Nombre = "Instititución Educativa Municipio de Funes Sede 2",
+                      DepartamentoId = 17,
+                      MunicipioId = 714,
+                      ZonaId = 1,
+                      Barrio = "Centro",
+                      Direccion = "Calle 8",
+                      Telefono = "5555",
+                      Fax = "66666",
+                      Email = "prueba@prueba.com",
+                      Novedad = "1",
+                      JornadaCompleta = true,
+                      JornadaManana = true,
+                      JornadaTarde = true,
+                      JornadaNoche = true,
+                      JornadaFinSemana = true,
+                      EspecialidadId = 1,
+                      FechaCreacion = DateTime.Now,
+                      Director = "Pepito",
+                      Secretaria = "Marge",
+                      EscalaValoracionNacional = true,
+                      RangoNumerico = true,
+                      NumeroInicial = 1,
+                      NumeroFinal = 99,
+                      ValoracionLetras = true,
+                      Juicios = true,
+                      Activo = true,
+                      UsuarioRegistra = 1,
+                      FechaRegistro = DateTime.Now,
+                      UsuarioModifica = 1,
+                      FechaModifica = DateTime.Now
+                  }
+              );
+               */
             #endregion
 
             #region Tabla Dependen Sedes
-
+            /*
             context.EscalaNacionales.AddOrUpdate(x => x.Id,
                 new EscalaNacionales() { Codigo = "1", Nombre = "Desempeño Bajo", CriterioEvalaluacion = "No alcanza todos los logros mínimos propuestos", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                 new EscalaNacionales() { Codigo = "2", Nombre = "Desempeño Básico", CriterioEvalaluacion = ".", SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
@@ -2528,7 +2528,7 @@
                new ValoracionLetras() { Codigo = "S", Nombre = "Sobresaliente", ValorNumerico = 0, SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now },
                new ValoracionLetras() { Codigo = "E", Nombre = "Exelente", ValorNumerico = 0, SedeId = 1, Activo = true, UsuarioRegistra = 1, FechaRegistro = DateTime.Now, UsuarioModifica = 1, FechaModifica = DateTime.Now }
             );
-
+            */
             #endregion
         }
     }

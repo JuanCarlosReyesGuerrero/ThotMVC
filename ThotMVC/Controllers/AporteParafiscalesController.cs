@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ThotMVC.Models;
+using PagedList;
 
 namespace ThotMVC.Controllers
 {
@@ -15,9 +16,42 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: AporteParafiscales
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.AporteParafiscales.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var AporteParafiscales = from s in db.AporteParafiscales
+                        select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                AporteParafiscales = AporteParafiscales.Where(s => s.Nombre.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    AporteParafiscales = AporteParafiscales.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    AporteParafiscales = AporteParafiscales.OrderBy(s => s.Codigo);
+                    break;
+                default:  // Name ascending 
+                    AporteParafiscales = AporteParafiscales.OrderBy(s => s.Nombre);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(AporteParafiscales.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: AporteParafiscales/Details/5
