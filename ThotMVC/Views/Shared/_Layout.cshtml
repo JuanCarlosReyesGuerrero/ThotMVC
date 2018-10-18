@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
@@ -10,96 +10,184 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configuración <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Aportes Parafiscales", "Index", "AporteParafiscales")</li>
+                                <li>@Html.ActionLink("ARS", "Index", "Ars")</li>
+                                <li>@Html.ActionLink("Asignaturas", "Index", "Asignaturas")</li>
+                                <li>@Html.ActionLink("Asociaciones Privadas", "Index", "AsociacionPrivadas")</li>
+                                <li>@Html.ActionLink("Calendarios", "Index", "Calendarios")</li>
+                                <li>@Html.ActionLink("Capacidades Excepcionales", "Index", "CapacidadExcepcionales")</li>
+                                <li>@Html.ActionLink("Cargos", "Index", "Cargos")</li>
+                                <li>@Html.ActionLink("Clases Funcionarios", "Index", "ClasesFuncionarios")</li>
+                                <li>@Html.ActionLink("Clasificaciones", "Index", "Clasificaciones")</li>
+                                <li>@Html.ActionLink("Cursos", "Index", "Cursos")</li>
+                                <li>@Html.ActionLink("Departamentos", "Index", "Departamentos")</li>
+                                <li>@Html.ActionLink("Eps", "Index", "Eps")</li>
+                                <li>@Html.ActionLink("Equivalencias", "Index", "Equivalencias")</li>
+                                <li>@Html.ActionLink("Escalafones", "Index", "Escalafones")</li>
+                                <li>@Html.ActionLink("Escalas Nacionales", "Index", "EscalaNacionales")</li>
+                                <li>@Html.ActionLink("Especialidades", "Index", "Especialidades")</li>
+                                <li>@Html.ActionLink("Estados Civiles", "Index", "EstadoCiviles")</li>
+                                <li>@Html.ActionLink("Estratos", "Index", "Estratos")</li>
+                                <li>@Html.ActionLink("Estudiantes", "Index", "Estudiantes")</li>
+                                <li>@Html.ActionLink("Etnias", "Index", "Etnias")</li>
+                                <li>@Html.ActionLink("Factor Rh", "Index", "FactorRhs")</li>
+                                <li>@Html.ActionLink("Fuentes Recursos", "Index", "FuenteRecursos")</li>
+                                <li>@Html.ActionLink("Generos Estudiantes", "Index", "GeneroEstudiantes")</li>
+                                <li>@Html.ActionLink("Generos", "Index", "Generos")</li>
+                                <li>@Html.ActionLink("Grados", "Index", "Grados")</li>
+                                <li>@Html.ActionLink("Grupos", "Index", "Grupos")</li>
+                                <li>@Html.ActionLink("Idiomas", "Index", "Idiomas")</li>
+                                <li>@Html.ActionLink("Instituciones", "Index", "Instituciones")</li>
+                                <li>@Html.ActionLink("Jornadas", "Index", "Jornadas")</li>
+                                <li>@Html.ActionLink("Juicios", "Index", "Juicios")</li>
+                                <li>@Html.ActionLink("Libretas Militares", "Index", "LibretaMilitares")</li>
+                                <li>@Html.ActionLink("Materias", "Index", "Materias")</li>
+                                <li>@Html.ActionLink("Metodologias", "Index", "Metodologias")</li>
+                                <li>@Html.ActionLink("Municipios", "Index", "Municipios")</li>
+                                <li>@Html.ActionLink("Niveles Educativos Docentes", "Index", "NivelEducativoDocentes")</li>
+                                <li>@Html.ActionLink("Niveles Educativos", "Index", "NivelEducativos")</li>
+                                <li>@Html.ActionLink("Nucleos", "Index", "Nucleos")</li>
+                                <li>@Html.ActionLink("Parentescos", "Index", "Parentescos")</li>
+                                <li>@Html.ActionLink("Periodos", "Index", "Periodos")</li>
+                                <li>@Html.ActionLink("Población Victima Conflictos", "Index", "PoblacionVictimaConflictos")</li>
+                                <li>@Html.ActionLink("Prestadores", "Index", "Prestadores")</li>
+                                <li>@Html.ActionLink("Profesiones", "Index", "Profesiones")</li>
+                                <li>@Html.ActionLink("Profesores", "Index", "Profesores")</li>
+                                <li>@Html.ActionLink("Propiedades Juridicas", "Index", "PropiedadJuridicas")</li>
+                                <li>@Html.ActionLink("Regimen Costos", "Index", "RegimenCostos")</li>
+                                <li>@Html.ActionLink("Resguardos", "Index", "Resguardos")</li>
+                                <li>@Html.ActionLink("Sedes", "Index", "Sedes")</li>
+                                <li>@Html.ActionLink("Sisbenes", "Index", "Sisbenes")</li>
+                                <li>@Html.ActionLink("Situaciones Academicas", "Index", "SituacionAcademicas")</li>
+                                <li>@Html.ActionLink("Tarifas Anuales", "Index", "TarifaAnuales")</li>
+                                <li>@Html.ActionLink("Tipos Academicos", "Index", "TipoAcademicos")</li>
+                                <li>@Html.ActionLink("Tipos Caracteres", "Index", "TipoCaracteres")</li>
+                                <li>@Html.ActionLink("Tipos Condiciones", "Index", "TipoCondiciones")</li>
+                                <li>@Html.ActionLink("Tipos Devengos", "Index", "TipoDevengos")</li>
+                                <li>@Html.ActionLink("Tipos Discapacidades", "Index", "TipoDiscapacidades")</li>
+                                <li>@Html.ActionLink("Tipos Identificaciones", "Index", "TipoIdentificaciones")</li>
+                                <li>@Html.ActionLink("Tipos Novedades", "Index", "TipoNovedades")</li>
+                                <li>@Html.ActionLink("Tipos Respuestas", "Index", "TipoRespuestas")</li>
+                                <li>@Html.ActionLink("Tipos Sectores Educaciones", "Index", "TipoSectorEducaciones")</li>
+                                <li>@Html.ActionLink("Tipos Vinculaciones", "Index", "TipoVinculaciones")</li>
+                                <li>@Html.ActionLink("Valoración Letras", "Index", "ValoracionLetras")</li>
+                                <li>@Html.ActionLink("Zonas", "Index", "Zonas")</li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
+        </div>*@
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Acerca de", "About", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Contacto", "Contact", "Home", null, new { @class = "nav-link" })</li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configuración <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Aportes Parafiscales", "Index", "AporteParafiscales")</li>
-                            <li>@Html.ActionLink("ARS", "Index", "Ars")</li>
-                            <li>@Html.ActionLink("Asignaturas", "Index", "Asignaturas")</li>
-                            <li>@Html.ActionLink("Asociaciones Privadas", "Index", "AsociacionPrivadas")</li>
-                            <li>@Html.ActionLink("Calendarios", "Index", "Calendarios")</li>
-                            <li>@Html.ActionLink("Capacidades Excepcionales", "Index", "CapacidadExcepcionales")</li>
-                            <li>@Html.ActionLink("Cargos", "Index", "Cargos")</li>
-                            <li>@Html.ActionLink("Clases Funcionarios", "Index", "ClasesFuncionarios")</li>
-                            <li>@Html.ActionLink("Clasificaciones", "Index", "Clasificaciones")</li>
-                            <li>@Html.ActionLink("Cursos", "Index", "Cursos")</li>
-                            <li>@Html.ActionLink("Departamentos", "Index", "Departamentos")</li>
-                            <li>@Html.ActionLink("Eps", "Index", "Eps")</li>
-                            <li>@Html.ActionLink("Equivalencias", "Index", "Equivalencias")</li>
-                            <li>@Html.ActionLink("Escalafones", "Index", "Escalafones")</li>
-                            <li>@Html.ActionLink("Escalas Nacionales", "Index", "EscalaNacionales")</li>
-                            <li>@Html.ActionLink("Especialidades", "Index", "Especialidades")</li>
-                            <li>@Html.ActionLink("Estados Civiles", "Index", "EstadoCiviles")</li>
-                            <li>@Html.ActionLink("Estratos", "Index", "Estratos")</li>
-                            <li>@Html.ActionLink("Estudiantes", "Index", "Estudiantes")</li>
-                            <li>@Html.ActionLink("Etnias", "Index", "Etnias")</li>
-                            <li>@Html.ActionLink("Factor Rh", "Index", "FactorRhs")</li>
-                            <li>@Html.ActionLink("Fuentes Recursos", "Index", "FuenteRecursos")</li>
-                            <li>@Html.ActionLink("Generos Estudiantes", "Index", "GeneroEstudiantes")</li>
-                            <li>@Html.ActionLink("Generos", "Index", "Generos")</li>
-                            <li>@Html.ActionLink("Grados", "Index", "Grados")</li>
-                            <li>@Html.ActionLink("Grupos", "Index", "Grupos")</li>
-                            <li>@Html.ActionLink("Idiomas", "Index", "Idiomas")</li>
-                            <li>@Html.ActionLink("Instituciones", "Index", "Instituciones")</li>
-                            <li>@Html.ActionLink("Jornadas", "Index", "Jornadas")</li>
-                            <li>@Html.ActionLink("Juicios", "Index", "Juicios")</li>
-                            <li>@Html.ActionLink("Libretas Militares", "Index", "LibretaMilitares")</li>
-                            <li>@Html.ActionLink("Materias", "Index", "Materias")</li>
-                            <li>@Html.ActionLink("Metodologias", "Index", "Metodologias")</li>
-                            <li>@Html.ActionLink("Municipios", "Index", "Municipios")</li>
-                            <li>@Html.ActionLink("Niveles Educativos Docentes", "Index", "NivelEducativoDocentes")</li>
-                            <li>@Html.ActionLink("Niveles Educativos", "Index", "NivelEducativos")</li>
-                            <li>@Html.ActionLink("Nucleos", "Index", "Nucleos")</li>
-                            <li>@Html.ActionLink("Parentescos", "Index", "Parentescos")</li>
-                            <li>@Html.ActionLink("Periodos", "Index", "Periodos")</li>
-                            <li>@Html.ActionLink("Población Victima Conflictos", "Index", "PoblacionVictimaConflictos")</li>
-                            <li>@Html.ActionLink("Prestadores", "Index", "Prestadores")</li>
-                            <li>@Html.ActionLink("Profesiones", "Index", "Profesiones")</li>
-                            <li>@Html.ActionLink("Profesores", "Index", "Profesores")</li>
-                            <li>@Html.ActionLink("Propiedades Juridicas", "Index", "PropiedadJuridicas")</li>
-                            <li>@Html.ActionLink("Regimen Costos", "Index", "RegimenCostos")</li>
-                            <li>@Html.ActionLink("Resguardos", "Index", "Resguardos")</li>
-                            <li>@Html.ActionLink("Sedes", "Index", "Sedes")</li>
-                            <li>@Html.ActionLink("Sisbenes", "Index", "Sisbenes")</li>
-                            <li>@Html.ActionLink("Situaciones Academicas", "Index", "SituacionAcademicas")</li>
-                            <li>@Html.ActionLink("Tarifas Anuales", "Index", "TarifaAnuales")</li>
-                            <li>@Html.ActionLink("Tipos Academicos", "Index", "TipoAcademicos")</li>
-                            <li>@Html.ActionLink("Tipos Caracteres", "Index", "TipoCaracteres")</li>
-                            <li>@Html.ActionLink("Tipos Condiciones", "Index", "TipoCondiciones")</li>
-                            <li>@Html.ActionLink("Tipos Devengos", "Index", "TipoDevengos")</li>
-                            <li>@Html.ActionLink("Tipos Discapacidades", "Index", "TipoDiscapacidades")</li>
-                            <li>@Html.ActionLink("Tipos Identificaciones", "Index", "TipoIdentificaciones")</li>
-                            <li>@Html.ActionLink("Tipos Novedades", "Index", "TipoNovedades")</li>
-                            <li>@Html.ActionLink("Tipos Respuestas", "Index", "TipoRespuestas")</li>
-                            <li>@Html.ActionLink("Tipos Sectores Educaciones", "Index", "TipoSectorEducaciones")</li>
-                            <li>@Html.ActionLink("Tipos Vinculaciones", "Index", "TipoVinculaciones")</li>
-                            <li>@Html.ActionLink("Valoración Letras", "Index", "ValoracionLetras")</li>
-                            <li>@Html.ActionLink("Zonas", "Index", "Zonas")</li>
 
-                        </ul>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Configuración</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="@Url.Action("Index", "AporteParafiscales")">Aportes Parafiscales</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Ars")">Ars</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Asignaturas")">Asignaturas</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "AsociacionPrivadas")">Asociaciones Privadas</a>
+                        </div>
                     </li>
+
+
+
+
 
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
+    </nav>
+
+
+
+
+
+
+    @*<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>*@
+
+
+
+
+
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />

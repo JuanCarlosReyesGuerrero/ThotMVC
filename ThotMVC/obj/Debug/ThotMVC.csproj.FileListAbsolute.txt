@@ -289,3 +289,4 @@ E:\Developer\ThotMVC\ThotMVC\bin\Microsoft.ApplicationInsights.xml
 E:\Developer\ThotMVC\ThotMVC\bin\PagedList.xml
 E:\Developer\ThotMVC\ThotMVC\bin\PagedList.Mvc.xml
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.updateCodigos.resources
+D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.updateCodigos.resources
