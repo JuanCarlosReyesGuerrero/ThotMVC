@@ -6,7 +6,7 @@ namespace ThotMVC.Models
 {
     public class Estudiantes
     {
-        /*
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Number")]
@@ -16,25 +16,25 @@ namespace ThotMVC.Models
         [Required(ErrorMessage = "Digite el código del estudiante")]
         public Int64 Codigo { get; set; }
 
-       
+
 
         [Display(Name = "Codigo MEN")]
         [Required(ErrorMessage = "Digite el código MEN")]
         public string CodigoMEN { get; set; }
 
 
-        [TipoIdentificacionId] [bigint] NULL,
+        //[TipoIdentificacionId] [bigint] NULL,
 
-	
-             [Display(Name = "Numero Documento")]
+
+        [Display(Name = "Numero Documento")]
         [Required(ErrorMessage = "Digite el número de documento")]
         public string NumeroDocumento { get; set; }
 
-        [DepartamentoExpedicionId] [bigint] NULL,
-	[MunicipioExpedicionId] [bigint] NULL,
+        //       [DepartamentoExpedicionId] [bigint] NULL,
+        //[MunicipioExpedicionId] [bigint] NULL,
 
-	
-             [Display(Name = "PrimerApellido")]
+
+        [Display(Name = "PrimerApellido")]
         [Required(ErrorMessage = "Digite el primer apellido")]
         public string PrimerApellido { get; set; }
 
@@ -50,30 +50,33 @@ namespace ThotMVC.Models
         [Required(ErrorMessage = "Digite el segundo nombre")]
         public string SegundoNombre { get; set; }
 
-        [EstudianteFechaNacimiento] [datetime] NULL,
-	[DepartamentoNacimientoId] [bigint] NULL,
-	[MunicipioNacimientoId] [bigint] NULL,
-	[GeneroId] [bigint] NULL,
-	[FactorRhId] [bigint] NULL,
+        [Display(Name = "Fecha nacimiento")]
+        [Required(ErrorMessage = "Digite la fecha de nacimiento")]
+        public DateTime FechaNacimiento { get; set; }
 
-	
-             [Display(Name = "Email")]
+        //           [DepartamentoNacimientoId] [bigint] NULL,
+        //[MunicipioNacimientoId] [bigint] NULL,
+        //[GeneroId] [bigint] NULL,
+        //[FactorRhId] [bigint] NULL,
+
+
+        [Display(Name = "Email")]
         [Required(ErrorMessage = "Digite el Email")]
         public string Email { get; set; }
 
-        [EstudianteFotografia] [image] NULL,
+        public string Fotografia { get; set; }
 
-	
-             [Display(Name = "Direccion")]
+
+        [Display(Name = "Direccion")]
         [Required(ErrorMessage = "Digite el Direccion")]
         public string Direccion { get; set; }
 
-        [DepartamentoResidenciaId] [bigint] NULL,
-	[MunicipioResidenciaId] [bigint] NULL,
-	[ZonaResidenciaId] [bigint] NULL,
+        //       [DepartamentoResidenciaId] [bigint] NULL,
+        //[MunicipioResidenciaId] [bigint] NULL,
+        //[ZonaResidenciaId] [bigint] NULL,
 
-	
-             [Display(Name = "Localidad")]
+
+        [Display(Name = "Localidad")]
         [Required(ErrorMessage = "Digite la localidad")]
         public string Localidad { get; set; }
 
@@ -81,10 +84,10 @@ namespace ThotMVC.Models
         [Required(ErrorMessage = "Digite el Barrio")]
         public string Barrio { get; set; }
 
-        [EstratoId] [bigint] NULL,
+        //[EstratoId] [bigint] NULL,
 
-	
-             [Display(Name = "Telefono")]
+
+        [Display(Name = "Telefono")]
         [Required(ErrorMessage = "Digite el teléfono")]
         public string Telefono { get; set; }
 
@@ -92,50 +95,58 @@ namespace ThotMVC.Models
         [Required(ErrorMessage = "Digite el celular")]
         public string Celular { get; set; }
 
-        [SisbenId] [bigint] NULL,
+        //[SisbenId] [bigint] NULL,
 
-	
-             [Display(Name = "Numero Sisben")]
+
+        [Display(Name = "Numero Sisben")]
         [Required(ErrorMessage = "Digite el numero sisben")]
         public string NumeroSisben { get; set; }
 
-        [EpsId] [bigint] NULL,
-	[ArsId] [bigint] NULL,
-	[PoblacionVictimaId] [bigint] NULL,
-	[DepartamentoExpulsorId] [bigint] NULL,
-	[MunicipioExpulsorId] [bigint] NULL,
-	[EstudianteFechaExpulsion] [datetime] NULL,
+        //       [EpsId] [bigint] NULL,
+        //[ArsId] [bigint] NULL,
+        //[PoblacionVictimaId] [bigint] NULL,
+        //[DepartamentoExpulsorId] [bigint] NULL,
+        //[MunicipioExpulsorId] [bigint] NULL,
 
-	
-             [Display(Name = "Certificado Expulsion")]
+        [Display(Name = "Fecha expulsión")]
+        public DateTime? FechaExpulsion { get; set; }
+
+
+        [Display(Name = "Certificado Expulsion")]
         [Required(ErrorMessage = "Digite el certificado de expulsión")]
         public string CertificadoExpulsion { get; set; }
 
-        [EstudianteFechaCertificadoExpulsion] [datetime] NULL,
-	[DiscapacidadId] [bigint] NULL,
-	[CapacidadExcepcionalId] [bigint] NULL,
-	[EtniaId] [bigint] NULL,
-	[ResguardoId] [bigint] NULL,
-	[EstudianteProvieneSectorPrivado] [bit] NULL,
-	[EstudianteProvieneOtroMunicipio] [bit] NULL,
+        [Display(Name = "Fecha Certificado Expulsión")]
+        public DateTime? FechaCertificadoExpulsion { get; set; }
 
-	
-             [Display(Name = "Institucion Bienestar")]
+        //[DiscapacidadId] [bigint] NULL,
+        //[CapacidadExcepcionalId] [bigint] NULL,
+        //[EtniaId] [bigint] NULL,
+        //[ResguardoId] [bigint] NULL,
+
+        [Display(Name = "Proviene Sector Privado")]
+        public bool ProvieneSectorPrivado { get; set; }
+
+        [Display(Name = "Proviene Otro Municipio")]
+        public bool ProvieneOtroMunicipio { get; set; }
+
+
+        [Display(Name = "Institucion Bienestar")]
         [Required(ErrorMessage = "Digite el institución bienestar")]
         public string InstitucionBienestar { get; set; }
 
-        [TipoIdentificacionMadreId] [bigint] NULL,
+        //[TipoIdentificacionMadreId] [bigint] NULL,
 
 
-             [Display(Name = "Numero Documento Madre")]
+        [Display(Name = "Numero Documento Madre")]
         [Required(ErrorMessage = "Digite el numero documento madre")]
         public string NumeroDocumentoMadre { get; set; }
 
-        [DepartamentoExpedicionMadreId] [bigint] NULL,
-	[MunicipioExpedicionMadreId] [bigint] NULL,
+        //       [DepartamentoExpedicionMadreId] [bigint] NULL,
+        //[MunicipioExpedicionMadreId] [bigint] NULL,
 
-	
-             [Display(Name = "Primer Apellido Madre")]
+
+        [Display(Name = "Primer Apellido Madre")]
         [Required(ErrorMessage = "Digite el primer apellido madre")]
         public string EstudiantePrimerApellidoMadre { get; set; }
 
@@ -164,12 +175,12 @@ namespace ThotMVC.Models
         [Required(ErrorMessage = "Digite el direccion madre")]
         public string DireccionMadre { get; set; }
 
-        [DepartamentoResidenciaMadreId] [bigint] NULL,
-	[MunicipioResidenciaMadreId] [bigint] NULL,
-	[ZonaResidenciaMadreId] [bigint] NULL,
+        //       [DepartamentoResidenciaMadreId] [bigint] NULL,
+        //[MunicipioResidenciaMadreId] [bigint] NULL,
+        //[ZonaResidenciaMadreId] [bigint] NULL,
 
-	
-             [Display(Name = "Barrio Madre")]
+
+        [Display(Name = "Barrio Madre")]
         [Required(ErrorMessage = "Digite el barrio madre")]
         public string BarrioMadre { get; set; }
 
@@ -203,199 +214,204 @@ namespace ThotMVC.Models
         [Required(ErrorMessage = "Digite el Telefono Empresa Madre")]
         public string TelefonoEmpresaMadre { get; set; }
 
-        [TipoIdentificacionPadreId] [bigint] NULL,
-	[EstudianteNumeroDocumentoPadre] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        //[TipoIdentificacionPadreId] [bigint] NULL,
 
-        [DepartamentoExpedicionPadreId] [bigint] NULL,
-	[MunicipioExpedicionPadreId] [bigint] NULL,
-	[EstudiantePrimerApellidoPadre] [nvarchar] (10) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "Numero Documento Padre")]
+        [Required(ErrorMessage = "Digite el Numero Documento Padre")]
+        public string NumeroDocumentoPadre { get; set; }
 
-        [EstudianteSegindoApellidoPadre] [nvarchar] (10) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        //       [DepartamentoExpedicionPadreId] [bigint] NULL,
+        //[MunicipioExpedicionPadreId] [bigint] NULL,
 
-        [EstudiantePrimerNombrePadre] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "Primer Apellido Padre")]
+        [Required(ErrorMessage = "Digite el Primer Apellido Padre")]
+        public string PrimerApellidoPadre { get; set; }
 
-        [EstudianteSegundoNombrePadre] [nvarchar] (10) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "Segindo Apellido Padre")]
+        [Required(ErrorMessage = "Digite el Segundo Apellido Padre")]
+        public string SegundoApellidoPadre { get; set; }
 
-        [EstudianteEmailPadre] [nvarchar] (50) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "Primer Nombre Padre")]
+        [Required(ErrorMessage = "Digite el Primer Nombre Padre")]
+        public string PrimerNombrePadre { get; set; }
 
-        [EstudianteDireccionPadre] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "Segundo Nombre Padre")]
+        [Required(ErrorMessage = "Digite el Segundo Nombre Padre")]
+        public string SegundoNombrePadre { get; set; }
 
-        [DepartamentoResidenciaPadreId] [bigint] NULL,
-	[MunicipioResidenciaPadreId] [bigint] NULL,
-	[ZonaResicenciaPadreId] [bigint] NULL,
-	[EstudianteBarrioPadre] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "EmailPadre")]
+        [Required(ErrorMessage = "Digite el EmailPadre")]
+        public string EmailPadre { get; set; }
 
-        [EstudianteLocalidadpadre] [nvarchar] (100) NULL,
-	[EstudianteTelefonoPadre] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "DireccionPadre")]
+        [Required(ErrorMessage = "Digite el DireccionPadre")]
+        public string DireccionPadre { get; set; }
 
-        [EstudianteCelularPadre] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
 
-        [EstudianteOcupacionPadre] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        //       [DepartamentoResidenciaPadreId] [bigint] NULL,
+        //[MunicipioResidenciaPadreId] [bigint] NULL,
+        //[ZonaResicenciaPadreId] [bigint] NULL,
 
-        [EstudianteEmpresaPadre] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "BarrioPadre")]
+        [Required(ErrorMessage = "Digite el BarrioPadre")]
+        public string BarrioPadre { get; set; }
 
-        [EstudianteTelefonoEmpresaPadre] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "Localidadpadre")]
+        [Required(ErrorMessage = "Digite el Localidadpadre")]
+        public string Localidadpadre { get; set; }
 
-        [TipoIdentificacionAcudienteId] [bigint] NULL,
-	[EstudianteNumeroDocumentoAcudiente] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "TelefonoPadre")]
+        [Required(ErrorMessage = "Digite el TelefonoPadre")]
+        public string TelefonoPadre { get; set; }
 
-        [DepartamentoExpedicionAcudienteId] [bigint] NULL,
-	[MunicipioExpedicionAcudiente] [bigint] NULL,
-	[EstudiantePrimerApellidoAcudiente] [nvarchar] (10) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "CelularPadre")]
+        [Required(ErrorMessage = "Digite el CelularPadre")]
+        public string CelularPadre { get; set; }
 
-        [EstudianteSegundoApellidoAcudiente] [nvarchar] (10) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "OcupacionPadre")]
+        [Required(ErrorMessage = "Digite el OcupacionPadre")]
+        public string OcupacionPadre { get; set; }
 
-        [EstudiantePrimerNombreAcudiente] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "EmpresaPadre")]
+        [Required(ErrorMessage = "Digite el EmpresaPadre")]
+        public string EmpresaPadre { get; set; }
 
-        [EstudianteSegundoNombreAcudiente] [nvarchar] (10) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "TelefonoEmpresaPadre")]
+        [Required(ErrorMessage = "Digite el TelefonoEmpresaPadre")]
+        public string TelefonoEmpresaPadre { get; set; }
 
-        [EstudianteEmailAcudiente] [nvarchar] (50) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
 
-        [EstudianteDireccionAcudiente] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        //[TipoIdentificacionAcudienteId] [bigint] NULL,
 
-        [DepartamentoResidenciaAcudienteId] [bigint] NULL,
-	[MunicipioResidenciaAcudienteId] [bigint] NULL,
-	[ZonaResidenciaAcudienteId] [bigint] NULL,
-	[EstudianteBarrioAcudiente] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "NumeroDocumentoAcudiente")]
+        [Required(ErrorMessage = "Digite el NumeroDocumentoAcudiente")]
+        public string NumeroDocumentoAcudiente { get; set; }
 
-        [EstudianteLocalidadAcudiente] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
 
-        [EstudianteTelefonoAcudiente] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        //       [DepartamentoExpedicionAcudienteId] [bigint] NULL,
+        //[MunicipioExpedicionAcudiente] [bigint] NULL,
 
-        [EstudianteCelularAcudiente] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "PrimerApellidoAcudiente")]
+        [Required(ErrorMessage = "Digite el PrimerApellidoAcudiente")]
+        public string PrimerApellidoAcudiente { get; set; }
 
-        [EstudianteOcupacionAcudiente] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "SegundoApellidoAcudiente")]
+        [Required(ErrorMessage = "Digite el SegundoApellidoAcudiente")]
+        public string SegundoApellidoAcudiente { get; set; }
 
-        [EstudianteEmpresaAcudiente] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "PrimerNombreAcudiente")]
+        [Required(ErrorMessage = "Digite el PrimerNombreAcudiente")]
+        public string PrimerNombreAcudiente { get; set; }
 
-        [EstudianteTelefonoEmpresaAcudiente] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "SegundoNombreAcudiente")]
+        [Required(ErrorMessage = "Digite el SegundoNombreAcudiente")]
+        public string SegundoNombreAcudiente { get; set; }
 
-        [GeneroAcudienteId] [bigint] NULL,
-	[ParentescoAcudienteId] [bigint] NULL,
-	[EstudianteColegioUltimoCurso] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "EmailAcudiente")]
+        [Required(ErrorMessage = "Digite el EmailAcudiente")]
+        public string EmailAcudiente { get; set; }
 
-        [EstudianteDireccionColegioUltimoCurso] [nvarchar] (100) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "DireccionAcudiente")]
+        [Required(ErrorMessage = "Digite el DireccionAcudiente")]
+        public string DireccionAcudiente { get; set; }
 
-        [EstudianteTelefonoColegioUltimoCurso] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
 
-        [EstudianteUltimoGrado] [nvarchar] (10) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        //       [DepartamentoResidenciaAcudienteId] [bigint] NULL,
+        //[MunicipioResidenciaAcudienteId] [bigint] NULL,
+        //[ZonaResidenciaAcudienteId] [bigint] NULL,
 
-        [EstudianteAnio] [nvarchar] (4) NULL,
-	[EstudianteMotivoRetiroUltimo] [nvarchar] (255) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "BarrioAcudiente")]
+        [Required(ErrorMessage = "Digite el BarrioAcudiente")]
+        public string BarrioAcudiente { get; set; }
 
-        [EstudianteObservaciones] [text] NULL,
-	[EstudianteUsuarioEstudiante] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "LocalidadAcudiente")]
+        [Required(ErrorMessage = "Digite el LocalidadAcudiente")]
+        public string LocalidadAcudiente { get; set; }
 
-        [EstudianteClaveAcceso] [nvarchar] (20) NULL,
-             [Display(Name = "EstudianteCodigoMEN")]
-        [Required(ErrorMessage = "Digite el EstudianteCodigoMEN")]
-        public string EstudianteCodigoMEN { get; set; }
+        [Display(Name = "TelefonoAcudiente")]
+        [Required(ErrorMessage = "Digite el TelefonoAcudiente")]
+        public string TelefonoAcudiente { get; set; }
 
-        [GrupoUsuarioId] [nvarchar] (2) NULL,
-	[SedeId] [bigint] NULL,
-	[InstitucionId] [bigint] NULL,
-	[EstudianteSeleccioneMadre] [bit] NULL,
-	[EstudianteSeleccionePadre] [bit] NULL,
-	[EstudianteSeleccioneAcudiente] [int] NULL,
+        [Display(Name = "CelularAcudiente")]
+        [Required(ErrorMessage = "Digite el CelularAcudiente")]
+        public string CelularAcudiente { get; set; }
+
+        [Display(Name = "OcupacionAcudiente")]
+        [Required(ErrorMessage = "Digite el OcupacionAcudiente")]
+        public string OcupacionAcudiente { get; set; }
+
+        [Display(Name = "EmpresaAcudiente")]
+        [Required(ErrorMessage = "Digite el EmpresaAcudiente")]
+        public string EmpresaAcudiente { get; set; }
+
+        [Display(Name = "TelefonoEmpresaAcudiente")]
+        [Required(ErrorMessage = "Digite el TelefonoEmpresaAcudiente")]
+        public string TelefonoEmpresaAcudiente { get; set; }
+
+
+        //       [GeneroAcudienteId] [bigint] NULL,
+        //[ParentescoAcudienteId] [bigint] NULL,
+
+        [Display(Name = "ColegioUltimoCurso")]
+        [Required(ErrorMessage = "Digite el ColegioUltimoCurso")]
+        public string ColegioUltimoCurso { get; set; }
+
+        [Display(Name = "DireccionColegioUltimoCurso")]
+        [Required(ErrorMessage = "Digite el DireccionColegioUltimoCurso")]
+        public string DireccionColegioUltimoCurso { get; set; }
+
+        [Display(Name = "TelefonoColegioUltimoCurso")]
+        [Required(ErrorMessage = "Digite el TelefonoColegioUltimoCurso")]
+        public string TelefonoColegioUltimoCurso { get; set; }
+
+        [Display(Name = "UltimoGrado")]
+        [Required(ErrorMessage = "Digite el UltimoGrado")]
+        public string UltimoGrado { get; set; }
+
+        [Display(Name = "Anio")]
+        [Required(ErrorMessage = "Digite el Anio")]
+        public string Anio { get; set; }
+
+        [Display(Name = "MotivoRetiroUltimo")]
+        [Required(ErrorMessage = "Digite el MotivoRetiroUltimo")]
+        public string MotivoRetiroUltimo { get; set; }
+
+        [Display(Name = "Observaciones")]
+        [Required(ErrorMessage = "Digite el Observaciones")]
+        public string Observaciones { get; set; }
+
+        [Display(Name = "UsuarioEstudiante")]
+        [Required(ErrorMessage = "Digite el UsuarioEstudiante")]
+        public string UsuarioEstudiante { get; set; }
+
+        [Display(Name = "ClaveAcceso")]
+        [Required(ErrorMessage = "Digite el ClaveAcceso")]
+        public string ClaveAcceso { get; set; }
+
+
+
+
+
+
+
+
+
+
+
+        //       [GrupoUsuarioId] [bigint] (2) NULL,
+        //[SedeId] [bigint] NULL,
+        //[InstitucionId] [bigint] NULL,
+
+        [Display(Name = "SeleccioneMadre")]
+        [Required(ErrorMessage = "Digite el SeleccioneMadre")]
+        public bool SeleccioneMadre { get; set; }
+
+        [Display(Name = "SeleccionePadre")]
+        [Required(ErrorMessage = "Digite el SeleccionePadre")]
+        public bool SeleccionePadre { get; set; }
+
+
+        //[SeleccioneAcudiente] [bigint] NULL,
 
 
 
@@ -427,6 +443,24 @@ namespace ThotMVC.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? FechaModifica { get; set; }
 
-        */
+        public virtual Ars Ars { get; set; }
+        public virtual CapacidadExcepcionales CapacidadExcepcionales { get; set; }
+        public virtual Departamentos Departamentos { get; set; }
+        public virtual Eps Eps { get; set; }
+        public virtual Estratos Estratos { get; set; }
+        public virtual Etnias Etnias { get; set; }
+        public virtual FactorRhs FactorRhs { get; set; }
+        public virtual Generos Generos { get; set; }
+        public virtual Grupos Grupos { get; set; }
+        public virtual Instituciones Instituciones { get; set; }
+        public virtual Municipios Municipios { get; set; }
+        public virtual Parentescos Parentescos { get; set; }
+        public virtual PoblacionVictimaConflictos PoblacionVictimaConflictos { get; set; }
+        public virtual Resguardos Resguardos { get; set; }
+        public virtual Sedes Sedes { get; set; }
+        public virtual Sisbenes Sisbenes { get; set; }
+        public virtual TipoDiscapacidades TipoDiscapacidades { get; set; }
+        public virtual TipoIdentificaciones TipoIdentificaciones { get; set; }
+        public virtual Zonas Zonas { get; set; }
     }
 }

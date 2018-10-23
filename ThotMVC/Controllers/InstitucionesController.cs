@@ -24,6 +24,30 @@ namespace ThotMVC.Controllers
 
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            //ViewBag.CurrentSort = sortOrder;
+            //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            //if (searchString != null)
+            //{
+            //    page = 1;
+            //}
+            //else
+            //{
+            //    searchString = currentFilter;
+            //}
+
+            //ViewBag.CurrentFilter = searchString;            
+
+            //var instituciones = db.Instituciones.Include(i => i.AsociacionPrivadas).Include(i => i.Calendarios).Include(i => i.CapacidadExcepcionales).Include(i => i.Departamentos).Include(i => i.Etnias).Include(i => i.Generos).Include(i => i.Idiomas).Include(i => i.Metodologias).Include(i => i.Municipios).Include(i => i.Nucleos).Include(i => i.Prestadores).Include(i => i.PropiedadJuridicas).Include(i => i.RegimenCostos).Include(i => i.Resguardos).Include(i => i.TarifaAnuales).Include(i => i.TipoDiscapacidades).Include(i => i.TipoNovedades).Include(i => i.TipoSectorEducaciones).Include(i => i.Zonas);
+
+            //int pageSize = 10;
+            //int pageNumber = (page ?? 1);
+            //return View(instituciones.ToPagedList(pageNumber, pageSize));
+
+
+
+
+
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
 
@@ -35,14 +59,32 @@ namespace ThotMVC.Controllers
             {
                 searchString = currentFilter;
             }
+            ViewBag.CurrentFilter = searchString;
 
-            ViewBag.CurrentFilter = searchString;            
-
-            var instituciones = db.Instituciones.Include(i => i.AsociacionPrivadas).Include(i => i.Calendarios).Include(i => i.CapacidadExcepcionales).Include(i => i.Departamentos).Include(i => i.Etnias).Include(i => i.Generos).Include(i => i.Idiomas).Include(i => i.Metodologias).Include(i => i.Municipios).Include(i => i.Nucleos).Include(i => i.Prestadores).Include(i => i.PropiedadJuridicas).Include(i => i.RegimenCostos).Include(i => i.Resguardos).Include(i => i.TarifaAnuales).Include(i => i.TipoDiscapacidades).Include(i => i.TipoNovedades).Include(i => i.TipoSectorEducaciones).Include(i => i.Zonas);
-            
+            var instituciones = from s in db.Instituciones.Include(i => i.AsociacionPrivadas).Include(i => i.Calendarios).Include(i => i.CapacidadExcepcionales).Include(i => i.Departamentos).Include(i => i.Etnias).Include(i => i.Generos).Include(i => i.Idiomas).Include(i => i.Metodologias).Include(i => i.Municipios).Include(i => i.Nucleos).Include(i => i.Prestadores).Include(i => i.PropiedadJuridicas).Include(i => i.RegimenCostos).Include(i => i.Resguardos).Include(i => i.TarifaAnuales).Include(i => i.TipoDiscapacidades).Include(i => i.TipoNovedades).Include(i => i.TipoSectorEducaciones).Include(i => i.Zonas)
+            select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                instituciones = instituciones.Where(s => s.Nombre.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    instituciones = instituciones.OrderByDescending(s => s.Nombre);
+                    break;
+                case "Codigo":
+                    instituciones = instituciones.OrderBy(s => s.CodigoDane);
+                    break;
+                default:  // Name ascending 
+                    instituciones = instituciones.OrderBy(s => s.Nombre);
+                    break;
+            }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
             return View(instituciones.ToPagedList(pageNumber, pageSize));
+
+
+
         }
 
         // GET: Instituciones/Details/5
