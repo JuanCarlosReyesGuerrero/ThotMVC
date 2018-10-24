@@ -102,6 +102,8 @@ namespace ThotMVC.Models
 
         public DbSet<LibretaMilitares> LibretaMilitares { get; set; }
 
-        public System.Data.Entity.DbSet<ThotMVC.Models.Clasificaciones> Clasificaciones { get; set; }
+        public DbSet<Clasificaciones> Clasificaciones { get; set; }
+
+        public DbSet<Estudiantes> Estudiantes { get; set; }
     }
 }

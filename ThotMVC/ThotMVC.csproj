@@ -215,6 +215,7 @@
     <Compile Include="Controllers\EspecialidadesController.cs" />
     <Compile Include="Controllers\EstadoCivilesController.cs" />
     <Compile Include="Controllers\EstratosController.cs" />
+    <Compile Include="Controllers\EstudiantesController.cs" />
     <Compile Include="Controllers\EtniasController.cs" />
     <Compile Include="Controllers\FactorRhsController.cs" />
     <Compile Include="Controllers\FuenteRecursosController.cs" />
@@ -274,6 +275,10 @@
     <Compile Include="Migrations\201810122324411_updateCodigos.cs" />
     <Compile Include="Migrations\201810122324411_updateCodigos.Designer.cs">
       <DependentUpon>201810122324411_updateCodigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810241921252_estudiantes.cs" />
+    <Compile Include="Migrations\201810241921252_estudiantes.Designer.cs">
+      <DependentUpon>201810241921252_estudiantes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
@@ -747,6 +752,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Estudiantes\Create.cshtml" />
+    <Content Include="Views\Estudiantes\Delete.cshtml" />
+    <Content Include="Views\Estudiantes\Details.cshtml" />
+    <Content Include="Views\Estudiantes\Edit.cshtml" />
+    <Content Include="Views\Estudiantes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -765,6 +775,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810122324411_updateCodigos.resx">
       <DependentUpon>201810122324411_updateCodigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810241921252_estudiantes.resx">
+      <DependentUpon>201810241921252_estudiantes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
