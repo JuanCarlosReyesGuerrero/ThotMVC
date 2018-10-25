@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var NivelEducativos = from s in db.NivelEducativos
+            var nivelEducativos = from s in db.NivelEducativos
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                NivelEducativos = NivelEducativos.Where(s => s.Nombre.Contains(searchString));
+                nivelEducativos = nivelEducativos.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    NivelEducativos = NivelEducativos.OrderByDescending(s => s.Nombre);
+                    nivelEducativos = nivelEducativos.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    NivelEducativos = NivelEducativos.OrderBy(s => s.Codigo);
+                    nivelEducativos = nivelEducativos.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    NivelEducativos = NivelEducativos.OrderBy(s => s.Nombre);
+                    nivelEducativos = nivelEducativos.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(NivelEducativos.ToPagedList(pageNumber, pageSize));
+            return View(nivelEducativos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: NivelEducativos/Details/5

@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var PoblacionVictimaConflictos = from s in db.PoblacionVictimaConflictos
+            var poblacionVictimaConflictos = from s in db.PoblacionVictimaConflictos
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                PoblacionVictimaConflictos = PoblacionVictimaConflictos.Where(s => s.Nombre.Contains(searchString));
+                poblacionVictimaConflictos = poblacionVictimaConflictos.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    PoblacionVictimaConflictos = PoblacionVictimaConflictos.OrderByDescending(s => s.Nombre);
+                    poblacionVictimaConflictos = poblacionVictimaConflictos.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    PoblacionVictimaConflictos = PoblacionVictimaConflictos.OrderBy(s => s.Codigo);
+                    poblacionVictimaConflictos = poblacionVictimaConflictos.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    PoblacionVictimaConflictos = PoblacionVictimaConflictos.OrderBy(s => s.Nombre);
+                    poblacionVictimaConflictos = poblacionVictimaConflictos.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(PoblacionVictimaConflictos.ToPagedList(pageNumber, pageSize));
+            return View(poblacionVictimaConflictos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: PoblacionVictimaConflictos/Details/5

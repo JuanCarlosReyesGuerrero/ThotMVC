@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Cargos = from s in db.Cargos
+            var cargos = from s in db.Cargos
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Cargos = Cargos.Where(s => s.Nombre.Contains(searchString));
+                cargos = cargos.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Cargos = Cargos.OrderByDescending(s => s.Nombre);
+                    cargos = cargos.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Cargos = Cargos.OrderBy(s => s.Codigo);
+                    cargos = cargos.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Cargos = Cargos.OrderBy(s => s.Nombre);
+                    cargos = cargos.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Cargos.ToPagedList(pageNumber, pageSize));
+            return View(cargos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Cargos/Details/5

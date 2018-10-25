@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var AporteParafiscales = from s in db.AporteParafiscales
+            var aporteParafiscales = from s in db.AporteParafiscales
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                AporteParafiscales = AporteParafiscales.Where(s => s.Nombre.Contains(searchString));
+                aporteParafiscales = aporteParafiscales.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    AporteParafiscales = AporteParafiscales.OrderByDescending(s => s.Nombre);
+                    aporteParafiscales = aporteParafiscales.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    AporteParafiscales = AporteParafiscales.OrderBy(s => s.Codigo);
+                    aporteParafiscales = aporteParafiscales.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    AporteParafiscales = AporteParafiscales.OrderBy(s => s.Nombre);
+                    aporteParafiscales = aporteParafiscales.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(AporteParafiscales.ToPagedList(pageNumber, pageSize));
+            return View(aporteParafiscales.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: AporteParafiscales/Details/5

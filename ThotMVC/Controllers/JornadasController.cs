@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Jornadas = from s in db.Jornadas
+            var jornadas = from s in db.Jornadas
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Jornadas = Jornadas.Where(s => s.Nombre.Contains(searchString));
+                jornadas = jornadas.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Jornadas = Jornadas.OrderByDescending(s => s.Nombre);
+                    jornadas = jornadas.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Jornadas = Jornadas.OrderBy(s => s.Codigo);
+                    jornadas = jornadas.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Jornadas = Jornadas.OrderBy(s => s.Nombre);
+                    jornadas = jornadas.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Jornadas.ToPagedList(pageNumber, pageSize));
+            return View(jornadas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Jornadas/Details/5

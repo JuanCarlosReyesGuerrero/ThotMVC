@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Asignaturas = from s in db.Asignaturas
+            var asignaturas = from s in db.Asignaturas
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Asignaturas = Asignaturas.Where(s => s.Nombre.Contains(searchString));
+                asignaturas = asignaturas.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Asignaturas = Asignaturas.OrderByDescending(s => s.Nombre);
+                    asignaturas = asignaturas.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Asignaturas = Asignaturas.OrderBy(s => s.Codigo);
+                    asignaturas = asignaturas.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Asignaturas = Asignaturas.OrderBy(s => s.Nombre);
+                    asignaturas = asignaturas.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Asignaturas.ToPagedList(pageNumber, pageSize));
+            return View(asignaturas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Asignaturas/Details/5

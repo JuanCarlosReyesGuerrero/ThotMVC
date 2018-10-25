@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var RegimenCostos = from s in db.RegimenCostos
+            var regimenCostos = from s in db.RegimenCostos
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                RegimenCostos = RegimenCostos.Where(s => s.Nombre.Contains(searchString));
+                regimenCostos = regimenCostos.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    RegimenCostos = RegimenCostos.OrderByDescending(s => s.Nombre);
+                    regimenCostos = regimenCostos.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    RegimenCostos = RegimenCostos.OrderBy(s => s.Codigo);
+                    regimenCostos = regimenCostos.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    RegimenCostos = RegimenCostos.OrderBy(s => s.Nombre);
+                    regimenCostos = regimenCostos.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(RegimenCostos.ToPagedList(pageNumber, pageSize));
+            return View(regimenCostos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: RegimenCostos/Details/5

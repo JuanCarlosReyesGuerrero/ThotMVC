@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var TipoCaracteres = from s in db.TipoCaracteres
+            var tipoCaracteres = from s in db.TipoCaracteres
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                TipoCaracteres = TipoCaracteres.Where(s => s.Nombre.Contains(searchString));
+                tipoCaracteres = tipoCaracteres.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    TipoCaracteres = TipoCaracteres.OrderByDescending(s => s.Nombre);
+                    tipoCaracteres = tipoCaracteres.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    TipoCaracteres = TipoCaracteres.OrderBy(s => s.Codigo);
+                    tipoCaracteres = tipoCaracteres.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    TipoCaracteres = TipoCaracteres.OrderBy(s => s.Nombre);
+                    tipoCaracteres = tipoCaracteres.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(TipoCaracteres.ToPagedList(pageNumber, pageSize));
+            return View(tipoCaracteres.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: TipoCaracteres/Details/5

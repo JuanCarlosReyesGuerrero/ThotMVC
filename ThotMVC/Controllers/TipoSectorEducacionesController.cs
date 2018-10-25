@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var TipoSectorEducaciones = from s in db.TipoSectorEducaciones
+            var tipoSectorEducaciones = from s in db.TipoSectorEducaciones
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                TipoSectorEducaciones = TipoSectorEducaciones.Where(s => s.Nombre.Contains(searchString));
+                tipoSectorEducaciones = tipoSectorEducaciones.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    TipoSectorEducaciones = TipoSectorEducaciones.OrderByDescending(s => s.Nombre);
+                    tipoSectorEducaciones = tipoSectorEducaciones.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    TipoSectorEducaciones = TipoSectorEducaciones.OrderBy(s => s.Codigo);
+                    tipoSectorEducaciones = tipoSectorEducaciones.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    TipoSectorEducaciones = TipoSectorEducaciones.OrderBy(s => s.Nombre);
+                    tipoSectorEducaciones = tipoSectorEducaciones.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(TipoSectorEducaciones.ToPagedList(pageNumber, pageSize));
+            return View(tipoSectorEducaciones.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: TipoSectorEducaciones/Details/5

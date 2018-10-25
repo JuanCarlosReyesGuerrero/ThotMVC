@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var CapacidadExcepcionales = from s in db.CapacidadExcepcionales
+            var capacidadExcepcionales = from s in db.CapacidadExcepcionales
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                CapacidadExcepcionales = CapacidadExcepcionales.Where(s => s.Nombre.Contains(searchString));
+                capacidadExcepcionales = capacidadExcepcionales.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    CapacidadExcepcionales = CapacidadExcepcionales.OrderByDescending(s => s.Nombre);
+                    capacidadExcepcionales = capacidadExcepcionales.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    CapacidadExcepcionales = CapacidadExcepcionales.OrderBy(s => s.Codigo);
+                    capacidadExcepcionales = capacidadExcepcionales.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    CapacidadExcepcionales = CapacidadExcepcionales.OrderBy(s => s.Nombre);
+                    capacidadExcepcionales = capacidadExcepcionales.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(CapacidadExcepcionales.ToPagedList(pageNumber, pageSize));
+            return View(capacidadExcepcionales.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: CapacidadExcepcionales/Details/5

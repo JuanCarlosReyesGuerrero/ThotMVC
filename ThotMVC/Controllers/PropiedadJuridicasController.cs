@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var PropiedadJuridicas = from s in db.PropiedadJuridicas
+            var propiedadJuridicas = from s in db.PropiedadJuridicas
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                PropiedadJuridicas = PropiedadJuridicas.Where(s => s.Nombre.Contains(searchString));
+                propiedadJuridicas = propiedadJuridicas.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    PropiedadJuridicas = PropiedadJuridicas.OrderByDescending(s => s.Nombre);
+                    propiedadJuridicas = propiedadJuridicas.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    PropiedadJuridicas = PropiedadJuridicas.OrderBy(s => s.Codigo);
+                    propiedadJuridicas = propiedadJuridicas.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    PropiedadJuridicas = PropiedadJuridicas.OrderBy(s => s.Nombre);
+                    propiedadJuridicas = propiedadJuridicas.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(PropiedadJuridicas.ToPagedList(pageNumber, pageSize));
+            return View(propiedadJuridicas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: PropiedadJuridicas/Details/5

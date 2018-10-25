@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Idiomas = from s in db.Idiomas
+            var idiomas = from s in db.Idiomas
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Idiomas = Idiomas.Where(s => s.Nombre.Contains(searchString));
+                idiomas = idiomas.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Idiomas = Idiomas.OrderByDescending(s => s.Nombre);
+                    idiomas = idiomas.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Idiomas = Idiomas.OrderBy(s => s.Codigo);
+                    idiomas = idiomas.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Idiomas = Idiomas.OrderBy(s => s.Nombre);
+                    idiomas = idiomas.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Idiomas.ToPagedList(pageNumber, pageSize));
+            return View(idiomas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Idiomas/Details/5

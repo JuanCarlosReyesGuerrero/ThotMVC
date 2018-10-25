@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Parentescos = from s in db.Parentescos
+            var parentescos = from s in db.Parentescos
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Parentescos = Parentescos.Where(s => s.Nombre.Contains(searchString));
+                parentescos = parentescos.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Parentescos = Parentescos.OrderByDescending(s => s.Nombre);
+                    parentescos = parentescos.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Parentescos = Parentescos.OrderBy(s => s.Codigo);
+                    parentescos = parentescos.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Parentescos = Parentescos.OrderBy(s => s.Nombre);
+                    parentescos = parentescos.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Parentescos.ToPagedList(pageNumber, pageSize));
+            return View(parentescos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Parentescos/Details/5

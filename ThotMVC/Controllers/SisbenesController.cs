@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Sisbenes = from s in db.Sisbenes
+            var sisbenes = from s in db.Sisbenes
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Sisbenes = Sisbenes.Where(s => s.Nombre.Contains(searchString));
+                sisbenes = sisbenes.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Sisbenes = Sisbenes.OrderByDescending(s => s.Nombre);
+                    sisbenes = sisbenes.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Sisbenes = Sisbenes.OrderBy(s => s.Codigo);
+                    sisbenes = sisbenes.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Sisbenes = Sisbenes.OrderBy(s => s.Nombre);
+                    sisbenes = sisbenes.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Sisbenes.ToPagedList(pageNumber, pageSize));
+            return View(sisbenes.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Sisbenes/Details/5

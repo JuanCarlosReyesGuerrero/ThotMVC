@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Resguardos = from s in db.Resguardos
+            var resguardos = from s in db.Resguardos
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Resguardos = Resguardos.Where(s => s.Nombre.Contains(searchString));
+                resguardos = resguardos.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Resguardos = Resguardos.OrderByDescending(s => s.Nombre);
+                    resguardos = resguardos.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Resguardos = Resguardos.OrderBy(s => s.Codigo);
+                    resguardos = resguardos.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Resguardos = Resguardos.OrderBy(s => s.Nombre);
+                    resguardos = resguardos.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Resguardos.ToPagedList(pageNumber, pageSize));
+            return View(resguardos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Resguardos/Details/5

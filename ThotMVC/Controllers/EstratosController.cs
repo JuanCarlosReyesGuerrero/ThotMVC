@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Estratos = from s in db.Estratos
+            var estratos = from s in db.Estratos
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Estratos = Estratos.Where(s => s.Nombre.Contains(searchString));
+                estratos = estratos.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Estratos = Estratos.OrderByDescending(s => s.Nombre);
+                    estratos = estratos.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Estratos = Estratos.OrderBy(s => s.Codigo);
+                    estratos = estratos.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Estratos = Estratos.OrderBy(s => s.Nombre);
+                    estratos = estratos.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Estratos.ToPagedList(pageNumber, pageSize));
+            return View(estratos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Estratos/Details/5

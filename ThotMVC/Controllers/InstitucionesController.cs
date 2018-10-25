@@ -63,6 +63,7 @@ namespace ThotMVC.Controllers
 
             var instituciones = from s in db.Instituciones.Include(i => i.AsociacionPrivadas).Include(i => i.Calendarios).Include(i => i.CapacidadExcepcionales).Include(i => i.Departamentos).Include(i => i.Etnias).Include(i => i.Generos).Include(i => i.Idiomas).Include(i => i.Metodologias).Include(i => i.Municipios).Include(i => i.Nucleos).Include(i => i.Prestadores).Include(i => i.PropiedadJuridicas).Include(i => i.RegimenCostos).Include(i => i.Resguardos).Include(i => i.TarifaAnuales).Include(i => i.TipoDiscapacidades).Include(i => i.TipoNovedades).Include(i => i.TipoSectorEducaciones).Include(i => i.Zonas)
             select s;
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 instituciones = instituciones.Where(s => s.Nombre.Contains(searchString));

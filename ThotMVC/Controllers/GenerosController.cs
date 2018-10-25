@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Generos = from s in db.Generos
+            var generos = from s in db.Generos
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Generos = Generos.Where(s => s.Nombre.Contains(searchString));
+                generos = generos.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Generos = Generos.OrderByDescending(s => s.Nombre);
+                    generos = generos.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Generos = Generos.OrderBy(s => s.Codigo);
+                    generos = generos.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Generos = Generos.OrderBy(s => s.Nombre);
+                    generos = generos.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Generos.ToPagedList(pageNumber, pageSize));
+            return View(generos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Generos/Details/5

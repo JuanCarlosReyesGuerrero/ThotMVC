@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Etnias = from s in db.Etnias
+            var etnias = from s in db.Etnias
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Etnias = Etnias.Where(s => s.Nombre.Contains(searchString));
+                etnias = etnias.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Etnias = Etnias.OrderByDescending(s => s.Nombre);
+                    etnias = etnias.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Etnias = Etnias.OrderBy(s => s.Codigo);
+                    etnias = etnias.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Etnias = Etnias.OrderBy(s => s.Nombre);
+                    etnias = etnias.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Etnias.ToPagedList(pageNumber, pageSize));
+            return View(etnias.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Etnias/Details/5

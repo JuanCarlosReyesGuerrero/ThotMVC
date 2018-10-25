@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Especialidades = from s in db.Especialidades
+            var especialidades = from s in db.Especialidades
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Especialidades = Especialidades.Where(s => s.Nombre.Contains(searchString));
+                especialidades = especialidades.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Especialidades = Especialidades.OrderByDescending(s => s.Nombre);
+                    especialidades = especialidades.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Especialidades = Especialidades.OrderBy(s => s.Codigo);
+                    especialidades = especialidades.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Especialidades = Especialidades.OrderBy(s => s.Nombre);
+                    especialidades = especialidades.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Especialidades.ToPagedList(pageNumber, pageSize));
+            return View(especialidades.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Especialidades/Details/5

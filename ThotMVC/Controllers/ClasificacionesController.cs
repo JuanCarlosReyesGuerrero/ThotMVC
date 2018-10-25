@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Clasificaciones = from s in db.Clasificaciones
+            var clasificaciones = from s in db.Clasificaciones
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Clasificaciones = Clasificaciones.Where(s => s.Nombre.Contains(searchString));
+                clasificaciones = clasificaciones.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Clasificaciones = Clasificaciones.OrderByDescending(s => s.Nombre);
+                    clasificaciones = clasificaciones.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Clasificaciones = Clasificaciones.OrderBy(s => s.Codigo);
+                    clasificaciones = clasificaciones.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Clasificaciones = Clasificaciones.OrderBy(s => s.Nombre);
+                    clasificaciones = clasificaciones.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Clasificaciones.ToPagedList(pageNumber, pageSize));
+            return View(clasificaciones.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Clasificaciones/Details/5

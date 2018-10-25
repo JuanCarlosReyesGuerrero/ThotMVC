@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var TarifaAnuales = from s in db.TarifaAnuales
+            var tarifaAnuales = from s in db.TarifaAnuales
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                TarifaAnuales = TarifaAnuales.Where(s => s.Nombre.Contains(searchString));
+                tarifaAnuales = tarifaAnuales.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    TarifaAnuales = TarifaAnuales.OrderByDescending(s => s.Nombre);
+                    tarifaAnuales = tarifaAnuales.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    TarifaAnuales = TarifaAnuales.OrderBy(s => s.Codigo);
+                    tarifaAnuales = tarifaAnuales.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    TarifaAnuales = TarifaAnuales.OrderBy(s => s.Nombre);
+                    tarifaAnuales = tarifaAnuales.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(TarifaAnuales.ToPagedList(pageNumber, pageSize));
+            return View(tarifaAnuales.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: TarifaAnuales/Details/5

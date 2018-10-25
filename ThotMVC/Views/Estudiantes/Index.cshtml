@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ThotMVC.Models.Estudiantes>
+﻿@model PagedList.IPagedList<ThotMVC.Models.Estudiantes>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -9,763 +11,824 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "Estudiantes", FormMethod.Get))
+{
+    <p>
+        <div class="form-group">
+            Nombre: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+        </div>
+        <input class="btn btn-success" type="submit" value="Buscar" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Ars.Codigo)
+            Código
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CapacidadExcepcionales.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Eps.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estratos.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Etnias.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FactorRhs.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Generos.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Grupos.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Instituciones.CodigoDane)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Parentescos.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PoblacionVictimaConflictos.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Resguardos.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sedes.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sisbenes.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoDiscapacidades.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoIdentificaciones.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CodigoMEN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroDocumento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoExpedicionId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioExpedicionId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimerApellido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SegundoApellido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimerNombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SegundoNombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoNacimientoId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioNacimientoId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fotografia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoResidenciaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioResidenciaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ZonaResidenciaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Localidad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Barrio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Celular)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroSisben)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoExpulsorId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioExpulsorId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaExpulsion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CertificadoExpulsion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaCertificadoExpulsion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProvieneSectorPrivado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProvieneOtroMunicipio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InstitucionBienestar)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoIdentificacionMadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroDocumentoMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoExpedicionMadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioExpedicionMadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EstudiantePrimerApellidoMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SegundoApellidoMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimerNombreMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EstudianteSegundoNombreMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DireccionMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoResidenciaMadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioResidenciaMadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ZonaResidenciaMadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BarrioMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocalidadMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefonoMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CelularMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OcupacionMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmpresaMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefonoEmpresaMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoIdentificacionPadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroDocumentoPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoExpedicionPadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioExpedicionPadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimerApellidoPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SegundoApellidoPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimerNombrePadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SegundoNombrePadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DireccionPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoResidenciaPadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioResidenciaPadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ZonaResicenciaPadreId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BarrioPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Localidadpadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefonoPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CelularPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OcupacionPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmpresaPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefonoEmpresaPadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoIdentificacionAcudienteId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroDocumentoAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoExpedicionAcudienteId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioExpedicionAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimerApellidoAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SegundoApellidoAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimerNombreAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SegundoNombreAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DireccionAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartamentoResidenciaAcudienteId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipioResidenciaAcudienteId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ZonaResidenciaAcudienteId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BarrioAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocalidadAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefonoAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CelularAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OcupacionAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmpresaAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefonoEmpresaAcudiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GeneroAcudienteId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ColegioUltimoCurso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DireccionColegioUltimoCurso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefonoColegioUltimoCurso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UltimoGrado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Anio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MotivoRetiroUltimo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Observaciones)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UsuarioEstudiante)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClaveAcceso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SeleccioneMadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SeleccionePadre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UsuarioRegistra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UsuarioModifica)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaModifica)
+            @Html.ActionLink("Nombre", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ars.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CapacidadExcepcionales.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Eps.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estratos.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Etnias.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FactorRhs.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Generos.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Grupos.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Instituciones.CodigoDane)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Parentescos.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PoblacionVictimaConflictos.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Resguardos.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sedes.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sisbenes.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoDiscapacidades.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoIdentificaciones.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodigoMEN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroDocumento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoExpedicionId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioExpedicionId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimerApellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SegundoApellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimerNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SegundoNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaNacimiento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoNacimientoId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioNacimientoId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fotografia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoResidenciaId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioResidenciaId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZonaResidenciaId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Localidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Barrio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Celular)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroSisben)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoExpulsorId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioExpulsorId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaExpulsion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CertificadoExpulsion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaCertificadoExpulsion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProvieneSectorPrivado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProvieneOtroMunicipio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InstitucionBienestar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoIdentificacionMadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroDocumentoMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoExpedicionMadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioExpedicionMadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EstudiantePrimerApellidoMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SegundoApellidoMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimerNombreMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EstudianteSegundoNombreMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DireccionMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoResidenciaMadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioResidenciaMadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZonaResidenciaMadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BarrioMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocalidadMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefonoMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CelularMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OcupacionMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmpresaMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefonoEmpresaMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoIdentificacionPadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroDocumentoPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoExpedicionPadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioExpedicionPadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimerApellidoPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SegundoApellidoPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimerNombrePadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SegundoNombrePadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DireccionPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoResidenciaPadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioResidenciaPadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZonaResicenciaPadreId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BarrioPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Localidadpadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefonoPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CelularPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OcupacionPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmpresaPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefonoEmpresaPadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoIdentificacionAcudienteId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroDocumentoAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoExpedicionAcudienteId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioExpedicionAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimerApellidoAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SegundoApellidoAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimerNombreAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SegundoNombreAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DireccionAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartamentoResidenciaAcudienteId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipioResidenciaAcudienteId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZonaResidenciaAcudienteId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BarrioAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocalidadAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefonoAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CelularAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OcupacionAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmpresaAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefonoEmpresaAcudiente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GeneroAcudienteId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ColegioUltimoCurso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DireccionColegioUltimoCurso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefonoColegioUltimoCurso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UltimoGrado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Anio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MotivoRetiroUltimo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Observaciones)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UsuarioEstudiante)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClaveAcceso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SeleccioneMadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SeleccionePadre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UsuarioRegistra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UsuarioModifica)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaModifica)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerNombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+
+
+
+
+@*@model IEnumerable<ThotMVC.Models.Estudiantes>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ars.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacidadExcepcionales.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Eps.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estratos.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Etnias.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FactorRhs.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Generos.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grupos.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instituciones.CodigoDane)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parentescos.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoblacionVictimaConflictos.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resguardos.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sedes.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sisbenes.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoDiscapacidades.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoIdentificaciones.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoMEN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoExpedicionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioExpedicionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegundoApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegundoNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoNacimientoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioNacimientoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fotografia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoResidenciaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioResidenciaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZonaResidenciaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Localidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Barrio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroSisben)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoExpulsorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioExpulsorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaExpulsion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CertificadoExpulsion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCertificadoExpulsion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvieneSectorPrivado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvieneOtroMunicipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstitucionBienestar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoIdentificacionMadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDocumentoMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoExpedicionMadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioExpedicionMadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstudiantePrimerApellidoMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegundoApellidoMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerNombreMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstudianteSegundoNombreMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DireccionMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoResidenciaMadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioResidenciaMadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZonaResidenciaMadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BarrioMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalidadMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CelularMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OcupacionMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoEmpresaMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoIdentificacionPadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDocumentoPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoExpedicionPadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioExpedicionPadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerApellidoPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegundoApellidoPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerNombrePadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegundoNombrePadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DireccionPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoResidenciaPadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioResidenciaPadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZonaResicenciaPadreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BarrioPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Localidadpadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CelularPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OcupacionPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoEmpresaPadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoIdentificacionAcudienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDocumentoAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoExpedicionAcudienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioExpedicionAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerApellidoAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegundoApellidoAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerNombreAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegundoNombreAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DireccionAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoResidenciaAcudienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MunicipioResidenciaAcudienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZonaResidenciaAcudienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BarrioAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalidadAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CelularAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OcupacionAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoEmpresaAcudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeneroAcudienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColegioUltimoCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DireccionColegioUltimoCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoColegioUltimoCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UltimoGrado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotivoRetiroUltimo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioEstudiante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClaveAcceso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeleccioneMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeleccionePadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioRegistra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioModifica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaModifica)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ars.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapacidadExcepcionales.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eps.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estratos.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etnias.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FactorRhs.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Generos.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grupos.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instituciones.CodigoDane)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parentescos.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoblacionVictimaConflictos.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resguardos.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sedes.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sisbenes.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDiscapacidades.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoIdentificaciones.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoMEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoExpedicionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioExpedicionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SegundoApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SegundoNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoNacimientoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioNacimientoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fotografia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoResidenciaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioResidenciaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZonaResidenciaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Localidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Barrio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroSisben)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoExpulsorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioExpulsorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaExpulsion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CertificadoExpulsion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCertificadoExpulsion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProvieneSectorPrivado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProvieneOtroMunicipio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstitucionBienestar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoIdentificacionMadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDocumentoMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoExpedicionMadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioExpedicionMadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstudiantePrimerApellidoMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SegundoApellidoMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerNombreMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstudianteSegundoNombreMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DireccionMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoResidenciaMadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioResidenciaMadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZonaResidenciaMadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BarrioMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalidadMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CelularMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OcupacionMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoEmpresaMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoIdentificacionPadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDocumentoPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoExpedicionPadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioExpedicionPadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerApellidoPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SegundoApellidoPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerNombrePadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SegundoNombrePadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DireccionPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoResidenciaPadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioResidenciaPadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZonaResicenciaPadreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BarrioPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Localidadpadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CelularPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OcupacionPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoEmpresaPadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoIdentificacionAcudienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDocumentoAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoExpedicionAcudienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioExpedicionAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerApellidoAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SegundoApellidoAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerNombreAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SegundoNombreAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DireccionAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoResidenciaAcudienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MunicipioResidenciaAcudienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZonaResidenciaAcudienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BarrioAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalidadAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CelularAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OcupacionAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoEmpresaAcudiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeneroAcudienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColegioUltimoCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DireccionColegioUltimoCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoColegioUltimoCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UltimoGrado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotivoRetiroUltimo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioEstudiante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaveAcceso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeleccioneMadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeleccionePadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioRegistra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioModifica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaModifica)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

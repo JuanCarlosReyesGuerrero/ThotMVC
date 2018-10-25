@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Metodologias = from s in db.Metodologias
+            var metodologias = from s in db.Metodologias
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Metodologias = Metodologias.Where(s => s.Nombre.Contains(searchString));
+                metodologias = metodologias.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Metodologias = Metodologias.OrderByDescending(s => s.Nombre);
+                    metodologias = metodologias.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Metodologias = Metodologias.OrderBy(s => s.Codigo);
+                    metodologias = metodologias.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Metodologias = Metodologias.OrderBy(s => s.Nombre);
+                    metodologias = metodologias.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Metodologias.ToPagedList(pageNumber, pageSize));
+            return View(metodologias.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Metodologias/Details/5

@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Escalafones = from s in db.Escalafones
+            var escalafones = from s in db.Escalafones
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Escalafones = Escalafones.Where(s => s.Nombre.Contains(searchString));
+                escalafones = escalafones.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Escalafones = Escalafones.OrderByDescending(s => s.Nombre);
+                    escalafones = escalafones.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Escalafones = Escalafones.OrderBy(s => s.Codigo);
+                    escalafones = escalafones.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Escalafones = Escalafones.OrderBy(s => s.Nombre);
+                    escalafones = escalafones.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Escalafones.ToPagedList(pageNumber, pageSize));
+            return View(escalafones.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Escalafones/Details/5

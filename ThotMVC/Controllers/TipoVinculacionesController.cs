@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var TipoVinculaciones = from s in db.TipoVinculaciones
+            var tipoVinculaciones = from s in db.TipoVinculaciones
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                TipoVinculaciones = TipoVinculaciones.Where(s => s.Nombre.Contains(searchString));
+                tipoVinculaciones = tipoVinculaciones.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    TipoVinculaciones = TipoVinculaciones.OrderByDescending(s => s.Nombre);
+                    tipoVinculaciones = tipoVinculaciones.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    TipoVinculaciones = TipoVinculaciones.OrderBy(s => s.Codigo);
+                    tipoVinculaciones = tipoVinculaciones.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    TipoVinculaciones = TipoVinculaciones.OrderBy(s => s.Nombre);
+                    tipoVinculaciones = tipoVinculaciones.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(TipoVinculaciones.ToPagedList(pageNumber, pageSize));
+            return View(tipoVinculaciones.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: TipoVinculaciones/Details/5

@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var EstadoCiviles = from s in db.EstadoCiviles
+            var estadoCiviles = from s in db.EstadoCiviles
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                EstadoCiviles = EstadoCiviles.Where(s => s.Nombre.Contains(searchString));
+                estadoCiviles = estadoCiviles.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    EstadoCiviles = EstadoCiviles.OrderByDescending(s => s.Nombre);
+                    estadoCiviles = estadoCiviles.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    EstadoCiviles = EstadoCiviles.OrderBy(s => s.Codigo);
+                    estadoCiviles = estadoCiviles.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    EstadoCiviles = EstadoCiviles.OrderBy(s => s.Nombre);
+                    estadoCiviles = estadoCiviles.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(EstadoCiviles.ToPagedList(pageNumber, pageSize));
+            return View(estadoCiviles.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: EstadoCiviles/Details/5

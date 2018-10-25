@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var TipoDiscapacidades = from s in db.TipoDiscapacidades
+            var tipoDiscapacidades = from s in db.TipoDiscapacidades
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                TipoDiscapacidades = TipoDiscapacidades.Where(s => s.Nombre.Contains(searchString));
+                tipoDiscapacidades = tipoDiscapacidades.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    TipoDiscapacidades = TipoDiscapacidades.OrderByDescending(s => s.Nombre);
+                    tipoDiscapacidades = tipoDiscapacidades.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    TipoDiscapacidades = TipoDiscapacidades.OrderBy(s => s.Codigo);
+                    tipoDiscapacidades = tipoDiscapacidades.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    TipoDiscapacidades = TipoDiscapacidades.OrderBy(s => s.Nombre);
+                    tipoDiscapacidades = tipoDiscapacidades.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(TipoDiscapacidades.ToPagedList(pageNumber, pageSize));
+            return View(tipoDiscapacidades.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: TipoDiscapacidades/Details/5

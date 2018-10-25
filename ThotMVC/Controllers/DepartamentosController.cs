@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Departamentos = from s in db.Departamentos
+            var departamentos = from s in db.Departamentos
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Departamentos = Departamentos.Where(s => s.Nombre.Contains(searchString));
+                departamentos = departamentos.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Departamentos = Departamentos.OrderByDescending(s => s.Nombre);
+                    departamentos = departamentos.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Departamentos = Departamentos.OrderBy(s => s.Codigo);
+                    departamentos = departamentos.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Departamentos = Departamentos.OrderBy(s => s.Nombre);
+                    departamentos = departamentos.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Departamentos.ToPagedList(pageNumber, pageSize));
+            return View(departamentos.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Departamentos/Details/5

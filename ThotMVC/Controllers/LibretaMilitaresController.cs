@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var LibretaMilitares = from s in db.LibretaMilitares
+            var libretaMilitares = from s in db.LibretaMilitares
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                LibretaMilitares = LibretaMilitares.Where(s => s.Nombre.Contains(searchString));
+                libretaMilitares = libretaMilitares.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    LibretaMilitares = LibretaMilitares.OrderByDescending(s => s.Nombre);
+                    libretaMilitares = libretaMilitares.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    LibretaMilitares = LibretaMilitares.OrderBy(s => s.Codigo);
+                    libretaMilitares = libretaMilitares.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    LibretaMilitares = LibretaMilitares.OrderBy(s => s.Nombre);
+                    libretaMilitares = libretaMilitares.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(LibretaMilitares.ToPagedList(pageNumber, pageSize));
+            return View(libretaMilitares.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: LibretaMilitares/Details/5

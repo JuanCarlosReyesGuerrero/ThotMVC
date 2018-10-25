@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Zonas = from s in db.Zonas
+            var zonas = from s in db.Zonas
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Zonas = Zonas.Where(s => s.Nombre.Contains(searchString));
+                zonas = zonas.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Zonas = Zonas.OrderByDescending(s => s.Nombre);
+                    zonas = zonas.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Zonas = Zonas.OrderBy(s => s.Codigo);
+                    zonas = zonas.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Zonas = Zonas.OrderBy(s => s.Nombre);
+                    zonas = zonas.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Zonas.ToPagedList(pageNumber, pageSize));
+            return View(zonas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Zonas/Details/5

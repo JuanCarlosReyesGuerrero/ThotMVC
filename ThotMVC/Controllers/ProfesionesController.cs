@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Profesiones = from s in db.Profesiones
+            var profesiones = from s in db.Profesiones
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Profesiones = Profesiones.Where(s => s.Nombre.Contains(searchString));
+                profesiones = profesiones.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Profesiones = Profesiones.OrderByDescending(s => s.Nombre);
+                    profesiones = profesiones.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Profesiones = Profesiones.OrderBy(s => s.Codigo);
+                    profesiones = profesiones.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Profesiones = Profesiones.OrderBy(s => s.Nombre);
+                    profesiones = profesiones.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Profesiones.ToPagedList(pageNumber, pageSize));
+            return View(profesiones.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Profesiones/Details/5

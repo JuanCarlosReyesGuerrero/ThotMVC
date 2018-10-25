@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,48 @@ namespace ThotMVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Estudiantes
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var estudiantes = db.Estudiantes.Include(e => e.Ars).Include(e => e.CapacidadExcepcionales).Include(e => e.Eps).Include(e => e.Estratos).Include(e => e.Etnias).Include(e => e.FactorRhs).Include(e => e.Generos).Include(e => e.Grupos).Include(e => e.Instituciones).Include(e => e.Parentescos).Include(e => e.PoblacionVictimaConflictos).Include(e => e.Resguardos).Include(e => e.Sedes).Include(e => e.Sisbenes).Include(e => e.TipoDiscapacidades).Include(e => e.TipoIdentificaciones);
-            return View(estudiantes.ToList());
+
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var estudiantes = from s in db.Estudiantes.Include(e => e.Ars).Include(e => e.CapacidadExcepcionales).Include(e => e.Eps).Include(e => e.Estratos).Include(e => e.Etnias).Include(e => e.FactorRhs).Include(e => e.Generos).Include(e => e.Grupos).Include(e => e.Instituciones).Include(e => e.Parentescos).Include(e => e.PoblacionVictimaConflictos).Include(e => e.Resguardos).Include(e => e.Sedes).Include(e => e.Sisbenes).Include(e => e.TipoDiscapacidades).Include(e => e.TipoIdentificaciones)
+            select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                estudiantes = estudiantes.Where(s => s.PrimerApellido.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    estudiantes = estudiantes.OrderByDescending(s => s.PrimerApellido);
+                    break;
+                case "Codigo":
+                    estudiantes = estudiantes.OrderBy(s => s.Codigo);
+                    break;
+                default:  // Name ascending 
+                    estudiantes = estudiantes.OrderBy(s => s.PrimerApellido);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(estudiantes.ToPagedList(pageNumber, pageSize));
+
+
+            //var estudiantes = db.Estudiantes.Include(e => e.Ars).Include(e => e.CapacidadExcepcionales).Include(e => e.Eps).Include(e => e.Estratos).Include(e => e.Etnias).Include(e => e.FactorRhs).Include(e => e.Generos).Include(e => e.Grupos).Include(e => e.Instituciones).Include(e => e.Parentescos).Include(e => e.PoblacionVictimaConflictos).Include(e => e.Resguardos).Include(e => e.Sedes).Include(e => e.Sisbenes).Include(e => e.TipoDiscapacidades).Include(e => e.TipoIdentificaciones);
+            //return View(estudiantes.ToList());
         }
 
         // GET: Estudiantes/Details/5

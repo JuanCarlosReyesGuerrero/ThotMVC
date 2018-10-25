@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var ClasesFuncionarios = from s in db.ClasesFuncionarios
+            var clasesFuncionarios = from s in db.ClasesFuncionarios
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                ClasesFuncionarios = ClasesFuncionarios.Where(s => s.Nombre.Contains(searchString));
+                clasesFuncionarios = clasesFuncionarios.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    ClasesFuncionarios = ClasesFuncionarios.OrderByDescending(s => s.Nombre);
+                    clasesFuncionarios = clasesFuncionarios.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    ClasesFuncionarios = ClasesFuncionarios.OrderBy(s => s.Codigo);
+                    clasesFuncionarios = clasesFuncionarios.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    ClasesFuncionarios = ClasesFuncionarios.OrderBy(s => s.Nombre);
+                    clasesFuncionarios = clasesFuncionarios.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(ClasesFuncionarios.ToPagedList(pageNumber, pageSize));
+            return View(clasesFuncionarios.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: ClasesFuncionarios/Details/5

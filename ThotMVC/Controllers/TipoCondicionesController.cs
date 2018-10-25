@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var TipoCondiciones = from s in db.TipoCondiciones
+            var tipoCondiciones = from s in db.TipoCondiciones
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                TipoCondiciones = TipoCondiciones.Where(s => s.Nombre.Contains(searchString));
+                tipoCondiciones = tipoCondiciones.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    TipoCondiciones = TipoCondiciones.OrderByDescending(s => s.Nombre);
+                    tipoCondiciones = tipoCondiciones.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    TipoCondiciones = TipoCondiciones.OrderBy(s => s.Codigo);
+                    tipoCondiciones = tipoCondiciones.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    TipoCondiciones = TipoCondiciones.OrderBy(s => s.Nombre);
+                    tipoCondiciones = tipoCondiciones.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(TipoCondiciones.ToPagedList(pageNumber, pageSize));
+            return View(tipoCondiciones.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: TipoCondiciones/Details/5

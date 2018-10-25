@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var Calendarios = from s in db.Calendarios
+            var calendarios = from s in db.Calendarios
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                Calendarios = Calendarios.Where(s => s.Nombre.Contains(searchString));
+                calendarios = calendarios.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    Calendarios = Calendarios.OrderByDescending(s => s.Nombre);
+                    calendarios = calendarios.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    Calendarios = Calendarios.OrderBy(s => s.Codigo);
+                    calendarios = calendarios.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    Calendarios = Calendarios.OrderBy(s => s.Nombre);
+                    calendarios = calendarios.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(Calendarios.ToPagedList(pageNumber, pageSize));
+            return View(calendarios.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Calendarios/Details/5

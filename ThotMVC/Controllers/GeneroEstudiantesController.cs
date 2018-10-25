@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var GeneroEstudiantes = from s in db.GeneroEstudiantes
+            var generoEstudiantes = from s in db.GeneroEstudiantes
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                GeneroEstudiantes = GeneroEstudiantes.Where(s => s.Nombre.Contains(searchString));
+                generoEstudiantes = generoEstudiantes.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    GeneroEstudiantes = GeneroEstudiantes.OrderByDescending(s => s.Nombre);
+                    generoEstudiantes = generoEstudiantes.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    GeneroEstudiantes = GeneroEstudiantes.OrderBy(s => s.Codigo);
+                    generoEstudiantes = generoEstudiantes.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    GeneroEstudiantes = GeneroEstudiantes.OrderBy(s => s.Nombre);
+                    generoEstudiantes = generoEstudiantes.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(GeneroEstudiantes.ToPagedList(pageNumber, pageSize));
+            return View(generoEstudiantes.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: GeneroEstudiantes/Details/5

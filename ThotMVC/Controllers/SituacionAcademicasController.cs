@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var SituacionAcademicas = from s in db.SituacionAcademicas
+            var situacionAcademicas = from s in db.SituacionAcademicas
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                SituacionAcademicas = SituacionAcademicas.Where(s => s.Nombre.Contains(searchString));
+                situacionAcademicas = situacionAcademicas.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    SituacionAcademicas = SituacionAcademicas.OrderByDescending(s => s.Nombre);
+                    situacionAcademicas = situacionAcademicas.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    SituacionAcademicas = SituacionAcademicas.OrderBy(s => s.Codigo);
+                    situacionAcademicas = situacionAcademicas.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    SituacionAcademicas = SituacionAcademicas.OrderBy(s => s.Nombre);
+                    situacionAcademicas = situacionAcademicas.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(SituacionAcademicas.ToPagedList(pageNumber, pageSize));
+            return View(situacionAcademicas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: SituacionAcademicas/Details/5

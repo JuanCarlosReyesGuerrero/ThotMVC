@@ -31,27 +31,27 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var AsociacionPrivadas = from s in db.AsociacionPrivadas
+            var asociacionPrivadas = from s in db.AsociacionPrivadas
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                AsociacionPrivadas = AsociacionPrivadas.Where(s => s.Nombre.Contains(searchString));
+                asociacionPrivadas = asociacionPrivadas.Where(s => s.Nombre.Contains(searchString));
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    AsociacionPrivadas = AsociacionPrivadas.OrderByDescending(s => s.Nombre);
+                    asociacionPrivadas = asociacionPrivadas.OrderByDescending(s => s.Nombre);
                     break;
                 case "Codigo":
-                    AsociacionPrivadas = AsociacionPrivadas.OrderBy(s => s.Codigo);
+                    asociacionPrivadas = asociacionPrivadas.OrderBy(s => s.Codigo);
                     break;
                 default:  // Name ascending 
-                    AsociacionPrivadas = AsociacionPrivadas.OrderBy(s => s.Nombre);
+                    asociacionPrivadas = asociacionPrivadas.OrderBy(s => s.Nombre);
                     break;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(AsociacionPrivadas.ToPagedList(pageNumber, pageSize));
+            return View(asociacionPrivadas.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: AsociacionPrivadas/Details/5
