@@ -13,6 +13,7 @@ namespace ThotMVC.Models
 
         [Display(Name = "Código Dane")]
         [Required(ErrorMessage = "Digete el código Dane")]
+        [RegularExpression("^([0-9]{12})?$", ErrorMessage = "Formato del NIT incorrecto")]
         public String CodigoDane { get; set; }
 
         [Display(Name = "Nombre Institución")]
@@ -21,6 +22,7 @@ namespace ThotMVC.Models
 
         [Display(Name = "NIT")]
         [Required(ErrorMessage = "Digite el nit de la institución")]
+        [RegularExpression("^([0-9]{9}-[0-9]{1})?$", ErrorMessage = "Formato del NIT incorrecto")]
         public String Nit { get; set; }
 
         [Display(Name = "Nombre del rector")]
@@ -28,7 +30,7 @@ namespace ThotMVC.Models
         public String NombreRector { get; set; }
 
         [Display(Name = "Calendario")]
-        [Required(ErrorMessage = "Seleccionar el calendario")]
+        [Required(ErrorMessage = "Seleccionar un calendario")]
         [ForeignKey("Calendarios")]
         public Int64 CalendarioId { get; set; }
 
