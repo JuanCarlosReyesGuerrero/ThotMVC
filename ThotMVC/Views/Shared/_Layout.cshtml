@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - Thot</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -106,91 +106,115 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Thot", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                    @*<li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("Acerca de", "About", "Home", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Contacto", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Contacto", "Contact", "Home", null, new { @class = "nav-link" })</li>*@
 
 
 
 
+                    @*PRINCIAL*@
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Principal</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="@Url.Action("Index", "Matriculas")">Matrículas</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Notas")">Notas</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Instituciones")">Instituciones</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Sedes")">Sedes</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Estudiantes")">Estudiantes</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Profesores")">Profesores</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Grados")">Grados</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Grupos")">Grupos</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Cursos")">Cursos</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Materias")">Materias/Areas</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Juicios")">Juicios</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "ValoracionLetras")">Valoración en Letras</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "EscalaNacionales")">Escala Nacional (Dec 1290)</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Equivalencias")">Equivalencias</a>
+                        </div>
+                    </li>
+
+                    @*CONFIGURACION*@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Configuración</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="@Url.Action("Index", "Asignaturas")">Asignaturas</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "TipoIdentificaciones")">Tipos Identificacion</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Municipios")">Municipios</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Departamentos")">Departamentos</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Estratos")">Estratos</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Sisbenes")">Nivel sisben</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Generos")">Género</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "PoblacionVictimaConflictos")">Población Víctima Conflicto</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "TipoRespuestas")">Tipos Respuestas</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "TipoDiscapacidades")">Tipos Discapacidades</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "CapacidadExcepcionales")">Capacidades Excepcionales</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Etnias")">Etnias</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Resguardos")">Resguardos</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Jornadas")">Jornadas</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "TipoCaracteres")">Tipos Caracteres</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Especialidades")">Especialidades</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Metodologias")">Metodologias</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "SituacionAcademicas")">Situaciones Academicas</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "TipoCondiciones")">Tipos Condiciones</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "FuenteRecursos")">Fuentes Recursos</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Zonas")">Zonas</a>
+                        </div>
+                    </li>
+
+                    @*REPORTES*@
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        </div>
+                    </li>
+
+                    @*HERRAMIENTAS*@
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Herramientas</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Configuración1</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
                             <a class="dropdown-item" href="@Url.Action("Index", "AporteParafiscales")">Aportes Parafiscales</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Ars")">Ars</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Asignaturas")">Asignaturas</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "AsociacionPrivadas")">Asociaciones Privadas</a>
-
-                            <a class="dropdown-item" href="@Url.Action("Index", "Estudiantes")">Estudiantes</a>
-
                             <a class="dropdown-item" href="@Url.Action("Index", "Calendarios")">Calendarios</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "CapacidadExcepcionales")">Capacidades Excepcionales</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Cargos")">Cargos</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "ClasesFuncionarios")">Clases Funcionarios</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Clasificaciones")">Clasificaciones</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Cursos")">Cursos</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Departamentos")">Departamentos</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Eps")">Eps</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Equivalencias")">Equivalencias</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Escalafones")">Escalafones</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "EscalaNacionales")">Escalas Nacionales</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Especialidades")">Especialidades</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "EstadoCiviles")">Estados Civiles</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Estratos")">Estratos</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Estudiantes")">Estudiantes</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Etnias")">Etnias</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "FactorRhs")">Factor Rh</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "FuenteRecursos")">Fuentes Recursos</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "GeneroEstudiantes")">Generos Estudiantes</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Generos")">Generos</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Grados")">Grados</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Grupos")">Grupos</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Idiomas")">Idiomas</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Instituciones")">Instituciones</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Jornadas")">Jornadas</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Juicios")">Juicios</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "LibretaMilitares")">Libretas Militares</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Materias")">Materias</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Metodologias")">Metodologias</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Municipios")">Municipios</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "NivelEducativoDocentes")">Niveles Educativos Docentes</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "NivelEducativos")">Niveles Educativos</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Nucleos")">Nucleos</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Parentescos")">Parentescos</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Periodos")">Periodos</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "PoblacionVictimaConflictos")">Población Victima Conflictos</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Prestadores")">Prestadores</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "Profesiones")">Profesiones</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Profesores")">Profesores</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "PropiedadJuridicas")">Propiedades Juridicas</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "RegimenCostos")">Regimen Costos</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Resguardos")">Resguardos</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Sedes")">Sedes</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Sisbenes")">Sisbenes</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "SituacionAcademicas")">Situaciones Academicas</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "TarifaAnuales")">Tarifas Anuales</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "TipoAcademicos")">Tipos Academicos</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "TipoCaracteres")">Tipos Caracteres</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "TipoCondiciones")">Tipos Condiciones</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "TipoDevengos")">Tipos Devengos</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "TipoDiscapacidades")">Tipos Discapacidades</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "TipoIdentificaciones")">Tipos Identificaciones</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "TipoNovedades")">Tipos Novedades</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "TipoRespuestas")">Tipos Respuestas</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "TipoSectorEducaciones")">Tipos Sectores Educaciones</a>
                             <a class="dropdown-item" href="@Url.Action("Index", "TipoVinculaciones")">Tipos Vinculaciones</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "ValoracionLetras")">Valoración Letras</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "Zonas")">Zonas</a>
-
-
-
-
 
                         </div>
                     </li>
@@ -258,7 +282,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Thot</p>
         </footer>
     </div>
 

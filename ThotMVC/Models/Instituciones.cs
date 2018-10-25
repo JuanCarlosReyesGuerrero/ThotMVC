@@ -24,7 +24,7 @@ namespace ThotMVC.Models
         public String Nit { get; set; }
 
         [Display(Name = "Nombre del rector")]
-        [Required(ErrorMessage = "Digite el nombre del rector")]
+        //[Required(ErrorMessage = "Digite el nombre del rector")]
         public String NombreRector { get; set; }
 
         [Display(Name = "Calendario")]
@@ -43,12 +43,44 @@ namespace ThotMVC.Models
         public Int64 PropiedadJuridicaId { get; set; }
 
         [Display(Name = "Número de sedes")]
+        [Required(ErrorMessage = "Digite el número de sedes")]
         public Int32 NumeroSedes { get; set; }
 
         [Display(Name = "Nucleo")]
-        [Required(ErrorMessage = "Seleccionar el núcleo")]
+        //[Required(ErrorMessage = "Seleccionar el núcleo")]
         [ForeignKey("Nucleos")]
         public Int64 NucleoId { get; set; }
+
+        //falta
+        //Direccion nucleo
+        //Telefono del nucleo
+
+        //Falta
+        //jornada Completa
+        //jornada mañana
+        //jornada tarde
+        //jornda nocturna
+        //jornada fin de semana
+
+        [Display(Name = "Jornada completa")]
+        [Required(ErrorMessage = "Seleccionar jornada completa")]
+        public bool JornadaCompletaId { get; set; }
+
+        [Display(Name = "Jornada mañana")]
+        [Required(ErrorMessage = "Seleccionar jornada mañana")]
+        public bool JornadaMananaId { get; set; }
+
+        [Display(Name = "Jornada tarde")]
+        [Required(ErrorMessage = "Seleccionar jornada tarde")]
+        public bool JornadaTardeId { get; set; }
+
+        [Display(Name = "Jornada nocturna")]
+        [Required(ErrorMessage = "Seleccionar jornada nocturna")]
+        public bool JornadaNocturnaId { get; set; }
+
+        [Display(Name = "Jornada fin de semana")]
+        [Required(ErrorMessage = "Seleccionar jornada fin de semana")]
+        public bool JornadaFinSemanaId { get; set; }
 
         [Display(Name = "Género")]
         [Required(ErrorMessage = "Seleccionar el género")]
@@ -56,6 +88,7 @@ namespace ThotMVC.Models
         public Int64 GeneroId { get; set; }
 
         [Display(Name = "Subsidio")]
+        [Required(ErrorMessage = "Digite el subsidio")]
         public Boolean Subsidio { get; set; }
 
         [Display(Name = "Discapacidad")]
@@ -126,13 +159,16 @@ namespace ThotMVC.Models
         [ForeignKey("Zonas")]
         public Int64 ZonaId { get; set; }
 
-        [Display(Name = "Barrio")]
+        [Display(Name = "Barrio/Corregimiento/Caserio")]
+        [Required(ErrorMessage = "Digite el barrio")]
         public String Barrio { get; set; }
 
         [Display(Name = "Dirección")]
+        [Required(ErrorMessage = "Digite la dirección")]
         public String Direccion { get; set; }
 
         [Display(Name = "teléfono")]
+        [Required(ErrorMessage = "Digite el teléfono")]
         public String Telefono { get; set; }
 
         [Display(Name = "Fax")]

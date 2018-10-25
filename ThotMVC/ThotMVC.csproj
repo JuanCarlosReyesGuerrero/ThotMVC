@@ -280,6 +280,10 @@
     <Compile Include="Migrations\201810241921252_estudiantes.Designer.cs">
       <DependentUpon>201810241921252_estudiantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810250247560_instituciones.cs" />
+    <Compile Include="Migrations\201810250247560_instituciones.Designer.cs">
+      <DependentUpon>201810250247560_instituciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -778,6 +782,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810241921252_estudiantes.resx">
       <DependentUpon>201810241921252_estudiantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810250247560_instituciones.resx">
+      <DependentUpon>201810250247560_instituciones.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
