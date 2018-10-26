@@ -12,7 +12,7 @@ namespace ThotMVC.Models
         public Int64 Id { get; set; }
 
         [Display(Name = "Código Dane")]
-        [Required(ErrorMessage = "Digete el código Dane")]
+        [Required(ErrorMessage = "Digite el código Dane")]
         [RegularExpression("^([0-9]{12})?$", ErrorMessage = "Formato del NIT incorrecto")]
         public String CodigoDane { get; set; }
 
