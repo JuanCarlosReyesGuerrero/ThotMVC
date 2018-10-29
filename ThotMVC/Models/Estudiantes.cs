@@ -57,6 +57,8 @@ namespace ThotMVC.Models
 
         [Display(Name = "Fecha nacimiento")]
         [Required(ErrorMessage = "Digite la fecha de nacimiento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaNacimiento { get; set; }
 
         [Display(Name = "Departamento Nacimiento")]

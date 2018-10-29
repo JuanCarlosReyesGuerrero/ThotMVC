@@ -78,22 +78,22 @@ namespace ThotMVC.Controllers
         // GET: Estudiantes/Create
         public ActionResult Create()
         {
-            ViewBag.ArsId = new SelectList(db.Ars, "Id", "Codigo");
-            ViewBag.CapacidadExcepcionalId = new SelectList(db.CapacidadExcepcionales, "Id", "Codigo");
-            ViewBag.EpsId = new SelectList(db.Eps, "Id", "Codigo");
-            ViewBag.EstratoId = new SelectList(db.Estratos, "Id", "Codigo");
-            ViewBag.EtniaId = new SelectList(db.Etnias, "Id", "Codigo");
-            ViewBag.FactorRhId = new SelectList(db.FactorRhs, "Id", "Codigo");
-            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Codigo");
-            ViewBag.GrupoUsuarioId = new SelectList(db.Grupos, "Id", "Codigo");
+            ViewBag.ArsId = new SelectList(db.Ars, "Id", "Nombre");
+            ViewBag.CapacidadExcepcionalId = new SelectList(db.CapacidadExcepcionales, "Id", "Nombre");
+            ViewBag.EpsId = new SelectList(db.Eps, "Id", "Nombre");
+            ViewBag.EstratoId = new SelectList(db.Estratos, "Id", "Nombre");
+            ViewBag.EtniaId = new SelectList(db.Etnias, "Id", "Nombre");
+            ViewBag.FactorRhId = new SelectList(db.FactorRhs, "Id", "Nombre");
+            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Nombre");
+            ViewBag.GrupoUsuarioId = new SelectList(db.Grupos, "Id", "Nombre");
             ViewBag.InstitucionId = new SelectList(db.Instituciones, "Id", "CodigoDane");
-            ViewBag.ParentescoAcudienteId = new SelectList(db.Parentescos, "Id", "Codigo");
-            ViewBag.PoblacionVictimaId = new SelectList(db.PoblacionVictimaConflictos, "Id", "Codigo");
-            ViewBag.ResguardoId = new SelectList(db.Resguardos, "Id", "Codigo");
-            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Codigo");
-            ViewBag.SisbenId = new SelectList(db.Sisbenes, "Id", "Codigo");
-            ViewBag.DiscapacidadId = new SelectList(db.TipoDiscapacidades, "Id", "Codigo");
-            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Codigo");
+            ViewBag.ParentescoAcudienteId = new SelectList(db.Parentescos, "Id", "Nombre");
+            ViewBag.PoblacionVictimaId = new SelectList(db.PoblacionVictimaConflictos, "Id", "Nombre");
+            ViewBag.ResguardoId = new SelectList(db.Resguardos, "Id", "Nombre");
+            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Nombre");
+            ViewBag.SisbenId = new SelectList(db.Sisbenes, "Id", "Nombre");
+            ViewBag.DiscapacidadId = new SelectList(db.TipoDiscapacidades, "Id", "Nombre");
+            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre");
             return View();
         }
 

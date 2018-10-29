@@ -15,12 +15,19 @@
 {
     <p>
         <div class="form-group">
-            Nombre: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+            <div class="col-md-6">
+                <label class="control-label">Nombre</label>
+                <div class="input-group mb-md">
+                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+                    <span class="input-group-btn">
+                        <input class="btn btn-success" type="submit" value="Buscar" />
+                    </span>
+                </div>
+            </div>
         </div>
-        <input class="btn btn-success" type="submit" value="Buscar" />
     </p>
 }
-<table class="table">
+<table class="table table-bordered table-striped mb-none">
     <tr>
         <th>
             Código
