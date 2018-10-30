@@ -11,16 +11,16 @@ namespace ThotMVC.Models
         [Display(Name = "Number")]
         public Int64 Id { get; set; }
 
-        [Display(Name = "Código Dane")]
+        [Display(Name = "Código DANE *")]
         [Required(ErrorMessage = "Digite el código Dane")]
         [RegularExpression("^([0-9]{12})?$", ErrorMessage = "Formato del NIT incorrecto")]
         public String CodigoDane { get; set; }
 
-        [Display(Name = "Nombre Institución")]
+        [Display(Name = "Nombre Institución *")]
         [Required(ErrorMessage = "Digite el nombre de la institución")]
         public String Nombre { get; set; }
 
-        [Display(Name = "NIT")]
+        [Display(Name = "NIT *")]
         [Required(ErrorMessage = "Digite el nit de la institución")]
         [RegularExpression("^([0-9]{9}-[0-9]{1})?$", ErrorMessage = "Formato del NIT incorrecto")]
         public String Nit { get; set; }
@@ -29,101 +29,70 @@ namespace ThotMVC.Models
         //[Required(ErrorMessage = "Digite el nombre del rector")]
         public String NombreRector { get; set; }
 
-        [Display(Name = "Calendario")]
+        [Display(Name = "Calendario *")]
         [Required(ErrorMessage = "Seleccionar un calendario")]
         [ForeignKey("Calendarios")]
         public Int64 CalendarioId { get; set; }
 
-        [Display(Name = "Sector educación")]
+        [Display(Name = "Sector educación *")]
         [Required(ErrorMessage = "Seleccionar el sector de educación")]
         [ForeignKey("TipoSectorEducaciones")]
         public Int64 TipoSectorEducacionId { get; set; }
 
-        [Display(Name = "Propiedad jurídica")]
+        [Display(Name = "Propiedad jurídica *")]
         [Required(ErrorMessage = "Seleccionar la propiedad jurídica")]
         [ForeignKey("PropiedadJuridicas")]
         public Int64 PropiedadJuridicaId { get; set; }
 
-        [Display(Name = "Número de sedes")]
+        [Display(Name = "Número de sedes *")]
         [Required(ErrorMessage = "Digite el número de sedes")]
         public Int32 NumeroSedes { get; set; }
 
-        [Display(Name = "Nucleo")]
-        //[Required(ErrorMessage = "Seleccionar el núcleo")]
+        [Display(Name = "Nucleo *")]
+        [Required(ErrorMessage = "Seleccionar el núcleo")]
         [ForeignKey("Nucleos")]
-        public Int64 NucleoId { get; set; }
+        public Int64 NucleoId { get; set; }       
 
-        //falta
-        //Direccion nucleo
-        //Telefono del nucleo
-
-        //Falta
-        //jornada Completa
-        //jornada mañana
-        //jornada tarde
-        //jornda nocturna
-        //jornada fin de semana
-
-        [Display(Name = "Jornada completa")]
-        [Required(ErrorMessage = "Seleccionar jornada completa")]
-        public bool JornadaCompletaId { get; set; }
-
-        [Display(Name = "Jornada mañana")]
-        [Required(ErrorMessage = "Seleccionar jornada mañana")]
-        public bool JornadaMananaId { get; set; }
-
-        [Display(Name = "Jornada tarde")]
-        [Required(ErrorMessage = "Seleccionar jornada tarde")]
-        public bool JornadaTardeId { get; set; }
-
-        [Display(Name = "Jornada nocturna")]
-        [Required(ErrorMessage = "Seleccionar jornada nocturna")]
-        public bool JornadaNocturnaId { get; set; }
-
-        [Display(Name = "Jornada fin de semana")]
-        [Required(ErrorMessage = "Seleccionar jornada fin de semana")]
-        public bool JornadaFinSemanaId { get; set; }
-
-        [Display(Name = "Género")]
+        [Display(Name = "Género de población *")]
         [Required(ErrorMessage = "Seleccionar el género")]
         [ForeignKey("Generos")]
         public Int64 GeneroId { get; set; }
 
-        [Display(Name = "Subsidio")]
+        [Display(Name = "Ofrece subsidio *")]
         [Required(ErrorMessage = "Digite el subsidio")]
         public Boolean Subsidio { get; set; }
 
-        [Display(Name = "Discapacidad")]
+        [Display(Name = "Discapacidades *")]
         [Required(ErrorMessage = "Seleccionar la discapacidad")]
         [ForeignKey("TipoDiscapacidades")]
         public Int64 DiscapacidadesId { get; set; }
 
-        [Display(Name = "Capacidades excepcionales")]
+        [Display(Name = "Capacidades excepcionales *")]
         [Required(ErrorMessage = "Seleccionar la capacidad excepcional")]
         [ForeignKey("CapacidadExcepcionales")]
         public Int64 CapacidadesExcepcionalesId { get; set; }
 
-        [Display(Name = "Etnias")]
+        [Display(Name = "Etnias *")]
         [Required(ErrorMessage = "Seleccionar la etnia")]
         [ForeignKey("Etnias")]
         public Int64 EtniasId { get; set; }
 
-        [Display(Name = "Resguardo")]
+        [Display(Name = "Resguardos *")]
         [Required(ErrorMessage = "Seleccionar el resguardo")]
         [ForeignKey("Resguardos")]
         public Int64 ResguardosId { get; set; }
 
-        [Display(Name = "Tipo de novedad")]
+        [Display(Name = "Novedad institución *")]
         [Required(ErrorMessage = "Seleccionar el tipo de novedad")]
         [ForeignKey("TipoNovedades")]
         public Int64 NovedadId { get; set; }
 
-        [Display(Name = "Metodología")]
+        [Display(Name = "Metodología *")]
         [Required(ErrorMessage = "Seleccionar la metodología")]
         [ForeignKey("Metodologias")]
         public Int64 MetodologiaId { get; set; }
 
-        [Display(Name = "Prestador de servicio")]
+        [Display(Name = "Prestador de servicio xxxxxxxxx")]
         [Required(ErrorMessage = "Seleccionar el prestador de servicio")]
         [ForeignKey("Prestadores")]
         public Int64 PrestadorServicioId { get; set; }
@@ -182,7 +151,7 @@ namespace ThotMVC.Models
         [Display(Name = "Correo electrónico")]
         public String Email { get; set; }
 
-        [Display(Name = "Número de liciencia")]
+        [Display(Name = "Número de licencia de funcionamiento")]
         public String NumeroLiciencia { get; set; }
 
         [Display(Name = "Régimen de costos")]
@@ -195,7 +164,7 @@ namespace ThotMVC.Models
         [ForeignKey("Idiomas")]
         public Int64 IdiomaId { get; set; }
 
-        [Display(Name = "Asociación Privada")]
+        [Display(Name = "Asociación del nivel nacional del sector no oficial")]
         [Required(ErrorMessage = "Seleccionar la asociación que pertenece")]
         [ForeignKey("AsociacionPrivadas")]
         public Int64 AsociacionId { get; set; }

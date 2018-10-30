@@ -94,6 +94,15 @@ namespace ThotMVC.Controllers
             ViewBag.SisbenId = new SelectList(db.Sisbenes, "Id", "Nombre");
             ViewBag.DiscapacidadId = new SelectList(db.TipoDiscapacidades, "Id", "Nombre");
             ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre");
+
+            ViewBag.DepartamentoExpedicionId = new SelectList(db.Departamentos, "Id", "Nombre");
+            ViewBag.MunicipioExpedicionId = new SelectList(db.Municipios, "Id", "Nombre");
+            ViewBag.DepartamentoNacimientoId = new SelectList(db.Departamentos, "Id", "Nombre");
+            ViewBag.MunicipioNacimientoId = new SelectList(db.Municipios, "Id", "Nombre");
+            ViewBag.DepartamentoResidenciaId = new SelectList(db.Departamentos, "Id", "Nombre");
+            ViewBag.MunicipioResidenciaId = new SelectList(db.Municipios, "Id", "Nombre");
+            ViewBag.ZonaResidenciaId = new SelectList(db.Zonas, "Id", "Nombre");
+
             return View();
         }
 

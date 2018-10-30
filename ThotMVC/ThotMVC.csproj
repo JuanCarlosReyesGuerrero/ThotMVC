@@ -284,6 +284,10 @@
     <Compile Include="Migrations\201810250247560_instituciones.Designer.cs">
       <DependentUpon>201810250247560_instituciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810302031096_updateInstitucion.cs" />
+    <Compile Include="Migrations\201810302031096_updateInstitucion.Designer.cs">
+      <DependentUpon>201810302031096_updateInstitucion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -2574,6 +2578,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810250247560_instituciones.resx">
       <DependentUpon>201810250247560_instituciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810302031096_updateInstitucion.resx">
+      <DependentUpon>201810302031096_updateInstitucion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
