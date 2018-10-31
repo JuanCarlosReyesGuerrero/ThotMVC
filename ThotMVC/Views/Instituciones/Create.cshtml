@@ -273,45 +273,34 @@
                                 @Html.ValidationMessageFor(model => model.Secretaria, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Escudo, htmlAttributes: new { @class = "control-label" })
-                                @Html.EditorFor(model => model.Escudo, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Escudo, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                        @*<div class="col-sm-3">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Escudo, htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.Escudo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Escudo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
 
-
-
-
-
-
-
-
-
-                        @*www.c-sharpcorner.com/article/upload-files-in-asp-net-mvc-5/*@
-
+                        @*stackoverflow.com/questions/41039750/how-to-upload-files-in-an-asp-net-mvc-5-application*@
+                        @*www.mikesdotnetting.com/article/259/asp-net-mvc-5-with-ef-6-working-with-files*@
 
                         @*<div class="col-sm-3">
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Escudo, htmlAttributes: new { @class = "control-label" })
-
-                                    @using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                                    {
-                                        <div>
-                                            @Html.TextBox("file", "", new { type = "file" }) <br />
-                                            @ViewBag.Message
-                                        </div>
-                                    }
-
+                                    @Html.TextBoxFor(model => model.Escudo, new { type = "file", name = "upload", id = "Photo" })
+                                    @Html.ValidationMessageFor(model => model.Escudo, "", new { @class = "text-danger" })
                                 </div>
                             </div>*@
-
-
-
-
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Escudo, htmlAttributes: new { @class = "control-label" })
+                                @*<div class="col-md-10">*@
+                                    <input type="file" id="Photo" name="uploadFile" />
+                                @*</div>*@
+                                @Html.ValidationMessageFor(model => model.Escudo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
                     </div>
-
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">

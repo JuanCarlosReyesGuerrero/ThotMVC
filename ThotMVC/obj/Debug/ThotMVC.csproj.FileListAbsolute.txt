@@ -295,3 +295,4 @@ D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.estudiantes.resourc
 D:\Developments\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.instituciones.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.instituciones.resources
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.updateInstitucion.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.profesores.resources

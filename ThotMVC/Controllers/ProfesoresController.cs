@@ -110,10 +110,10 @@ namespace ThotMVC.Controllers
         // GET: Profesores/Create
         public ActionResult Create()
         {
-            ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Codigo");
-            ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Codigo");
-            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Codigo");
-            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Codigo");
+            ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Nombre");
+            ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Nombre");
+            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Nombre");
+            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre");
             return View();
         }
 
@@ -131,10 +131,10 @@ namespace ThotMVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Codigo", profesores.EscalafonId);
-            ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Codigo", profesores.ProfesionId);
-            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Codigo", profesores.SedeId);
-            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Codigo", profesores.TipoIdentificacionId);
+            ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Nombre", profesores.EscalafonId);
+            ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Nombre", profesores.ProfesionId);
+            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Nombre", profesores.SedeId);
+            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre", profesores.TipoIdentificacionId);
             return View(profesores);
         }
 
@@ -150,10 +150,10 @@ namespace ThotMVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Codigo", profesores.EscalafonId);
-            ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Codigo", profesores.ProfesionId);
-            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Codigo", profesores.SedeId);
-            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Codigo", profesores.TipoIdentificacionId);
+            ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Nombre", profesores.EscalafonId);
+            ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Nombre", profesores.ProfesionId);
+            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Nombre", profesores.SedeId);
+            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre", profesores.TipoIdentificacionId);
             return View(profesores);
         }
 
@@ -170,10 +170,10 @@ namespace ThotMVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Codigo", profesores.EscalafonId);
-            ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Codigo", profesores.ProfesionId);
-            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Codigo", profesores.SedeId);
-            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Codigo", profesores.TipoIdentificacionId);
+            ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Nombre", profesores.EscalafonId);
+            ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Nombre", profesores.ProfesionId);
+            ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Nombre", profesores.SedeId);
+            ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre", profesores.TipoIdentificacionId);
             return View(profesores);
         }
 

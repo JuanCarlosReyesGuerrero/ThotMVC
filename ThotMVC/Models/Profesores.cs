@@ -29,6 +29,7 @@ namespace ThotMVC.Models
 
         [Display(Name = "Primer Apellido")]
         [Required(ErrorMessage = "Digite el primer apellido")]
+        //[StringLength(3, ErrorMessage = "El primer apellido no puede contener menos de 3 caracteres.")]
         public string PrimerApellido { get; set; }
 
         [Display(Name = "Segundo Apellido")]
@@ -64,8 +65,57 @@ namespace ThotMVC.Models
         [Display(Name = "Sede")]
         [Required(ErrorMessage = "Seleccionar una sede")]
         [ForeignKey("Sedes")]
-        public Int64 SedeId { get; set; }        
+        public Int64 SedeId { get; set; }
 
+        [Display(Name = "Genero")]
+        [Required(ErrorMessage = "Seleccionar un género")]
+        [ForeignKey("Generos")]
+        public Int64? GeneroId { get; set; }
+
+        [Display(Name = "Fecha nacimiento")]
+        [Required(ErrorMessage = "Digite la fecha de nacimiento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime FechaNacimiento { get; set; }
+
+        [Display(Name = "Lugar de nacimiento")]
+        [Required(ErrorMessage = "Digite el lugar de nacimiento")]
+        public string LugarNacimiento { get; set; }
+
+        [Display(Name = "Estado civil")]
+        [Required(ErrorMessage = "Seleccionar un estado civil")]
+        //[ForeignKey("EstadoCiviles")]
+        public Int64? EstadoCivilId { get; set; }
+
+        [Display(Name = "Número de hijos")]
+        [Required(ErrorMessage = "Digite el número de hijos")]
+        public string NumeroHijos { get; set; }
+
+        [Display(Name = "Fecha vinculación")]
+        [Required(ErrorMessage = "Digite la fecha de vinculación")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime FechaVinculacion { get; set; }
+
+        [Display(Name = "Fecha retiro")]
+        [Required(ErrorMessage = "Digite la fecha de retiro")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime FechaRetiro { get; set; }
+
+        //hacr una mascara para la libreta
+        [Display(Name = "Libreta militar (número - distrito - clase)")]
+        [Required(ErrorMessage = "Digite la libreta militar")]
+        public string LibretaMilitar { get; set; }
+
+        [Display(Name = "Resolución de nombramiento")]
+        [Required(ErrorMessage = "Digite la resolución de nombramiento")]
+        public string ResolucionNombramiento { get; set; }
+
+        [Display(Name = "Foto")]
+        [Required(ErrorMessage = "Subir la foto")]
+        public string FotoPerfil { get; set; }
+        
         [Display(Name = "Estado")]
         public bool Activo { get; set; }
 
@@ -81,9 +131,20 @@ namespace ThotMVC.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? FechaModifica { get; set; }
 
+        [Display(Name = "Nombre completo")]
+        public string nombreCompletoProfesor
+        {
+            get
+            {
+                return PrimerApellido + " " + SegundoApellido + " " + PrimerNombre + " " + SegundoNombre;
+            }
+        }
+
         public virtual TipoIdentificaciones TipoIdentificaciones { get; set; }
         public virtual Profesiones Profesiones { get; set; }
         public virtual Escalafones Escalafones { get; set; }
-        public virtual Sedes Sedes { get; set; }        
+        public virtual Sedes Sedes { get; set; }
+        public virtual Generos Generos { get; set; }
+        public virtual EstadoCiviles EstadoCiviles { get; set; }
     }
 }

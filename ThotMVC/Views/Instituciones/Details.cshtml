@@ -9,6 +9,57 @@
 <div>
     <h4>Instituciones</h4>
     <hr />
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <div class="panel-body">
+
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                @Html.DisplayNameFor(model => model.AsociacionPrivadas.Codigo)
+                                <div>
+                                    @Html.DisplayFor(model => model.AsociacionPrivadas.Codigo)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CalendarioId, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.DisplayFor(model => model.Calendarios.Nombre)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CapacidadesExcepcionalesId, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.DisplayFor(model => model.CapacidadExcepcionales.Nombre)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.AsociacionPrivadas.Codigo)
@@ -19,147 +70,149 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Calendarios.Codigo)
+            @*@Html.DisplayNameFor(model => model.Calendarios.Nombre)*@
+            @Html.LabelFor(model => model.CalendarioId, htmlAttributes: new { @class = "control-label" })
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Calendarios.Codigo)
+            @Html.DisplayFor(model => model.Calendarios.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CapacidadExcepcionales.Codigo)
+            @*@Html.DisplayNameFor(model => model.CapacidadExcepcionales.Nombre)*@
+            @Html.LabelFor(model => model.CapacidadesExcepcionalesId, htmlAttributes: new { @class = "control-label" })
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CapacidadExcepcionales.Codigo)
+            @Html.DisplayFor(model => model.CapacidadExcepcionales.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Departamentos.Codigo)
+            @Html.DisplayNameFor(model => model.Departamentos.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Departamentos.Codigo)
+            @Html.DisplayFor(model => model.Departamentos.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Etnias.Codigo)
+            @Html.DisplayNameFor(model => model.Etnias.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Etnias.Codigo)
+            @Html.DisplayFor(model => model.Etnias.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Generos.Codigo)
+            @Html.DisplayNameFor(model => model.Generos.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Generos.Codigo)
+            @Html.DisplayFor(model => model.Generos.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Idiomas.Codigo)
+            @Html.DisplayNameFor(model => model.Idiomas.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Idiomas.Codigo)
+            @Html.DisplayFor(model => model.Idiomas.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Metodologias.Codigo)
+            @Html.DisplayNameFor(model => model.Metodologias.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Metodologias.Codigo)
+            @Html.DisplayFor(model => model.Metodologias.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Municipios.Codigo)
+            @Html.DisplayNameFor(model => model.Municipios.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Municipios.Codigo)
+            @Html.DisplayFor(model => model.Municipios.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nucleos.Codigo)
+            @Html.DisplayNameFor(model => model.Nucleos.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Nucleos.Codigo)
+            @Html.DisplayFor(model => model.Nucleos.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Prestadores.Codigo)
+            @Html.DisplayNameFor(model => model.Prestadores.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Prestadores.Codigo)
+            @Html.DisplayFor(model => model.Prestadores.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PropiedadJuridicas.Codigo)
+            @Html.DisplayNameFor(model => model.PropiedadJuridicas.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PropiedadJuridicas.Codigo)
+            @Html.DisplayFor(model => model.PropiedadJuridicas.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RegimenCostos.Codigo)
+            @Html.DisplayNameFor(model => model.RegimenCostos.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RegimenCostos.Codigo)
+            @Html.DisplayFor(model => model.RegimenCostos.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Resguardos.Codigo)
+            @Html.DisplayNameFor(model => model.Resguardos.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Resguardos.Codigo)
+            @Html.DisplayFor(model => model.Resguardos.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TarifaAnuales.Codigo)
+            @Html.DisplayNameFor(model => model.TarifaAnuales.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TarifaAnuales.Codigo)
+            @Html.DisplayFor(model => model.TarifaAnuales.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TipoDiscapacidades.Codigo)
+            @Html.DisplayNameFor(model => model.TipoDiscapacidades.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TipoDiscapacidades.Codigo)
+            @Html.DisplayFor(model => model.TipoDiscapacidades.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TipoNovedades.Codigo)
+            @Html.DisplayNameFor(model => model.TipoNovedades.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TipoNovedades.Codigo)
+            @Html.DisplayFor(model => model.TipoNovedades.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TipoSectorEducaciones.Codigo)
+            @Html.DisplayNameFor(model => model.TipoSectorEducaciones.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TipoSectorEducaciones.Codigo)
+            @Html.DisplayFor(model => model.TipoSectorEducaciones.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Zonas.Codigo)
+            @Html.DisplayNameFor(model => model.Zonas.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Zonas.Codigo)
+            @Html.DisplayFor(model => model.Zonas.Nombre)
         </dd>
 
         <dt>
@@ -250,13 +303,13 @@
             @Html.DisplayFor(model => model.Lema)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Escudo)
-        </dt>
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Escudo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Escudo)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Escudo)
+            </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Barrio)
@@ -353,6 +406,17 @@
         <dd>
             @Html.DisplayFor(model => model.FechaModifica)
         </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Escudo)
+        </dt>
+        <dd>
+            <img src="~/images/@Html.DisplayFor(model => model.Escudo)" alt="" />
+        </dd>
+
+
 
     </dl>
 </div>

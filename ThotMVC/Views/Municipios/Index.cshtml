@@ -87,7 +87,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table table-bordered table-striped mb-none">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Departamentos.Codigo)

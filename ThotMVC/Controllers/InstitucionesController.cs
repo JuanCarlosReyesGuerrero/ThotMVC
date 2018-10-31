@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ThotMVC.Models;
+using System.IO;
 
 namespace ThotMVC.Controllers
 {
@@ -36,7 +37,7 @@ namespace ThotMVC.Controllers
             //    searchString = currentFilter;
             //}
 
-            //ViewBag.CurrentFilter = searchString;            
+            //ViewBag.CurrentFilter = searchString;
 
             //var instituciones = db.Instituciones.Include(i => i.AsociacionPrivadas).Include(i => i.Calendarios).Include(i => i.CapacidadExcepcionales).Include(i => i.Departamentos).Include(i => i.Etnias).Include(i => i.Generos).Include(i => i.Idiomas).Include(i => i.Metodologias).Include(i => i.Municipios).Include(i => i.Nucleos).Include(i => i.Prestadores).Include(i => i.PropiedadJuridicas).Include(i => i.RegimenCostos).Include(i => i.Resguardos).Include(i => i.TarifaAnuales).Include(i => i.TipoDiscapacidades).Include(i => i.TipoNovedades).Include(i => i.TipoSectorEducaciones).Include(i => i.Zonas);
 
@@ -62,7 +63,7 @@ namespace ThotMVC.Controllers
             ViewBag.CurrentFilter = searchString;
 
             var instituciones = from s in db.Instituciones.Include(i => i.AsociacionPrivadas).Include(i => i.Calendarios).Include(i => i.CapacidadExcepcionales).Include(i => i.Departamentos).Include(i => i.Etnias).Include(i => i.Generos).Include(i => i.Idiomas).Include(i => i.Metodologias).Include(i => i.Municipios).Include(i => i.Nucleos).Include(i => i.Prestadores).Include(i => i.PropiedadJuridicas).Include(i => i.RegimenCostos).Include(i => i.Resguardos).Include(i => i.TarifaAnuales).Include(i => i.TipoDiscapacidades).Include(i => i.TipoNovedades).Include(i => i.TipoSectorEducaciones).Include(i => i.Zonas)
-            select s;
+                                select s;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -133,34 +134,43 @@ namespace ThotMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CodigoDane,Nombre,Nit,NombreRector,CalendarioId,TipoSectorEducacionId,PropiedadJuridicaId,NumeroSedes,NucleoId,GeneroId,Subsidio,DiscapacidadesId,CapacidadesExcepcionalesId,EtniasId,ResguardosId,NovedadId,MetodologiaId,PrestadorServicioId,DecretoCreacion,Director,Secretaria,Aprobacion,Lema,Escudo,DepartamentoId,MunicipioId,ZonaId,Barrio,Direccion,Telefono,Fax,SitioWeb,Email,NumeroLiciencia,RegimenCostoId,IdiomaId,AsociacionId,TarifaAnualId,Activo,UsuarioRegistra,FechaRegistro,UsuarioModifica,FechaModifica")] Instituciones instituciones)
+        public ActionResult Create([Bind(Include = "Id,CodigoDane,Nombre,Nit,NombreRector,CalendarioId,TipoSectorEducacionId,PropiedadJuridicaId,NumeroSedes,NucleoId,GeneroId,Subsidio,DiscapacidadesId,CapacidadesExcepcionalesId,EtniasId,ResguardosId,NovedadId,MetodologiaId,PrestadorServicioId,DecretoCreacion,Director,Secretaria,Aprobacion,Lema,Escudo,DepartamentoId,MunicipioId,ZonaId,Barrio,Direccion,Telefono,Fax,SitioWeb,Email,NumeroLiciencia,RegimenCostoId,IdiomaId,AsociacionId,TarifaAnualId,Activo,UsuarioRegistra,FechaRegistro,UsuarioModifica,FechaModifica")] Instituciones instituciones, HttpPostedFileBase uploadFile)
         {
             if (ModelState.IsValid)
             {
+                //Sube las imagenes y las guarda en disco
+                if (uploadFile != null && uploadFile.ContentLength > 0)
+                {
+                    var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(uploadFile.FileName);
+                    string pathArchivo = Server.MapPath("~/images/");
+                    instituciones.Escudo = nombreArchivo;
+                    uploadFile.SaveAs(Path.Combine(pathArchivo, nombreArchivo));
+                }
+
                 db.Instituciones.Add(instituciones);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AsociacionId = new SelectList(db.AsociacionPrivadas, "Id", "Codigo", instituciones.AsociacionId);
-            ViewBag.CalendarioId = new SelectList(db.Calendarios, "Id", "Codigo", instituciones.CalendarioId);
-            ViewBag.CapacidadesExcepcionalesId = new SelectList(db.CapacidadExcepcionales, "Id", "Codigo", instituciones.CapacidadesExcepcionalesId);
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Codigo", instituciones.DepartamentoId);
-            ViewBag.EtniasId = new SelectList(db.Etnias, "Id", "Codigo", instituciones.EtniasId);
-            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Codigo", instituciones.GeneroId);
-            ViewBag.IdiomaId = new SelectList(db.Idiomas, "Id", "Codigo", instituciones.IdiomaId);
-            ViewBag.MetodologiaId = new SelectList(db.Metodologias, "Id", "Codigo", instituciones.MetodologiaId);
-            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Codigo", instituciones.MunicipioId);
-            ViewBag.NucleoId = new SelectList(db.Nucleos, "Id", "Codigo", instituciones.NucleoId);
-            ViewBag.PrestadorServicioId = new SelectList(db.Prestadores, "Id", "Codigo", instituciones.PrestadorServicioId);
-            ViewBag.PropiedadJuridicaId = new SelectList(db.PropiedadJuridicas, "Id", "Codigo", instituciones.PropiedadJuridicaId);
-            ViewBag.RegimenCostoId = new SelectList(db.RegimenCostos, "Id", "Codigo", instituciones.RegimenCostoId);
-            ViewBag.ResguardosId = new SelectList(db.Resguardos, "Id", "Codigo", instituciones.ResguardosId);
-            ViewBag.TarifaAnualId = new SelectList(db.TarifaAnuales, "Id", "Codigo", instituciones.TarifaAnualId);
-            ViewBag.DiscapacidadesId = new SelectList(db.TipoDiscapacidades, "Id", "Codigo", instituciones.DiscapacidadesId);
-            ViewBag.NovedadId = new SelectList(db.TipoNovedades, "Id", "Codigo", instituciones.NovedadId);
-            ViewBag.TipoSectorEducacionId = new SelectList(db.TipoSectorEducaciones, "Id", "Codigo", instituciones.TipoSectorEducacionId);
-            ViewBag.ZonaId = new SelectList(db.Zonas, "Id", "Codigo", instituciones.ZonaId);
+            ViewBag.AsociacionId = new SelectList(db.AsociacionPrivadas, "Id", "Nombre", instituciones.AsociacionId);
+            ViewBag.CalendarioId = new SelectList(db.Calendarios, "Id", "Nombre", instituciones.CalendarioId);
+            ViewBag.CapacidadesExcepcionalesId = new SelectList(db.CapacidadExcepcionales, "Id", "Nombre", instituciones.CapacidadesExcepcionalesId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre", instituciones.DepartamentoId);
+            ViewBag.EtniasId = new SelectList(db.Etnias, "Id", "Nombre", instituciones.EtniasId);
+            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Nombre", instituciones.GeneroId);
+            ViewBag.IdiomaId = new SelectList(db.Idiomas, "Id", "Nombre", instituciones.IdiomaId);
+            ViewBag.MetodologiaId = new SelectList(db.Metodologias, "Id", "Nombre", instituciones.MetodologiaId);
+            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Nombre", instituciones.MunicipioId);
+            ViewBag.NucleoId = new SelectList(db.Nucleos, "Id", "Nombre", instituciones.NucleoId);
+            ViewBag.PrestadorServicioId = new SelectList(db.Prestadores, "Id", "Nombre", instituciones.PrestadorServicioId);
+            ViewBag.PropiedadJuridicaId = new SelectList(db.PropiedadJuridicas, "Id", "Nombre", instituciones.PropiedadJuridicaId);
+            ViewBag.RegimenCostoId = new SelectList(db.RegimenCostos, "Id", "Nombre", instituciones.RegimenCostoId);
+            ViewBag.ResguardosId = new SelectList(db.Resguardos, "Id", "Nombre", instituciones.ResguardosId);
+            ViewBag.TarifaAnualId = new SelectList(db.TarifaAnuales, "Id", "Nombre", instituciones.TarifaAnualId);
+            ViewBag.DiscapacidadesId = new SelectList(db.TipoDiscapacidades, "Id", "Nombre", instituciones.DiscapacidadesId);
+            ViewBag.NovedadId = new SelectList(db.TipoNovedades, "Id", "Nombre", instituciones.NovedadId);
+            ViewBag.TipoSectorEducacionId = new SelectList(db.TipoSectorEducaciones, "Id", "Nombre", instituciones.TipoSectorEducacionId);
+            ViewBag.ZonaId = new SelectList(db.Zonas, "Id", "Nombre", instituciones.ZonaId);
             return View(instituciones);
         }
 
@@ -176,25 +186,25 @@ namespace ThotMVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AsociacionId = new SelectList(db.AsociacionPrivadas, "Id", "Codigo", instituciones.AsociacionId);
-            ViewBag.CalendarioId = new SelectList(db.Calendarios, "Id", "Codigo", instituciones.CalendarioId);
-            ViewBag.CapacidadesExcepcionalesId = new SelectList(db.CapacidadExcepcionales, "Id", "Codigo", instituciones.CapacidadesExcepcionalesId);
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Codigo", instituciones.DepartamentoId);
-            ViewBag.EtniasId = new SelectList(db.Etnias, "Id", "Codigo", instituciones.EtniasId);
-            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Codigo", instituciones.GeneroId);
-            ViewBag.IdiomaId = new SelectList(db.Idiomas, "Id", "Codigo", instituciones.IdiomaId);
-            ViewBag.MetodologiaId = new SelectList(db.Metodologias, "Id", "Codigo", instituciones.MetodologiaId);
-            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Codigo", instituciones.MunicipioId);
-            ViewBag.NucleoId = new SelectList(db.Nucleos, "Id", "Codigo", instituciones.NucleoId);
-            ViewBag.PrestadorServicioId = new SelectList(db.Prestadores, "Id", "Codigo", instituciones.PrestadorServicioId);
-            ViewBag.PropiedadJuridicaId = new SelectList(db.PropiedadJuridicas, "Id", "Codigo", instituciones.PropiedadJuridicaId);
-            ViewBag.RegimenCostoId = new SelectList(db.RegimenCostos, "Id", "Codigo", instituciones.RegimenCostoId);
-            ViewBag.ResguardosId = new SelectList(db.Resguardos, "Id", "Codigo", instituciones.ResguardosId);
-            ViewBag.TarifaAnualId = new SelectList(db.TarifaAnuales, "Id", "Codigo", instituciones.TarifaAnualId);
-            ViewBag.DiscapacidadesId = new SelectList(db.TipoDiscapacidades, "Id", "Codigo", instituciones.DiscapacidadesId);
-            ViewBag.NovedadId = new SelectList(db.TipoNovedades, "Id", "Codigo", instituciones.NovedadId);
-            ViewBag.TipoSectorEducacionId = new SelectList(db.TipoSectorEducaciones, "Id", "Codigo", instituciones.TipoSectorEducacionId);
-            ViewBag.ZonaId = new SelectList(db.Zonas, "Id", "Codigo", instituciones.ZonaId);
+            ViewBag.AsociacionId = new SelectList(db.AsociacionPrivadas, "Id", "Nombre", instituciones.AsociacionId);
+            ViewBag.CalendarioId = new SelectList(db.Calendarios, "Id", "Nombre", instituciones.CalendarioId);
+            ViewBag.CapacidadesExcepcionalesId = new SelectList(db.CapacidadExcepcionales, "Id", "Nombre", instituciones.CapacidadesExcepcionalesId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre", instituciones.DepartamentoId);
+            ViewBag.EtniasId = new SelectList(db.Etnias, "Id", "Nombre", instituciones.EtniasId);
+            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Nombre", instituciones.GeneroId);
+            ViewBag.IdiomaId = new SelectList(db.Idiomas, "Id", "Nombre", instituciones.IdiomaId);
+            ViewBag.MetodologiaId = new SelectList(db.Metodologias, "Id", "Nombre", instituciones.MetodologiaId);
+            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Nombre", instituciones.MunicipioId);
+            ViewBag.NucleoId = new SelectList(db.Nucleos, "Id", "Nombre", instituciones.NucleoId);
+            ViewBag.PrestadorServicioId = new SelectList(db.Prestadores, "Id", "Nombre", instituciones.PrestadorServicioId);
+            ViewBag.PropiedadJuridicaId = new SelectList(db.PropiedadJuridicas, "Id", "Nombre", instituciones.PropiedadJuridicaId);
+            ViewBag.RegimenCostoId = new SelectList(db.RegimenCostos, "Id", "Nombre", instituciones.RegimenCostoId);
+            ViewBag.ResguardosId = new SelectList(db.Resguardos, "Id", "Nombre", instituciones.ResguardosId);
+            ViewBag.TarifaAnualId = new SelectList(db.TarifaAnuales, "Id", "Nombre", instituciones.TarifaAnualId);
+            ViewBag.DiscapacidadesId = new SelectList(db.TipoDiscapacidades, "Id", "Nombre", instituciones.DiscapacidadesId);
+            ViewBag.NovedadId = new SelectList(db.TipoNovedades, "Id", "Nombre", instituciones.NovedadId);
+            ViewBag.TipoSectorEducacionId = new SelectList(db.TipoSectorEducaciones, "Id", "Nombre", instituciones.TipoSectorEducacionId);
+            ViewBag.ZonaId = new SelectList(db.Zonas, "Id", "Nombre", instituciones.ZonaId);
             return View(instituciones);
         }
 
@@ -203,33 +213,43 @@ namespace ThotMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CodigoDane,Nombre,Nit,NombreRector,CalendarioId,TipoSectorEducacionId,PropiedadJuridicaId,NumeroSedes,NucleoId,GeneroId,Subsidio,DiscapacidadesId,CapacidadesExcepcionalesId,EtniasId,ResguardosId,NovedadId,MetodologiaId,PrestadorServicioId,DecretoCreacion,Director,Secretaria,Aprobacion,Lema,Escudo,DepartamentoId,MunicipioId,ZonaId,Barrio,Direccion,Telefono,Fax,SitioWeb,Email,NumeroLiciencia,RegimenCostoId,IdiomaId,AsociacionId,TarifaAnualId,Activo,UsuarioRegistra,FechaRegistro,UsuarioModifica,FechaModifica")] Instituciones instituciones)
+        public ActionResult Edit([Bind(Include = "Id,CodigoDane,Nombre,Nit,NombreRector,CalendarioId,TipoSectorEducacionId,PropiedadJuridicaId,NumeroSedes,NucleoId,GeneroId,Subsidio,DiscapacidadesId,CapacidadesExcepcionalesId,EtniasId,ResguardosId,NovedadId,MetodologiaId,PrestadorServicioId,DecretoCreacion,Director,Secretaria,Aprobacion,Lema,Escudo,DepartamentoId,MunicipioId,ZonaId,Barrio,Direccion,Telefono,Fax,SitioWeb,Email,NumeroLiciencia,RegimenCostoId,IdiomaId,AsociacionId,TarifaAnualId,Activo,UsuarioRegistra,FechaRegistro,UsuarioModifica,FechaModifica")] Instituciones instituciones, HttpPostedFileBase uploadFile)
         {
             if (ModelState.IsValid)
             {
+                //Sube las imagenes y las guarda en disco
+                if (uploadFile != null && uploadFile.ContentLength > 0)
+                {
+                    var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(uploadFile.FileName);                    
+                    string pathArchivo = Server.MapPath("~/images/");
+                    instituciones.Escudo = nombreArchivo;
+                    uploadFile.SaveAs(Path.Combine(pathArchivo, nombreArchivo));
+                }
+
                 db.Entry(instituciones).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AsociacionId = new SelectList(db.AsociacionPrivadas, "Id", "Codigo", instituciones.AsociacionId);
-            ViewBag.CalendarioId = new SelectList(db.Calendarios, "Id", "Codigo", instituciones.CalendarioId);
-            ViewBag.CapacidadesExcepcionalesId = new SelectList(db.CapacidadExcepcionales, "Id", "Codigo", instituciones.CapacidadesExcepcionalesId);
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Codigo", instituciones.DepartamentoId);
-            ViewBag.EtniasId = new SelectList(db.Etnias, "Id", "Codigo", instituciones.EtniasId);
-            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Codigo", instituciones.GeneroId);
-            ViewBag.IdiomaId = new SelectList(db.Idiomas, "Id", "Codigo", instituciones.IdiomaId);
-            ViewBag.MetodologiaId = new SelectList(db.Metodologias, "Id", "Codigo", instituciones.MetodologiaId);
-            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Codigo", instituciones.MunicipioId);
-            ViewBag.NucleoId = new SelectList(db.Nucleos, "Id", "Codigo", instituciones.NucleoId);
-            ViewBag.PrestadorServicioId = new SelectList(db.Prestadores, "Id", "Codigo", instituciones.PrestadorServicioId);
-            ViewBag.PropiedadJuridicaId = new SelectList(db.PropiedadJuridicas, "Id", "Codigo", instituciones.PropiedadJuridicaId);
-            ViewBag.RegimenCostoId = new SelectList(db.RegimenCostos, "Id", "Codigo", instituciones.RegimenCostoId);
-            ViewBag.ResguardosId = new SelectList(db.Resguardos, "Id", "Codigo", instituciones.ResguardosId);
-            ViewBag.TarifaAnualId = new SelectList(db.TarifaAnuales, "Id", "Codigo", instituciones.TarifaAnualId);
-            ViewBag.DiscapacidadesId = new SelectList(db.TipoDiscapacidades, "Id", "Codigo", instituciones.DiscapacidadesId);
-            ViewBag.NovedadId = new SelectList(db.TipoNovedades, "Id", "Codigo", instituciones.NovedadId);
-            ViewBag.TipoSectorEducacionId = new SelectList(db.TipoSectorEducaciones, "Id", "Codigo", instituciones.TipoSectorEducacionId);
-            ViewBag.ZonaId = new SelectList(db.Zonas, "Id", "Codigo", instituciones.ZonaId);
+
+            ViewBag.AsociacionId = new SelectList(db.AsociacionPrivadas, "Id", "CodNombreigo", instituciones.AsociacionId);
+            ViewBag.CalendarioId = new SelectList(db.Calendarios, "Id", "Nombre", instituciones.CalendarioId);
+            ViewBag.CapacidadesExcepcionalesId = new SelectList(db.CapacidadExcepcionales, "Id", "Nombre", instituciones.CapacidadesExcepcionalesId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre", instituciones.DepartamentoId);
+            ViewBag.EtniasId = new SelectList(db.Etnias, "Id", "Nombre", instituciones.EtniasId);
+            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Nombre", instituciones.GeneroId);
+            ViewBag.IdiomaId = new SelectList(db.Idiomas, "Id", "Nombre", instituciones.IdiomaId);
+            ViewBag.MetodologiaId = new SelectList(db.Metodologias, "Id", "Nombre", instituciones.MetodologiaId);
+            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Nombre", instituciones.MunicipioId);
+            ViewBag.NucleoId = new SelectList(db.Nucleos, "Id", "Nombre", instituciones.NucleoId);
+            ViewBag.PrestadorServicioId = new SelectList(db.Prestadores, "Id", "Nombre", instituciones.PrestadorServicioId);
+            ViewBag.PropiedadJuridicaId = new SelectList(db.PropiedadJuridicas, "Id", "Nombre", instituciones.PropiedadJuridicaId);
+            ViewBag.RegimenCostoId = new SelectList(db.RegimenCostos, "Id", "Nombre", instituciones.RegimenCostoId);
+            ViewBag.ResguardosId = new SelectList(db.Resguardos, "Id", "Nombre", instituciones.ResguardosId);
+            ViewBag.TarifaAnualId = new SelectList(db.TarifaAnuales, "Id", "Nombre", instituciones.TarifaAnualId);
+            ViewBag.DiscapacidadesId = new SelectList(db.TipoDiscapacidades, "Id", "Nombre", instituciones.DiscapacidadesId);
+            ViewBag.NovedadId = new SelectList(db.TipoNovedades, "Id", "Nombre", instituciones.NovedadId);
+            ViewBag.TipoSectorEducacionId = new SelectList(db.TipoSectorEducaciones, "Id", "Nombre", instituciones.TipoSectorEducacionId);
+            ViewBag.ZonaId = new SelectList(db.Zonas, "Id", "Nombre", instituciones.ZonaId);
             return View(instituciones);
         }
 
