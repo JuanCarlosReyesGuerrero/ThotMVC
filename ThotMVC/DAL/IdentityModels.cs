@@ -103,7 +103,10 @@ namespace ThotMVC.Models
         public DbSet<LibretaMilitares> LibretaMilitares { get; set; }
 
         public DbSet<Clasificaciones> Clasificaciones { get; set; }
-
         public DbSet<Estudiantes> Estudiantes { get; set; }
+
+        public DbSet<EstadoEstudiantes> EstadoEstudiantes { get; set; }
+        public DbSet<Matriculas> Matriculas { get; set; }
+
     }
 }

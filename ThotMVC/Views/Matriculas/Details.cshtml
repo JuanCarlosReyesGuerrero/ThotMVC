@@ -1,0 +1,130 @@
+﻿@model ThotMVC.Models.Matriculas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Matriculas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoEstudiantes.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoEstudiantes.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudiantes.CodigoMEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estudiantes.CodigoMEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grados.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grados.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grupos.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grupos.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jornadas.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jornadas.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sedes.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sedes.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCaracteres.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCaracteres.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EdadMatricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EdadMatricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroMatricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroMatricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numerofolio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numerofolio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaMatricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaMatricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnioMatricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnioMatricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Repitente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Repitente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observaciones)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

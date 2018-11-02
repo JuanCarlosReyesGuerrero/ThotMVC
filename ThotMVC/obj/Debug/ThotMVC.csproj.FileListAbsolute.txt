@@ -299,3 +299,6 @@ E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csproj.CopyComplete
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.dll
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.pdb
 E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.profesores5.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.csprojAssemblyReference.cache
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.numeroHijosProfesor.resources
+E:\Developer\ThotMVC\ThotMVC\obj\Debug\ThotMVC.Migrations.Matriculas.resources

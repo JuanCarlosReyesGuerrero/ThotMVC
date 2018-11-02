@@ -90,7 +90,7 @@ namespace ThotMVC.Models
 
         [Display(Name = "Número de hijos *")]
         [Required(ErrorMessage = "Digite el número de hijos")]
-        public string NumeroHijos { get; set; }
+        public int NumeroHijos { get; set; }
 
         [Display(Name = "Fecha vinculación *")]
         [Required(ErrorMessage = "Digite la fecha de vinculación")]

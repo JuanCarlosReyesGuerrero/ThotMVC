@@ -214,6 +214,7 @@
     <Compile Include="Controllers\EscalaNacionalesController.cs" />
     <Compile Include="Controllers\EspecialidadesController.cs" />
     <Compile Include="Controllers\EstadoCivilesController.cs" />
+    <Compile Include="Controllers\EstadoEstudiantesController.cs" />
     <Compile Include="Controllers\EstratosController.cs" />
     <Compile Include="Controllers\EstudiantesController.cs" />
     <Compile Include="Controllers\EtniasController.cs" />
@@ -231,6 +232,7 @@
     <Compile Include="Controllers\LibretaMilitaresController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MateriasController.cs" />
+    <Compile Include="Controllers\MatriculasController.cs" />
     <Compile Include="Controllers\MetodologiasController.cs" />
     <Compile Include="Controllers\MunicipiosController.cs" />
     <Compile Include="Controllers\NivelEducativoDocentesController.cs" />
@@ -308,6 +310,14 @@
     <Compile Include="Migrations\201811021540373_profesores5.Designer.cs">
       <DependentUpon>201811021540373_profesores5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811022004235_numeroHijosProfesor.cs" />
+    <Compile Include="Migrations\201811022004235_numeroHijosProfesor.Designer.cs">
+      <DependentUpon>201811022004235_numeroHijosProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811022109016_Matriculas.cs" />
+    <Compile Include="Migrations\201811022109016_Matriculas.Designer.cs">
+      <DependentUpon>201811022109016_Matriculas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -329,6 +339,7 @@
     <Compile Include="Models\Especialidades.cs" />
     <Compile Include="DAL\ManageViewModels.cs" />
     <Compile Include="Models\EstadoCiviles.cs" />
+    <Compile Include="Models\EstadoEstudiantes.cs" />
     <Compile Include="Models\Estratos.cs" />
     <Compile Include="Models\Estudiantes.cs" />
     <Compile Include="Models\Etnias.cs" />
@@ -344,6 +355,7 @@
     <Compile Include="Models\Juicios.cs" />
     <Compile Include="Models\LibretaMilitares.cs" />
     <Compile Include="Models\Materias.cs" />
+    <Compile Include="Models\Matriculas.cs" />
     <Compile Include="Models\Metodologias.cs" />
     <Compile Include="Models\Municipios.cs" />
     <Compile Include="Models\NivelEducativoDocentes.cs" />
@@ -2574,6 +2586,16 @@
     <Content Include="Views\Estudiantes\Edit.cshtml" />
     <Content Include="Views\Estudiantes\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_copia.cshtml" />
+    <Content Include="Views\EstadoEstudiantes\Create.cshtml" />
+    <Content Include="Views\EstadoEstudiantes\Delete.cshtml" />
+    <Content Include="Views\EstadoEstudiantes\Details.cshtml" />
+    <Content Include="Views\EstadoEstudiantes\Edit.cshtml" />
+    <Content Include="Views\EstadoEstudiantes\Index.cshtml" />
+    <Content Include="Views\Matriculas\Create.cshtml" />
+    <Content Include="Views\Matriculas\Delete.cshtml" />
+    <Content Include="Views\Matriculas\Details.cshtml" />
+    <Content Include="Views\Matriculas\Edit.cshtml" />
+    <Content Include="Views\Matriculas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2616,6 +2638,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811021540373_profesores5.resx">
       <DependentUpon>201811021540373_profesores5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811022004235_numeroHijosProfesor.resx">
+      <DependentUpon>201811022004235_numeroHijosProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811022109016_Matriculas.resx">
+      <DependentUpon>201811022109016_Matriculas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
