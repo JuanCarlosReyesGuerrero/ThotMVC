@@ -288,6 +288,26 @@
     <Compile Include="Migrations\201810302031096_updateInstitucion.Designer.cs">
       <DependentUpon>201810302031096_updateInstitucion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811011310448_profesores.cs" />
+    <Compile Include="Migrations\201811011310448_profesores.Designer.cs">
+      <DependentUpon>201811011310448_profesores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811011321192_profesoresOrdenColumnas.cs" />
+    <Compile Include="Migrations\201811011321192_profesoresOrdenColumnas.Designer.cs">
+      <DependentUpon>201811011321192_profesoresOrdenColumnas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811021522096_profesores3.cs" />
+    <Compile Include="Migrations\201811021522096_profesores3.Designer.cs">
+      <DependentUpon>201811021522096_profesores3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811021528384_profesores4.cs" />
+    <Compile Include="Migrations\201811021528384_profesores4.Designer.cs">
+      <DependentUpon>201811021528384_profesores4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811021540373_profesores5.cs" />
+    <Compile Include="Migrations\201811021540373_profesores5.Designer.cs">
+      <DependentUpon>201811021540373_profesores5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DAL\AccountViewModels.cs" />
     <Compile Include="DAL\IdentityModels.cs" />
@@ -2581,6 +2601,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810302031096_updateInstitucion.resx">
       <DependentUpon>201810302031096_updateInstitucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811011310448_profesores.resx">
+      <DependentUpon>201811011310448_profesores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811011321192_profesoresOrdenColumnas.resx">
+      <DependentUpon>201811011321192_profesoresOrdenColumnas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811021522096_profesores3.resx">
+      <DependentUpon>201811021522096_profesores3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811021528384_profesores4.resx">
+      <DependentUpon>201811021528384_profesores4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811021540373_profesores5.resx">
+      <DependentUpon>201811021540373_profesores5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

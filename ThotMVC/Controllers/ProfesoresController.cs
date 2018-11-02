@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,7 +19,7 @@ namespace ThotMVC.Controllers
         // GET: Profesores
         //public ActionResult Index()
         //{
-        //    var profesores = db.Profesores.Include(p => p.Escalafones).Include(p => p.Profesiones).Include(p => p.Sedes).Include(p => p.TipoIdentificaciones);
+        //    var profesores = db.Profesores.Include(p => p.Escalafones).Include(p => p.EstadoCiviles).Include(p => p.Generos).Include(p => p.Profesiones).Include(p => p.Sedes).Include(p => p.TipoIdentificaciones);
         //    return View(profesores.ToList());
         //}
 
@@ -27,9 +28,7 @@ namespace ThotMVC.Controllers
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
             ViewBag.CodigoSortParm = sortOrder == "Codigo" ? "codigo_desc" : "Codigo";
-            ViewBag.YYYSortParm = sortOrder == "Escalafones" ? "escalafones_desc" : "Escalafones";
-            ViewBag.YYYSortParm = sortOrder == "Profesiones" ? "profesiones_desc" : "Profesiones";
-            ViewBag.YYYSortParm = sortOrder == "Sedes" ? "sedes_desc" : "Sedes";
+            ViewBag.SedesSortParm = sortOrder == "Sedes" ? "sedes_desc" : "Sedes";
 
             if (searchString != null)
             {
@@ -42,14 +41,12 @@ namespace ThotMVC.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var profesores = from s in db.Profesores.Include(p => p.Escalafones).Include(p => p.Profesiones).Include(p => p.Sedes).Include(p => p.TipoIdentificaciones)
+            var profesores = from s in db.Profesores.Include(p => p.Escalafones).Include(p => p.EstadoCiviles).Include(p => p.Generos).Include(p => p.Profesiones).Include(p => p.Sedes).Include(p => p.TipoIdentificaciones)
             select s;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                profesores = profesores.Where(s => s.PrimerNombre.Contains(searchString)
-                                       || s.Escalafones.Nombre.Contains(searchString)
-                                       || s.Profesiones.Nombre.Contains(searchString)
+                profesores = profesores.Where(s => s.PrimerNombre.Contains(searchString)                                       
                                        || s.Sedes.Nombre.Contains(searchString)
                                        || s.Codigo.Contains(searchString));
             }
@@ -63,19 +60,7 @@ namespace ThotMVC.Controllers
                     break;
                 case "codigo_desc":
                     profesores = profesores.OrderByDescending(s => s.Codigo);
-                    break;
-                case "Escalafones":
-                    profesores = profesores.OrderBy(s => s.Escalafones.Nombre);
-                    break;
-                case "escalafones_desc":
-                    profesores = profesores.OrderByDescending(s => s.Escalafones.Nombre);
-                    break;
-                case "Profesiones":
-                    profesores = profesores.OrderBy(s => s.Profesiones.Nombre);
-                    break;
-                case "profesiones_desc":
-                    profesores = profesores.OrderByDescending(s => s.Profesiones.Nombre);
-                    break;
+                    break;               
                 case "Sedes":
                     profesores = profesores.OrderBy(s => s.Sedes.Nombre);
                     break;
@@ -111,6 +96,8 @@ namespace ThotMVC.Controllers
         public ActionResult Create()
         {
             ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Nombre");
+            ViewBag.EstadoCivilId = new SelectList(db.EstadoCiviles, "Id", "Nombre");
+            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Nombre");
             ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Nombre");
             ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Nombre");
             ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre");
@@ -122,16 +109,32 @@ namespace ThotMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Codigo,TipoIdentificacionId,NumeroDocumento,PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Direccion,Telefono,ProfesionId,EscalafonId,SedeId,Activo,UsuarioRegistra,FechaRegistro,UsuarioModifica,FechaModifica")] Profesores profesores)
+        public ActionResult Create([Bind(Include = "Id,Codigo,TipoIdentificacionId,NumeroDocumento,PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Direccion,Telefono,ProfesionId,EscalafonId,SedeId,GeneroId,FechaNacimiento,LugarNacimiento,EstadoCivilId,NumeroHijos,FechaVinculacion,FechaRetiro,LibretaMilitar,ResolucionNombramiento,FotoPerfil,Activo,UsuarioRegistra,FechaRegistro,UsuarioModifica,FechaModifica")] Profesores profesores, HttpPostedFileBase uploadFile)
         {
+            ////Dectecta el error del modelState
+            //var errors = ModelState.Where(x => x.Value.Errors.Count > 0)
+            // .Select(x => new { x.Key, x.Value.Errors })
+            // .ToArray();
+
             if (ModelState.IsValid)
             {
+                //Sube las imagenes y las guarda en disco
+                if (uploadFile != null && uploadFile.ContentLength > 0)
+                {
+                    var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(uploadFile.FileName);
+                    string pathArchivo = Server.MapPath("~/images/");
+                    profesores.FotoPerfil = nombreArchivo;
+                    uploadFile.SaveAs(Path.Combine(pathArchivo, nombreArchivo));
+                }
+
                 db.Profesores.Add(profesores);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Nombre", profesores.EscalafonId);
+            ViewBag.EstadoCivilId = new SelectList(db.EstadoCiviles, "Id", "Nombre", profesores.EstadoCivilId);
+            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Nombre", profesores.GeneroId);
             ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Nombre", profesores.ProfesionId);
             ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Nombre", profesores.SedeId);
             ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre", profesores.TipoIdentificacionId);
@@ -151,6 +154,8 @@ namespace ThotMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Nombre", profesores.EscalafonId);
+            ViewBag.EstadoCivilId = new SelectList(db.EstadoCiviles, "Id", "Nombre", profesores.EstadoCivilId);
+            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Nombre", profesores.GeneroId);
             ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Nombre", profesores.ProfesionId);
             ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Nombre", profesores.SedeId);
             ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre", profesores.TipoIdentificacionId);
@@ -162,15 +167,26 @@ namespace ThotMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Codigo,TipoIdentificacionId,NumeroDocumento,PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Direccion,Telefono,ProfesionId,EscalafonId,SedeId,Activo,UsuarioRegistra,FechaRegistro,UsuarioModifica,FechaModifica")] Profesores profesores)
+        public ActionResult Edit([Bind(Include = "Id,Codigo,TipoIdentificacionId,NumeroDocumento,PrimerApellido,SegundoApellido,PrimerNombre,SegundoNombre,Direccion,Telefono,ProfesionId,EscalafonId,SedeId,GeneroId,FechaNacimiento,LugarNacimiento,EstadoCivilId,NumeroHijos,FechaVinculacion,FechaRetiro,LibretaMilitar,ResolucionNombramiento,FotoPerfil,Activo,UsuarioRegistra,FechaRegistro,UsuarioModifica,FechaModifica")] Profesores profesores, HttpPostedFileBase uploadFile)
         {
             if (ModelState.IsValid)
             {
+                //Sube las imagenes y las guarda en disco
+                if (uploadFile != null && uploadFile.ContentLength > 0)
+                {
+                    var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(uploadFile.FileName);
+                    string pathArchivo = Server.MapPath("~/images/");
+                    profesores.FotoPerfil = nombreArchivo;
+                    uploadFile.SaveAs(Path.Combine(pathArchivo, nombreArchivo));
+                }
+
                 db.Entry(profesores).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.EscalafonId = new SelectList(db.Escalafones, "Id", "Nombre", profesores.EscalafonId);
+            ViewBag.EstadoCivilId = new SelectList(db.EstadoCiviles, "Id", "Nombre", profesores.EstadoCivilId);
+            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "Nombre", profesores.GeneroId);
             ViewBag.ProfesionId = new SelectList(db.Profesiones, "Id", "Nombre", profesores.ProfesionId);
             ViewBag.SedeId = new SelectList(db.Sedes, "Id", "Nombre", profesores.SedeId);
             ViewBag.TipoIdentificacionId = new SelectList(db.TipoIdentificaciones, "Id", "Nombre", profesores.TipoIdentificacionId);

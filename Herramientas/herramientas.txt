@@ -1,0 +1,7 @@
+Base de datos--------------
+select * from Profesores
+
+delete from  profesores
+
+--reinicia el contador de la base
+DBCC CHECKIDENT (profesores, RESEED, 0)
