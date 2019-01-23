@@ -1,0 +1,17 @@
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\Thoth.Repository.dll
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\Thoth.Repository.pdb
+E:\Developer\ThotMVC\Thoth.Repository\obj\Debug\Thoth.Repository.csproj.CoreCompileInputs.cache
+E:\Developer\ThotMVC\Thoth.Repository\obj\Debug\Thoth.Repository.dll
+E:\Developer\ThotMVC\Thoth.Repository\obj\Debug\Thoth.Repository.pdb
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\Thoth.Repository.dll.config
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\EntityFramework.dll
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\EntityFramework.SqlServer.dll
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\Thoth.Infrastructure.Data.dll
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\Thoth.Infrastructure.Data.pdb
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\Thoth.Infrastructure.Data.dll.config
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\EntityFramework.xml
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\EntityFramework.SqlServer.xml
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\es\EntityFramework.resources.dll
+E:\Developer\ThotMVC\Thoth.Repository\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+E:\Developer\ThotMVC\Thoth.Repository\obj\Debug\Thoth.Repository.csprojAssemblyReference.cache
+E:\Developer\ThotMVC\Thoth.Repository\obj\Debug\Thoth.Repository.csproj.CopyComplete

@@ -1,0 +1,6 @@
+E:\Developer\ThotMVC\Thoth.Data\bin\Debug\Thoth.Data.dll
+E:\Developer\ThotMVC\Thoth.Data\bin\Debug\Thoth.Data.pdb
+E:\Developer\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.csprojAssemblyReference.cache
+E:\Developer\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.csproj.CoreCompileInputs.cache
+E:\Developer\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.dll
+E:\Developer\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.pdb

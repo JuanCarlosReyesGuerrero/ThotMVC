@@ -19,16 +19,16 @@ namespace ThotMVC.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext1 : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
+        public ApplicationDbContext1()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
-        public static ApplicationDbContext Create()
+        public static ApplicationDbContext1 Create()
         {
-            return new ApplicationDbContext();
+            return new ApplicationDbContext1();
         }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)

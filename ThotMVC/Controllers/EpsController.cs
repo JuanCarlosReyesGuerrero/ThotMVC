@@ -7,13 +7,17 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Thoth.Service;
 using ThotMVC.Models;
+using Thoth.Infrastructure.Data;
 
 namespace ThotMVC.Controllers
 {
     public class EpsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        //private ApplicationDbContext db = new ApplicationDbContext();
+
+        private ServiceBase serviceBase = new ServiceBase();
 
         // GET: Eps
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
@@ -31,8 +35,12 @@ namespace ThotMVC.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
-            var eps = from s in db.Eps
-                        select s;
+            //var eps = from s in db.Eps
+            //            select s;
+
+            var eps = serviceBase.EpsRepository.GetAll();
+            
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 eps = eps.Where(s => s.Nombre.Contains(searchString));
