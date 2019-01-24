@@ -6,12 +6,13 @@ namespace Thoth.Service
 {
     public class ServiceBase : IDisposable
     {
-        private ThothMVCDbContext context = new ThothMVCDbContext();
+        private ThotMVCEntities context = new ThotMVCEntities();
         private GenericRepository<Eps> epsRepository;
 
         public GenericRepository<Eps> EpsRepository
         {
             get
+
             {
                 if (this.epsRepository == null)
                 {

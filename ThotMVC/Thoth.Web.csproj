@@ -208,7 +208,7 @@
     <Compile Include="Controllers\ClasificacionesController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\DepartamentosController.cs" />
-    <Compile Include="Controllers\EpsController.cs" />
+    <Compile Include="Controllers\EpsXXXXController.cs" />
     <Compile Include="Controllers\EquivalenciasController.cs" />
     <Compile Include="Controllers\EscalafonesController.cs" />
     <Compile Include="Controllers\EscalaNacionalesController.cs" />

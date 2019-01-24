@@ -134,3 +134,14 @@ E:\Developer\ThotMVC\ThotMVC.Tests\obj\Debug\ThotMVC.Tests.csproj.CoreCompileInp
 E:\Developer\ThotMVC\ThotMVC.Tests\obj\Debug\ThotMVC.Tests.csproj.CopyComplete
 E:\Developer\ThotMVC\ThotMVC.Tests\obj\Debug\ThotMVC.Tests.dll
 E:\Developer\ThotMVC\ThotMVC.Tests\obj\Debug\ThotMVC.Tests.pdb
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\Thoth.Service.dll
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\Thoth.Data.dll
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\PagedList.dll
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\Thoth.Repository.dll
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\Thoth.Service.pdb
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\Thoth.Service.dll.config
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\Thoth.Data.pdb
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\Thoth.Data.dll.config
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\PagedList.xml
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\Thoth.Repository.pdb
+D:\Developments\ThotMVC\ThotMVC.Tests\bin\Debug\Thoth.Repository.dll.config

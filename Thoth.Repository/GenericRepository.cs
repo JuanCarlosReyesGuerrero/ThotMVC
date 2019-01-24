@@ -8,10 +8,10 @@ namespace Thoth.Repository
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        protected ThothMVCDbContext _applicationDbContext;
+        protected ThotMVCEntities _applicationDbContext;
         protected DbSet<TEntity> _DbSet;
                 
-        public GenericRepository(ThothMVCDbContext applicationDbContext)
+        public GenericRepository(ThotMVCEntities applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
             this._DbSet = applicationDbContext.Set<TEntity>();
@@ -82,7 +82,6 @@ namespace Thoth.Repository
         {
             try
             {
-
                 var query = _applicationDbContext.Set<TEntity>().ToList();
                 return query;
             }

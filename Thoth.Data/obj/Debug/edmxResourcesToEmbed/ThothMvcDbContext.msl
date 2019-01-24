@@ -1,0 +1,1199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThotMVCModelStoreContainer" CdmEntityContainer="ThotMVCEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="ThotMVCModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AporteParafiscales">
+      <EntityTypeMapping TypeName="ThotMVCModel.AporteParafiscales">
+        <MappingFragment StoreEntitySet="AporteParafiscales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ars">
+      <EntityTypeMapping TypeName="ThotMVCModel.Ars">
+        <MappingFragment StoreEntitySet="Ars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asignaturas">
+      <EntityTypeMapping TypeName="ThotMVCModel.Asignaturas">
+        <MappingFragment StoreEntitySet="Asignaturas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AsociacionPrivadas">
+      <EntityTypeMapping TypeName="ThotMVCModel.AsociacionPrivadas">
+        <MappingFragment StoreEntitySet="AsociacionPrivadas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="ThotMVCModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="ThotMVCModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="ThotMVCModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="ThotMVCModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calendarios">
+      <EntityTypeMapping TypeName="ThotMVCModel.Calendarios">
+        <MappingFragment StoreEntitySet="Calendarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CapacidadExcepcionales">
+      <EntityTypeMapping TypeName="ThotMVCModel.CapacidadExcepcionales">
+        <MappingFragment StoreEntitySet="CapacidadExcepcionales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cargos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Cargos">
+        <MappingFragment StoreEntitySet="Cargos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClasesFuncionarios">
+      <EntityTypeMapping TypeName="ThotMVCModel.ClasesFuncionarios">
+        <MappingFragment StoreEntitySet="ClasesFuncionarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clasificaciones">
+      <EntityTypeMapping TypeName="ThotMVCModel.Clasificaciones">
+        <MappingFragment StoreEntitySet="Clasificaciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cursos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Cursos">
+        <MappingFragment StoreEntitySet="Cursos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="GradoId" ColumnName="GradoId" />
+          <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
+          <ScalarProperty Name="JornadaId" ColumnName="JornadaId" />
+          <ScalarProperty Name="ProfesorId" ColumnName="ProfesorId" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Departamentos">
+        <MappingFragment StoreEntitySet="Departamentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Eps">
+      <EntityTypeMapping TypeName="ThotMVCModel.Eps">
+        <MappingFragment StoreEntitySet="Eps">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equivalencias">
+      <EntityTypeMapping TypeName="ThotMVCModel.Equivalencias">
+        <MappingFragment StoreEntitySet="Equivalencias">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="EquivalenciaRangoNumerico" ColumnName="EquivalenciaRangoNumerico" />
+          <ScalarProperty Name="ValoracionLetraId" ColumnName="ValoracionLetraId" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Escalafones">
+      <EntityTypeMapping TypeName="ThotMVCModel.Escalafones">
+        <MappingFragment StoreEntitySet="Escalafones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EscalaNacionales">
+      <EntityTypeMapping TypeName="ThotMVCModel.EscalaNacionales">
+        <MappingFragment StoreEntitySet="EscalaNacionales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CriterioEvalaluacion" ColumnName="CriterioEvalaluacion" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Especialidades">
+      <EntityTypeMapping TypeName="ThotMVCModel.Especialidades">
+        <MappingFragment StoreEntitySet="Especialidades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoCiviles">
+      <EntityTypeMapping TypeName="ThotMVCModel.EstadoCiviles">
+        <MappingFragment StoreEntitySet="EstadoCiviles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estratos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Estratos">
+        <MappingFragment StoreEntitySet="Estratos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estudiantes">
+      <EntityTypeMapping TypeName="ThotMVCModel.Estudiantes">
+        <MappingFragment StoreEntitySet="Estudiantes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CodigoMEN" ColumnName="CodigoMEN" />
+          <ScalarProperty Name="TipoIdentificacionId" ColumnName="TipoIdentificacionId" />
+          <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+          <ScalarProperty Name="DepartamentoExpedicionId" ColumnName="DepartamentoExpedicionId" />
+          <ScalarProperty Name="MunicipioExpedicionId" ColumnName="MunicipioExpedicionId" />
+          <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
+          <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
+          <ScalarProperty Name="PrimerNombre" ColumnName="PrimerNombre" />
+          <ScalarProperty Name="SegundoNombre" ColumnName="SegundoNombre" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="DepartamentoNacimientoId" ColumnName="DepartamentoNacimientoId" />
+          <ScalarProperty Name="MunicipioNacimientoId" ColumnName="MunicipioNacimientoId" />
+          <ScalarProperty Name="GeneroId" ColumnName="GeneroId" />
+          <ScalarProperty Name="FactorRhId" ColumnName="FactorRhId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fotografia" ColumnName="Fotografia" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="DepartamentoResidenciaId" ColumnName="DepartamentoResidenciaId" />
+          <ScalarProperty Name="MunicipioResidenciaId" ColumnName="MunicipioResidenciaId" />
+          <ScalarProperty Name="ZonaResidenciaId" ColumnName="ZonaResidenciaId" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="Barrio" ColumnName="Barrio" />
+          <ScalarProperty Name="EstratoId" ColumnName="EstratoId" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="SisbenId" ColumnName="SisbenId" />
+          <ScalarProperty Name="NumeroSisben" ColumnName="NumeroSisben" />
+          <ScalarProperty Name="EpsId" ColumnName="EpsId" />
+          <ScalarProperty Name="ArsId" ColumnName="ArsId" />
+          <ScalarProperty Name="PoblacionVictimaId" ColumnName="PoblacionVictimaId" />
+          <ScalarProperty Name="DepartamentoExpulsorId" ColumnName="DepartamentoExpulsorId" />
+          <ScalarProperty Name="MunicipioExpulsorId" ColumnName="MunicipioExpulsorId" />
+          <ScalarProperty Name="FechaExpulsion" ColumnName="FechaExpulsion" />
+          <ScalarProperty Name="CertificadoExpulsion" ColumnName="CertificadoExpulsion" />
+          <ScalarProperty Name="FechaCertificadoExpulsion" ColumnName="FechaCertificadoExpulsion" />
+          <ScalarProperty Name="DiscapacidadId" ColumnName="DiscapacidadId" />
+          <ScalarProperty Name="CapacidadExcepcionalId" ColumnName="CapacidadExcepcionalId" />
+          <ScalarProperty Name="EtniaId" ColumnName="EtniaId" />
+          <ScalarProperty Name="ResguardoId" ColumnName="ResguardoId" />
+          <ScalarProperty Name="ProvieneSectorPrivado" ColumnName="ProvieneSectorPrivado" />
+          <ScalarProperty Name="ProvieneOtroMunicipio" ColumnName="ProvieneOtroMunicipio" />
+          <ScalarProperty Name="InstitucionBienestar" ColumnName="InstitucionBienestar" />
+          <ScalarProperty Name="TipoIdentificacionMadreId" ColumnName="TipoIdentificacionMadreId" />
+          <ScalarProperty Name="NumeroDocumentoMadre" ColumnName="NumeroDocumentoMadre" />
+          <ScalarProperty Name="DepartamentoExpedicionMadreId" ColumnName="DepartamentoExpedicionMadreId" />
+          <ScalarProperty Name="MunicipioExpedicionMadreId" ColumnName="MunicipioExpedicionMadreId" />
+          <ScalarProperty Name="EstudiantePrimerApellidoMadre" ColumnName="EstudiantePrimerApellidoMadre" />
+          <ScalarProperty Name="SegundoApellidoMadre" ColumnName="SegundoApellidoMadre" />
+          <ScalarProperty Name="PrimerNombreMadre" ColumnName="PrimerNombreMadre" />
+          <ScalarProperty Name="EstudianteSegundoNombreMadre" ColumnName="EstudianteSegundoNombreMadre" />
+          <ScalarProperty Name="EmailMadre" ColumnName="EmailMadre" />
+          <ScalarProperty Name="DireccionMadre" ColumnName="DireccionMadre" />
+          <ScalarProperty Name="DepartamentoResidenciaMadreId" ColumnName="DepartamentoResidenciaMadreId" />
+          <ScalarProperty Name="MunicipioResidenciaMadreId" ColumnName="MunicipioResidenciaMadreId" />
+          <ScalarProperty Name="ZonaResidenciaMadreId" ColumnName="ZonaResidenciaMadreId" />
+          <ScalarProperty Name="BarrioMadre" ColumnName="BarrioMadre" />
+          <ScalarProperty Name="LocalidadMadre" ColumnName="LocalidadMadre" />
+          <ScalarProperty Name="TelefonoMadre" ColumnName="TelefonoMadre" />
+          <ScalarProperty Name="CelularMadre" ColumnName="CelularMadre" />
+          <ScalarProperty Name="OcupacionMadre" ColumnName="OcupacionMadre" />
+          <ScalarProperty Name="EmpresaMadre" ColumnName="EmpresaMadre" />
+          <ScalarProperty Name="TelefonoEmpresaMadre" ColumnName="TelefonoEmpresaMadre" />
+          <ScalarProperty Name="TipoIdentificacionPadreId" ColumnName="TipoIdentificacionPadreId" />
+          <ScalarProperty Name="NumeroDocumentoPadre" ColumnName="NumeroDocumentoPadre" />
+          <ScalarProperty Name="DepartamentoExpedicionPadreId" ColumnName="DepartamentoExpedicionPadreId" />
+          <ScalarProperty Name="MunicipioExpedicionPadreId" ColumnName="MunicipioExpedicionPadreId" />
+          <ScalarProperty Name="PrimerApellidoPadre" ColumnName="PrimerApellidoPadre" />
+          <ScalarProperty Name="SegundoApellidoPadre" ColumnName="SegundoApellidoPadre" />
+          <ScalarProperty Name="PrimerNombrePadre" ColumnName="PrimerNombrePadre" />
+          <ScalarProperty Name="SegundoNombrePadre" ColumnName="SegundoNombrePadre" />
+          <ScalarProperty Name="EmailPadre" ColumnName="EmailPadre" />
+          <ScalarProperty Name="DireccionPadre" ColumnName="DireccionPadre" />
+          <ScalarProperty Name="DepartamentoResidenciaPadreId" ColumnName="DepartamentoResidenciaPadreId" />
+          <ScalarProperty Name="MunicipioResidenciaPadreId" ColumnName="MunicipioResidenciaPadreId" />
+          <ScalarProperty Name="ZonaResicenciaPadreId" ColumnName="ZonaResicenciaPadreId" />
+          <ScalarProperty Name="BarrioPadre" ColumnName="BarrioPadre" />
+          <ScalarProperty Name="Localidadpadre" ColumnName="Localidadpadre" />
+          <ScalarProperty Name="TelefonoPadre" ColumnName="TelefonoPadre" />
+          <ScalarProperty Name="CelularPadre" ColumnName="CelularPadre" />
+          <ScalarProperty Name="OcupacionPadre" ColumnName="OcupacionPadre" />
+          <ScalarProperty Name="EmpresaPadre" ColumnName="EmpresaPadre" />
+          <ScalarProperty Name="TelefonoEmpresaPadre" ColumnName="TelefonoEmpresaPadre" />
+          <ScalarProperty Name="TipoIdentificacionAcudienteId" ColumnName="TipoIdentificacionAcudienteId" />
+          <ScalarProperty Name="NumeroDocumentoAcudiente" ColumnName="NumeroDocumentoAcudiente" />
+          <ScalarProperty Name="DepartamentoExpedicionAcudienteId" ColumnName="DepartamentoExpedicionAcudienteId" />
+          <ScalarProperty Name="MunicipioExpedicionAcudiente" ColumnName="MunicipioExpedicionAcudiente" />
+          <ScalarProperty Name="PrimerApellidoAcudiente" ColumnName="PrimerApellidoAcudiente" />
+          <ScalarProperty Name="SegundoApellidoAcudiente" ColumnName="SegundoApellidoAcudiente" />
+          <ScalarProperty Name="PrimerNombreAcudiente" ColumnName="PrimerNombreAcudiente" />
+          <ScalarProperty Name="SegundoNombreAcudiente" ColumnName="SegundoNombreAcudiente" />
+          <ScalarProperty Name="EmailAcudiente" ColumnName="EmailAcudiente" />
+          <ScalarProperty Name="DireccionAcudiente" ColumnName="DireccionAcudiente" />
+          <ScalarProperty Name="DepartamentoResidenciaAcudienteId" ColumnName="DepartamentoResidenciaAcudienteId" />
+          <ScalarProperty Name="MunicipioResidenciaAcudienteId" ColumnName="MunicipioResidenciaAcudienteId" />
+          <ScalarProperty Name="ZonaResidenciaAcudienteId" ColumnName="ZonaResidenciaAcudienteId" />
+          <ScalarProperty Name="BarrioAcudiente" ColumnName="BarrioAcudiente" />
+          <ScalarProperty Name="LocalidadAcudiente" ColumnName="LocalidadAcudiente" />
+          <ScalarProperty Name="TelefonoAcudiente" ColumnName="TelefonoAcudiente" />
+          <ScalarProperty Name="CelularAcudiente" ColumnName="CelularAcudiente" />
+          <ScalarProperty Name="OcupacionAcudiente" ColumnName="OcupacionAcudiente" />
+          <ScalarProperty Name="EmpresaAcudiente" ColumnName="EmpresaAcudiente" />
+          <ScalarProperty Name="TelefonoEmpresaAcudiente" ColumnName="TelefonoEmpresaAcudiente" />
+          <ScalarProperty Name="GeneroAcudienteId" ColumnName="GeneroAcudienteId" />
+          <ScalarProperty Name="ParentescoAcudienteId" ColumnName="ParentescoAcudienteId" />
+          <ScalarProperty Name="ColegioUltimoCurso" ColumnName="ColegioUltimoCurso" />
+          <ScalarProperty Name="DireccionColegioUltimoCurso" ColumnName="DireccionColegioUltimoCurso" />
+          <ScalarProperty Name="TelefonoColegioUltimoCurso" ColumnName="TelefonoColegioUltimoCurso" />
+          <ScalarProperty Name="UltimoGrado" ColumnName="UltimoGrado" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="MotivoRetiroUltimo" ColumnName="MotivoRetiroUltimo" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="UsuarioEstudiante" ColumnName="UsuarioEstudiante" />
+          <ScalarProperty Name="ClaveAcceso" ColumnName="ClaveAcceso" />
+          <ScalarProperty Name="GrupoUsuarioId" ColumnName="GrupoUsuarioId" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="InstitucionId" ColumnName="InstitucionId" />
+          <ScalarProperty Name="SeleccioneMadre" ColumnName="SeleccioneMadre" />
+          <ScalarProperty Name="SeleccionePadre" ColumnName="SeleccionePadre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+          <ScalarProperty Name="Departamentos_Id" ColumnName="Departamentos_Id" />
+          <ScalarProperty Name="Municipios_Id" ColumnName="Municipios_Id" />
+          <ScalarProperty Name="Zonas_Id" ColumnName="Zonas_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etnias">
+      <EntityTypeMapping TypeName="ThotMVCModel.Etnias">
+        <MappingFragment StoreEntitySet="Etnias">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactorRhs">
+      <EntityTypeMapping TypeName="ThotMVCModel.FactorRhs">
+        <MappingFragment StoreEntitySet="FactorRhs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FuenteRecursos">
+      <EntityTypeMapping TypeName="ThotMVCModel.FuenteRecursos">
+        <MappingFragment StoreEntitySet="FuenteRecursos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeneroEstudiantes">
+      <EntityTypeMapping TypeName="ThotMVCModel.GeneroEstudiantes">
+        <MappingFragment StoreEntitySet="GeneroEstudiantes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Generos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Generos">
+        <MappingFragment StoreEntitySet="Generos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grados">
+      <EntityTypeMapping TypeName="ThotMVCModel.Grados">
+        <MappingFragment StoreEntitySet="Grados">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Grupos">
+        <MappingFragment StoreEntitySet="Grupos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Idiomas">
+      <EntityTypeMapping TypeName="ThotMVCModel.Idiomas">
+        <MappingFragment StoreEntitySet="Idiomas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instituciones">
+      <EntityTypeMapping TypeName="ThotMVCModel.Instituciones">
+        <MappingFragment StoreEntitySet="Instituciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodigoDane" ColumnName="CodigoDane" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="NombreRector" ColumnName="NombreRector" />
+          <ScalarProperty Name="CalendarioId" ColumnName="CalendarioId" />
+          <ScalarProperty Name="TipoSectorEducacionId" ColumnName="TipoSectorEducacionId" />
+          <ScalarProperty Name="PropiedadJuridicaId" ColumnName="PropiedadJuridicaId" />
+          <ScalarProperty Name="NumeroSedes" ColumnName="NumeroSedes" />
+          <ScalarProperty Name="NucleoId" ColumnName="NucleoId" />
+          <ScalarProperty Name="GeneroId" ColumnName="GeneroId" />
+          <ScalarProperty Name="Subsidio" ColumnName="Subsidio" />
+          <ScalarProperty Name="DiscapacidadesId" ColumnName="DiscapacidadesId" />
+          <ScalarProperty Name="CapacidadesExcepcionalesId" ColumnName="CapacidadesExcepcionalesId" />
+          <ScalarProperty Name="EtniasId" ColumnName="EtniasId" />
+          <ScalarProperty Name="ResguardosId" ColumnName="ResguardosId" />
+          <ScalarProperty Name="NovedadId" ColumnName="NovedadId" />
+          <ScalarProperty Name="MetodologiaId" ColumnName="MetodologiaId" />
+          <ScalarProperty Name="PrestadorServicioId" ColumnName="PrestadorServicioId" />
+          <ScalarProperty Name="DecretoCreacion" ColumnName="DecretoCreacion" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="Secretaria" ColumnName="Secretaria" />
+          <ScalarProperty Name="Aprobacion" ColumnName="Aprobacion" />
+          <ScalarProperty Name="Lema" ColumnName="Lema" />
+          <ScalarProperty Name="Escudo" ColumnName="Escudo" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+          <ScalarProperty Name="ZonaId" ColumnName="ZonaId" />
+          <ScalarProperty Name="Barrio" ColumnName="Barrio" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="SitioWeb" ColumnName="SitioWeb" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NumeroLiciencia" ColumnName="NumeroLiciencia" />
+          <ScalarProperty Name="RegimenCostoId" ColumnName="RegimenCostoId" />
+          <ScalarProperty Name="IdiomaId" ColumnName="IdiomaId" />
+          <ScalarProperty Name="AsociacionId" ColumnName="AsociacionId" />
+          <ScalarProperty Name="TarifaAnualId" ColumnName="TarifaAnualId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+          <ScalarProperty Name="JornadaCompletaId" ColumnName="JornadaCompletaId" />
+          <ScalarProperty Name="JornadaMananaId" ColumnName="JornadaMananaId" />
+          <ScalarProperty Name="JornadaTardeId" ColumnName="JornadaTardeId" />
+          <ScalarProperty Name="JornadaNocturnaId" ColumnName="JornadaNocturnaId" />
+          <ScalarProperty Name="JornadaFinSemanaId" ColumnName="JornadaFinSemanaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jornadas">
+      <EntityTypeMapping TypeName="ThotMVCModel.Jornadas">
+        <MappingFragment StoreEntitySet="Jornadas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Juicios">
+      <EntityTypeMapping TypeName="ThotMVCModel.Juicios">
+        <MappingFragment StoreEntitySet="Juicios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="GradoId" ColumnName="GradoId" />
+          <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
+          <ScalarProperty Name="JornadaId" ColumnName="JornadaId" />
+          <ScalarProperty Name="MateriaId" ColumnName="MateriaId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LibretaMilitares">
+      <EntityTypeMapping TypeName="ThotMVCModel.LibretaMilitares">
+        <MappingFragment StoreEntitySet="LibretaMilitares">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materias">
+      <EntityTypeMapping TypeName="ThotMVCModel.Materias">
+        <MappingFragment StoreEntitySet="Materias">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IntensidadHoraria" ColumnName="IntensidadHoraria" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="ClasificacionId" ColumnName="ClasificacionId" />
+          <ScalarProperty Name="ProfesorId" ColumnName="ProfesorId" />
+          <ScalarProperty Name="GradoId" ColumnName="GradoId" />
+          <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
+          <ScalarProperty Name="JornadaId" ColumnName="JornadaId" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Metodologias">
+      <EntityTypeMapping TypeName="ThotMVCModel.Metodologias">
+        <MappingFragment StoreEntitySet="Metodologias">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="ThotMVCModel.Municipios">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CodigoUnificado" ColumnName="CodigoUnificado" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="DepartamentoCodigo" ColumnName="DepartamentoCodigo" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NivelEducativoDocentes">
+      <EntityTypeMapping TypeName="ThotMVCModel.NivelEducativoDocentes">
+        <MappingFragment StoreEntitySet="NivelEducativoDocentes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NivelEducativos">
+      <EntityTypeMapping TypeName="ThotMVCModel.NivelEducativos">
+        <MappingFragment StoreEntitySet="NivelEducativos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nucleos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Nucleos">
+        <MappingFragment StoreEntitySet="Nucleos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+          <ScalarProperty Name="NombreDirector" ColumnName="NombreDirector" />
+          <ScalarProperty Name="TelefonoDirector" ColumnName="TelefonoDirector" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parentescos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Parentescos">
+        <MappingFragment StoreEntitySet="Parentescos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periodos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Periodos">
+        <MappingFragment StoreEntitySet="Periodos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PoblacionVictimaConflictos">
+      <EntityTypeMapping TypeName="ThotMVCModel.PoblacionVictimaConflictos">
+        <MappingFragment StoreEntitySet="PoblacionVictimaConflictos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prestadores">
+      <EntityTypeMapping TypeName="ThotMVCModel.Prestadores">
+        <MappingFragment StoreEntitySet="Prestadores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesiones">
+      <EntityTypeMapping TypeName="ThotMVCModel.Profesiones">
+        <MappingFragment StoreEntitySet="Profesiones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesores">
+      <EntityTypeMapping TypeName="ThotMVCModel.Profesores">
+        <MappingFragment StoreEntitySet="Profesores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="TipoIdentificacionId" ColumnName="TipoIdentificacionId" />
+          <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+          <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
+          <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
+          <ScalarProperty Name="PrimerNombre" ColumnName="PrimerNombre" />
+          <ScalarProperty Name="SegundoNombre" ColumnName="SegundoNombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="ProfesionId" ColumnName="ProfesionId" />
+          <ScalarProperty Name="EscalafonId" ColumnName="EscalafonId" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropiedadJuridicas">
+      <EntityTypeMapping TypeName="ThotMVCModel.PropiedadJuridicas">
+        <MappingFragment StoreEntitySet="PropiedadJuridicas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegimenCostos">
+      <EntityTypeMapping TypeName="ThotMVCModel.RegimenCostos">
+        <MappingFragment StoreEntitySet="RegimenCostos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resguardos">
+      <EntityTypeMapping TypeName="ThotMVCModel.Resguardos">
+        <MappingFragment StoreEntitySet="Resguardos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sedes">
+      <EntityTypeMapping TypeName="ThotMVCModel.Sedes">
+        <MappingFragment StoreEntitySet="Sedes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CodigoDaneNuevo" ColumnName="CodigoDaneNuevo" />
+          <ScalarProperty Name="CodigoDaneAntiguo" ColumnName="CodigoDaneAntiguo" />
+          <ScalarProperty Name="CodigoConsecutivo" ColumnName="CodigoConsecutivo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+          <ScalarProperty Name="ZonaId" ColumnName="ZonaId" />
+          <ScalarProperty Name="Barrio" ColumnName="Barrio" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Novedad" ColumnName="Novedad" />
+          <ScalarProperty Name="JornadaCompleta" ColumnName="JornadaCompleta" />
+          <ScalarProperty Name="JornadaManana" ColumnName="JornadaManana" />
+          <ScalarProperty Name="JornadaTarde" ColumnName="JornadaTarde" />
+          <ScalarProperty Name="JornadaNoche" ColumnName="JornadaNoche" />
+          <ScalarProperty Name="JornadaFinSemana" ColumnName="JornadaFinSemana" />
+          <ScalarProperty Name="EspecialidadId" ColumnName="EspecialidadId" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="Secretaria" ColumnName="Secretaria" />
+          <ScalarProperty Name="EscalaValoracionNacional" ColumnName="EscalaValoracionNacional" />
+          <ScalarProperty Name="RangoNumerico" ColumnName="RangoNumerico" />
+          <ScalarProperty Name="NumeroInicial" ColumnName="NumeroInicial" />
+          <ScalarProperty Name="NumeroFinal" ColumnName="NumeroFinal" />
+          <ScalarProperty Name="ValoracionLetras" ColumnName="ValoracionLetras" />
+          <ScalarProperty Name="Juicios" ColumnName="Juicios" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sisbenes">
+      <EntityTypeMapping TypeName="ThotMVCModel.Sisbenes">
+        <MappingFragment StoreEntitySet="Sisbenes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SituacionAcademicas">
+      <EntityTypeMapping TypeName="ThotMVCModel.SituacionAcademicas">
+        <MappingFragment StoreEntitySet="SituacionAcademicas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarifaAnuales">
+      <EntityTypeMapping TypeName="ThotMVCModel.TarifaAnuales">
+        <MappingFragment StoreEntitySet="TarifaAnuales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoAcademicos">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoAcademicos">
+        <MappingFragment StoreEntitySet="TipoAcademicos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoCaracteres">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoCaracteres">
+        <MappingFragment StoreEntitySet="TipoCaracteres">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoCondiciones">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoCondiciones">
+        <MappingFragment StoreEntitySet="TipoCondiciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDevengos">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoDevengos">
+        <MappingFragment StoreEntitySet="TipoDevengos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDiscapacidades">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoDiscapacidades">
+        <MappingFragment StoreEntitySet="TipoDiscapacidades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoIdentificaciones">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoIdentificaciones">
+        <MappingFragment StoreEntitySet="TipoIdentificaciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoNovedades">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoNovedades">
+        <MappingFragment StoreEntitySet="TipoNovedades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoRespuestas">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoRespuestas">
+        <MappingFragment StoreEntitySet="TipoRespuestas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoSectorEducaciones">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoSectorEducaciones">
+        <MappingFragment StoreEntitySet="TipoSectorEducaciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoVinculaciones">
+      <EntityTypeMapping TypeName="ThotMVCModel.TipoVinculaciones">
+        <MappingFragment StoreEntitySet="TipoVinculaciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ValoracionLetras">
+      <EntityTypeMapping TypeName="ThotMVCModel.ValoracionLetras">
+        <MappingFragment StoreEntitySet="ValoracionLetras">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ValorNumerico" ColumnName="ValorNumerico" />
+          <ScalarProperty Name="SedeId" ColumnName="SedeId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zonas">
+      <EntityTypeMapping TypeName="ThotMVCModel.Zonas">
+        <MappingFragment StoreEntitySet="Zonas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="ThotMVCModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

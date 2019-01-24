@@ -4,3 +4,17 @@ E:\Developer\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.csprojAssemblyReference.cac
 E:\Developer\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.csproj.CoreCompileInputs.cache
 E:\Developer\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.dll
 E:\Developer\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.pdb
+D:\Developments\ThotMVC\Thoth.Data\bin\Debug\Thoth.Data.dll.config
+D:\Developments\ThotMVC\Thoth.Data\bin\Debug\Thoth.Data.dll
+D:\Developments\ThotMVC\Thoth.Data\bin\Debug\Thoth.Data.pdb
+D:\Developments\ThotMVC\Thoth.Data\bin\Debug\EntityFramework.dll
+D:\Developments\ThotMVC\Thoth.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Developments\ThotMVC\Thoth.Data\bin\Debug\EntityFramework.xml
+D:\Developments\ThotMVC\Thoth.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Developments\ThotMVC\Thoth.Data\bin\Debug\es\EntityFramework.resources.dll
+D:\Developments\ThotMVC\Thoth.Data\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+D:\Developments\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.csprojAssemblyReference.cache
+D:\Developments\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.csproj.CoreCompileInputs.cache
+D:\Developments\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.csproj.CopyComplete
+D:\Developments\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.dll
+D:\Developments\ThotMVC\Thoth.Data\obj\Debug\Thoth.Data.pdb

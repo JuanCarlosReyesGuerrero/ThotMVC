@@ -1,0 +1,2730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThotMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AporteParafiscales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Ars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Ars_ArsId" FromRole="Ars" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Asignaturas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Asignaturas_dbo_Sedes_SedeId" FromRole="Asignaturas" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="AsociacionPrivadas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_AsociacionPrivadas_AsociacionId" FromRole="AsociacionPrivadas" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Calendarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Calendarios_CalendarioId" FromRole="Calendarios" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="CapacidadExcepcionales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_CapacidadExcepcionales_CapacidadExcepcionalId" FromRole="CapacidadExcepcionales" ToRole="Estudiantes" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_CapacidadExcepcionales_CapacidadesExcepcionalesId" FromRole="CapacidadExcepcionales" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="Cargos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ClasesFuncionarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Clasificaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Materias" Relationship="Self.FK_dbo_Materias_dbo_Clasificaciones_ClasificacionId" FromRole="Clasificaciones" ToRole="Materias" />
+  </EntityType>
+  <EntityType Name="Cursos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GradoId" Type="Int64" Nullable="false" />
+    <Property Name="GrupoId" Type="Int64" Nullable="false" />
+    <Property Name="JornadaId" Type="Int64" Nullable="false" />
+    <Property Name="ProfesorId" Type="Int64" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Grados" Relationship="Self.FK_dbo_Cursos_dbo_Grados_GradoId" FromRole="Cursos" ToRole="Grados" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK_dbo_Cursos_dbo_Grupos_GrupoId" FromRole="Cursos" ToRole="Grupos" />
+    <NavigationProperty Name="Jornadas" Relationship="Self.FK_dbo_Cursos_dbo_Jornadas_JornadaId" FromRole="Cursos" ToRole="Jornadas" />
+    <NavigationProperty Name="Profesores" Relationship="Self.FK_dbo_Cursos_dbo_Profesores_ProfesorId" FromRole="Cursos" ToRole="Profesores" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Cursos_dbo_Sedes_SedeId" FromRole="Cursos" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Departamentos_Departamentos_Id" FromRole="Departamentos" ToRole="Estudiantes" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Departamentos_DepartamentoId" FromRole="Departamentos" ToRole="Instituciones" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_dbo_Municipios_dbo_Departamentos_DepartamentoId" FromRole="Departamentos" ToRole="Municipios" />
+    <NavigationProperty Name="Nucleos" Relationship="Self.FK_dbo_Nucleos_dbo_Departamentos_DepartamentoId" FromRole="Departamentos" ToRole="Nucleos" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Sedes_dbo_Departamentos_DepartamentoId" FromRole="Departamentos" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="Eps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Eps_EpsId" FromRole="Eps" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Equivalencias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EquivalenciaRangoNumerico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ValoracionLetraId" Type="Int64" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Equivalencias_dbo_Sedes_SedeId" FromRole="Equivalencias" ToRole="Sedes" />
+    <NavigationProperty Name="ValoracionLetras" Relationship="Self.FK_dbo_Equivalencias_dbo_ValoracionLetras_ValoracionLetraId" FromRole="Equivalencias" ToRole="ValoracionLetras" />
+  </EntityType>
+  <EntityType Name="Escalafones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Profesores" Relationship="Self.FK_dbo_Profesores_dbo_Escalafones_EscalafonId" FromRole="Escalafones" ToRole="Profesores" />
+  </EntityType>
+  <EntityType Name="EscalaNacionales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CriterioEvalaluacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_EscalaNacionales_dbo_Sedes_SedeId" FromRole="EscalaNacionales" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="Especialidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Sedes_dbo_Especialidades_EspecialidadId" FromRole="Especialidades" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="EstadoCiviles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Estratos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Estratos_EstratoId" FromRole="Estratos" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Estudiantes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="Int64" Nullable="false" />
+    <Property Name="CodigoMEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoIdentificacionId" Type="Int64" Nullable="false" />
+    <Property Name="NumeroDocumento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoExpedicionId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioExpedicionId" Type="Int64" Nullable="false" />
+    <Property Name="PrimerApellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SegundoApellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SegundoNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DepartamentoNacimientoId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioNacimientoId" Type="Int64" Nullable="false" />
+    <Property Name="GeneroId" Type="Int64" Nullable="false" />
+    <Property Name="FactorRhId" Type="Int64" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fotografia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoResidenciaId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioResidenciaId" Type="Int64" Nullable="false" />
+    <Property Name="ZonaResidenciaId" Type="Int64" Nullable="false" />
+    <Property Name="Localidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Barrio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EstratoId" Type="Int64" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Celular" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SisbenId" Type="Int64" Nullable="false" />
+    <Property Name="NumeroSisben" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EpsId" Type="Int64" Nullable="false" />
+    <Property Name="ArsId" Type="Int64" Nullable="false" />
+    <Property Name="PoblacionVictimaId" Type="Int64" Nullable="false" />
+    <Property Name="DepartamentoExpulsorId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioExpulsorId" Type="Int64" Nullable="false" />
+    <Property Name="FechaExpulsion" Type="DateTime" Precision="3" />
+    <Property Name="CertificadoExpulsion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaCertificadoExpulsion" Type="DateTime" Precision="3" />
+    <Property Name="DiscapacidadId" Type="Int64" Nullable="false" />
+    <Property Name="CapacidadExcepcionalId" Type="Int64" Nullable="false" />
+    <Property Name="EtniaId" Type="Int64" Nullable="false" />
+    <Property Name="ResguardoId" Type="Int64" Nullable="false" />
+    <Property Name="ProvieneSectorPrivado" Type="Boolean" Nullable="false" />
+    <Property Name="ProvieneOtroMunicipio" Type="Boolean" Nullable="false" />
+    <Property Name="InstitucionBienestar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoIdentificacionMadreId" Type="Int64" Nullable="false" />
+    <Property Name="NumeroDocumentoMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoExpedicionMadreId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioExpedicionMadreId" Type="Int64" Nullable="false" />
+    <Property Name="EstudiantePrimerApellidoMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SegundoApellidoMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerNombreMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EstudianteSegundoNombreMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DireccionMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoResidenciaMadreId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioResidenciaMadreId" Type="Int64" Nullable="false" />
+    <Property Name="ZonaResidenciaMadreId" Type="Int64" Nullable="false" />
+    <Property Name="BarrioMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LocalidadMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelefonoMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CelularMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OcupacionMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpresaMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelefonoEmpresaMadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoIdentificacionPadreId" Type="Int64" Nullable="false" />
+    <Property Name="NumeroDocumentoPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoExpedicionPadreId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioExpedicionPadreId" Type="Int64" Nullable="false" />
+    <Property Name="PrimerApellidoPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SegundoApellidoPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerNombrePadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SegundoNombrePadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DireccionPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoResidenciaPadreId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioResidenciaPadreId" Type="Int64" Nullable="false" />
+    <Property Name="ZonaResicenciaPadreId" Type="Int64" Nullable="false" />
+    <Property Name="BarrioPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Localidadpadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelefonoPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CelularPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OcupacionPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpresaPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelefonoEmpresaPadre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoIdentificacionAcudienteId" Type="Int64" Nullable="false" />
+    <Property Name="NumeroDocumentoAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoExpedicionAcudienteId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioExpedicionAcudiente" Type="Int64" Nullable="false" />
+    <Property Name="PrimerApellidoAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SegundoApellidoAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerNombreAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SegundoNombreAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DireccionAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoResidenciaAcudienteId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioResidenciaAcudienteId" Type="Int64" Nullable="false" />
+    <Property Name="ZonaResidenciaAcudienteId" Type="Int64" Nullable="false" />
+    <Property Name="BarrioAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LocalidadAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelefonoAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CelularAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OcupacionAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpresaAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelefonoEmpresaAcudiente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GeneroAcudienteId" Type="Int64" Nullable="false" />
+    <Property Name="ParentescoAcudienteId" Type="Int64" Nullable="false" />
+    <Property Name="ColegioUltimoCurso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DireccionColegioUltimoCurso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelefonoColegioUltimoCurso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UltimoGrado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Anio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MotivoRetiroUltimo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UsuarioEstudiante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaveAcceso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GrupoUsuarioId" Type="Int64" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="InstitucionId" Type="Int64" Nullable="false" />
+    <Property Name="SeleccioneMadre" Type="Boolean" Nullable="false" />
+    <Property Name="SeleccionePadre" Type="Boolean" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <Property Name="Departamentos_Id" Type="Int64" />
+    <Property Name="Municipios_Id" Type="Int64" />
+    <Property Name="Zonas_Id" Type="Int64" />
+    <NavigationProperty Name="Ars" Relationship="Self.FK_dbo_Estudiantes_dbo_Ars_ArsId" FromRole="Estudiantes" ToRole="Ars" />
+    <NavigationProperty Name="CapacidadExcepcionales" Relationship="Self.FK_dbo_Estudiantes_dbo_CapacidadExcepcionales_CapacidadExcepcionalId" FromRole="Estudiantes" ToRole="CapacidadExcepcionales" />
+    <NavigationProperty Name="Departamentos" Relationship="Self.FK_dbo_Estudiantes_dbo_Departamentos_Departamentos_Id" FromRole="Estudiantes" ToRole="Departamentos" />
+    <NavigationProperty Name="Eps" Relationship="Self.FK_dbo_Estudiantes_dbo_Eps_EpsId" FromRole="Estudiantes" ToRole="Eps" />
+    <NavigationProperty Name="Estratos" Relationship="Self.FK_dbo_Estudiantes_dbo_Estratos_EstratoId" FromRole="Estudiantes" ToRole="Estratos" />
+    <NavigationProperty Name="Etnias" Relationship="Self.FK_dbo_Estudiantes_dbo_Etnias_EtniaId" FromRole="Estudiantes" ToRole="Etnias" />
+    <NavigationProperty Name="FactorRhs" Relationship="Self.FK_dbo_Estudiantes_dbo_FactorRhs_FactorRhId" FromRole="Estudiantes" ToRole="FactorRhs" />
+    <NavigationProperty Name="Generos" Relationship="Self.FK_dbo_Estudiantes_dbo_Generos_GeneroId" FromRole="Estudiantes" ToRole="Generos" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK_dbo_Estudiantes_dbo_Grupos_GrupoUsuarioId" FromRole="Estudiantes" ToRole="Grupos" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Estudiantes_dbo_Instituciones_InstitucionId" FromRole="Estudiantes" ToRole="Instituciones" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_dbo_Estudiantes_dbo_Municipios_Municipios_Id" FromRole="Estudiantes" ToRole="Municipios" />
+    <NavigationProperty Name="Parentescos" Relationship="Self.FK_dbo_Estudiantes_dbo_Parentescos_ParentescoAcudienteId" FromRole="Estudiantes" ToRole="Parentescos" />
+    <NavigationProperty Name="PoblacionVictimaConflictos" Relationship="Self.FK_dbo_Estudiantes_dbo_PoblacionVictimaConflictos_PoblacionVictimaId" FromRole="Estudiantes" ToRole="PoblacionVictimaConflictos" />
+    <NavigationProperty Name="Resguardos" Relationship="Self.FK_dbo_Estudiantes_dbo_Resguardos_ResguardoId" FromRole="Estudiantes" ToRole="Resguardos" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Estudiantes_dbo_Sedes_SedeId" FromRole="Estudiantes" ToRole="Sedes" />
+    <NavigationProperty Name="Sisbenes" Relationship="Self.FK_dbo_Estudiantes_dbo_Sisbenes_SisbenId" FromRole="Estudiantes" ToRole="Sisbenes" />
+    <NavigationProperty Name="TipoDiscapacidades" Relationship="Self.FK_dbo_Estudiantes_dbo_TipoDiscapacidades_DiscapacidadId" FromRole="Estudiantes" ToRole="TipoDiscapacidades" />
+    <NavigationProperty Name="TipoIdentificaciones" Relationship="Self.FK_dbo_Estudiantes_dbo_TipoIdentificaciones_TipoIdentificacionId" FromRole="Estudiantes" ToRole="TipoIdentificaciones" />
+    <NavigationProperty Name="Zonas" Relationship="Self.FK_dbo_Estudiantes_dbo_Zonas_Zonas_Id" FromRole="Estudiantes" ToRole="Zonas" />
+  </EntityType>
+  <EntityType Name="Etnias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Etnias_EtniaId" FromRole="Etnias" ToRole="Estudiantes" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Etnias_EtniasId" FromRole="Etnias" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="FactorRhs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_FactorRhs_FactorRhId" FromRole="FactorRhs" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="FuenteRecursos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="GeneroEstudiantes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Generos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Generos_GeneroId" FromRole="Generos" ToRole="Estudiantes" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Generos_GeneroId" FromRole="Generos" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="Grados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cursos" Relationship="Self.FK_dbo_Cursos_dbo_Grados_GradoId" FromRole="Grados" ToRole="Cursos" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Grados_dbo_Sedes_SedeId" FromRole="Grados" ToRole="Sedes" />
+    <NavigationProperty Name="Juicios" Relationship="Self.FK_dbo_Juicios_dbo_Grados_GradoId" FromRole="Grados" ToRole="Juicios" />
+    <NavigationProperty Name="Materias" Relationship="Self.FK_dbo_Materias_dbo_Grados_GradoId" FromRole="Grados" ToRole="Materias" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cursos" Relationship="Self.FK_dbo_Cursos_dbo_Grupos_GrupoId" FromRole="Grupos" ToRole="Cursos" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Grupos_GrupoUsuarioId" FromRole="Grupos" ToRole="Estudiantes" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Grupos_dbo_Sedes_SedeId" FromRole="Grupos" ToRole="Sedes" />
+    <NavigationProperty Name="Juicios" Relationship="Self.FK_dbo_Juicios_dbo_Grupos_GrupoId" FromRole="Grupos" ToRole="Juicios" />
+    <NavigationProperty Name="Materias" Relationship="Self.FK_dbo_Materias_dbo_Grupos_GrupoId" FromRole="Grupos" ToRole="Materias" />
+  </EntityType>
+  <EntityType Name="Idiomas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Idiomas_IdiomaId" FromRole="Idiomas" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="Instituciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoDane" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NombreRector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CalendarioId" Type="Int64" Nullable="false" />
+    <Property Name="TipoSectorEducacionId" Type="Int64" Nullable="false" />
+    <Property Name="PropiedadJuridicaId" Type="Int64" Nullable="false" />
+    <Property Name="NumeroSedes" Type="Int32" Nullable="false" />
+    <Property Name="NucleoId" Type="Int64" Nullable="false" />
+    <Property Name="GeneroId" Type="Int64" Nullable="false" />
+    <Property Name="Subsidio" Type="Boolean" Nullable="false" />
+    <Property Name="DiscapacidadesId" Type="Int64" Nullable="false" />
+    <Property Name="CapacidadesExcepcionalesId" Type="Int64" Nullable="false" />
+    <Property Name="EtniasId" Type="Int64" Nullable="false" />
+    <Property Name="ResguardosId" Type="Int64" Nullable="false" />
+    <Property Name="NovedadId" Type="Int64" Nullable="false" />
+    <Property Name="MetodologiaId" Type="Int64" Nullable="false" />
+    <Property Name="PrestadorServicioId" Type="Int64" Nullable="false" />
+    <Property Name="DecretoCreacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Director" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Secretaria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Aprobacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Lema" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Escudo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepartamentoId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioId" Type="Int64" Nullable="false" />
+    <Property Name="ZonaId" Type="Int64" Nullable="false" />
+    <Property Name="Barrio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SitioWeb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroLiciencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegimenCostoId" Type="Int64" Nullable="false" />
+    <Property Name="IdiomaId" Type="Int64" Nullable="false" />
+    <Property Name="AsociacionId" Type="Int64" Nullable="false" />
+    <Property Name="TarifaAnualId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <Property Name="JornadaCompletaId" Type="Boolean" Nullable="false" />
+    <Property Name="JornadaMananaId" Type="Boolean" Nullable="false" />
+    <Property Name="JornadaTardeId" Type="Boolean" Nullable="false" />
+    <Property Name="JornadaNocturnaId" Type="Boolean" Nullable="false" />
+    <Property Name="JornadaFinSemanaId" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AsociacionPrivadas" Relationship="Self.FK_dbo_Instituciones_dbo_AsociacionPrivadas_AsociacionId" FromRole="Instituciones" ToRole="AsociacionPrivadas" />
+    <NavigationProperty Name="Calendarios" Relationship="Self.FK_dbo_Instituciones_dbo_Calendarios_CalendarioId" FromRole="Instituciones" ToRole="Calendarios" />
+    <NavigationProperty Name="CapacidadExcepcionales" Relationship="Self.FK_dbo_Instituciones_dbo_CapacidadExcepcionales_CapacidadesExcepcionalesId" FromRole="Instituciones" ToRole="CapacidadExcepcionales" />
+    <NavigationProperty Name="Departamentos" Relationship="Self.FK_dbo_Instituciones_dbo_Departamentos_DepartamentoId" FromRole="Instituciones" ToRole="Departamentos" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Instituciones_InstitucionId" FromRole="Instituciones" ToRole="Estudiantes" />
+    <NavigationProperty Name="Etnias" Relationship="Self.FK_dbo_Instituciones_dbo_Etnias_EtniasId" FromRole="Instituciones" ToRole="Etnias" />
+    <NavigationProperty Name="Generos" Relationship="Self.FK_dbo_Instituciones_dbo_Generos_GeneroId" FromRole="Instituciones" ToRole="Generos" />
+    <NavigationProperty Name="Idiomas" Relationship="Self.FK_dbo_Instituciones_dbo_Idiomas_IdiomaId" FromRole="Instituciones" ToRole="Idiomas" />
+    <NavigationProperty Name="Metodologias" Relationship="Self.FK_dbo_Instituciones_dbo_Metodologias_MetodologiaId" FromRole="Instituciones" ToRole="Metodologias" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_dbo_Instituciones_dbo_Municipios_MunicipioId" FromRole="Instituciones" ToRole="Municipios" />
+    <NavigationProperty Name="Nucleos" Relationship="Self.FK_dbo_Instituciones_dbo_Nucleos_NucleoId" FromRole="Instituciones" ToRole="Nucleos" />
+    <NavigationProperty Name="Prestadores" Relationship="Self.FK_dbo_Instituciones_dbo_Prestadores_PrestadorServicioId" FromRole="Instituciones" ToRole="Prestadores" />
+    <NavigationProperty Name="PropiedadJuridicas" Relationship="Self.FK_dbo_Instituciones_dbo_PropiedadJuridicas_PropiedadJuridicaId" FromRole="Instituciones" ToRole="PropiedadJuridicas" />
+    <NavigationProperty Name="RegimenCostos" Relationship="Self.FK_dbo_Instituciones_dbo_RegimenCostos_RegimenCostoId" FromRole="Instituciones" ToRole="RegimenCostos" />
+    <NavigationProperty Name="Resguardos" Relationship="Self.FK_dbo_Instituciones_dbo_Resguardos_ResguardosId" FromRole="Instituciones" ToRole="Resguardos" />
+    <NavigationProperty Name="TarifaAnuales" Relationship="Self.FK_dbo_Instituciones_dbo_TarifaAnuales_TarifaAnualId" FromRole="Instituciones" ToRole="TarifaAnuales" />
+    <NavigationProperty Name="TipoDiscapacidades" Relationship="Self.FK_dbo_Instituciones_dbo_TipoDiscapacidades_DiscapacidadesId" FromRole="Instituciones" ToRole="TipoDiscapacidades" />
+    <NavigationProperty Name="TipoNovedades" Relationship="Self.FK_dbo_Instituciones_dbo_TipoNovedades_NovedadId" FromRole="Instituciones" ToRole="TipoNovedades" />
+    <NavigationProperty Name="TipoSectorEducaciones" Relationship="Self.FK_dbo_Instituciones_dbo_TipoSectorEducaciones_TipoSectorEducacionId" FromRole="Instituciones" ToRole="TipoSectorEducaciones" />
+    <NavigationProperty Name="Zonas" Relationship="Self.FK_dbo_Instituciones_dbo_Zonas_ZonaId" FromRole="Instituciones" ToRole="Zonas" />
+  </EntityType>
+  <EntityType Name="Jornadas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cursos" Relationship="Self.FK_dbo_Cursos_dbo_Jornadas_JornadaId" FromRole="Jornadas" ToRole="Cursos" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Jornadas_dbo_Sedes_SedeId" FromRole="Jornadas" ToRole="Sedes" />
+    <NavigationProperty Name="Juicios" Relationship="Self.FK_dbo_Juicios_dbo_Jornadas_JornadaId" FromRole="Jornadas" ToRole="Juicios" />
+    <NavigationProperty Name="Materias" Relationship="Self.FK_dbo_Materias_dbo_Jornadas_JornadaId" FromRole="Jornadas" ToRole="Materias" />
+  </EntityType>
+  <EntityType Name="Juicios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GradoId" Type="Int64" Nullable="false" />
+    <Property Name="GrupoId" Type="Int64" Nullable="false" />
+    <Property Name="JornadaId" Type="Int64" Nullable="false" />
+    <Property Name="MateriaId" Type="Int64" Nullable="false" />
+    <Property Name="PeriodoId" Type="Int64" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Grados" Relationship="Self.FK_dbo_Juicios_dbo_Grados_GradoId" FromRole="Juicios" ToRole="Grados" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK_dbo_Juicios_dbo_Grupos_GrupoId" FromRole="Juicios" ToRole="Grupos" />
+    <NavigationProperty Name="Jornadas" Relationship="Self.FK_dbo_Juicios_dbo_Jornadas_JornadaId" FromRole="Juicios" ToRole="Jornadas" />
+    <NavigationProperty Name="Materias" Relationship="Self.FK_dbo_Juicios_dbo_Materias_MateriaId" FromRole="Juicios" ToRole="Materias" />
+    <NavigationProperty Name="Periodos" Relationship="Self.FK_dbo_Juicios_dbo_Periodos_PeriodoId" FromRole="Juicios" ToRole="Periodos" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Juicios_dbo_Sedes_SedeId" FromRole="Juicios" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="LibretaMilitares">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Materias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IntensidadHoraria" Type="Int32" Nullable="false" />
+    <Property Name="Orden" Type="Int32" Nullable="false" />
+    <Property Name="ClasificacionId" Type="Int64" Nullable="false" />
+    <Property Name="ProfesorId" Type="Int64" Nullable="false" />
+    <Property Name="GradoId" Type="Int64" Nullable="false" />
+    <Property Name="GrupoId" Type="Int64" Nullable="false" />
+    <Property Name="JornadaId" Type="Int64" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Clasificaciones" Relationship="Self.FK_dbo_Materias_dbo_Clasificaciones_ClasificacionId" FromRole="Materias" ToRole="Clasificaciones" />
+    <NavigationProperty Name="Grados" Relationship="Self.FK_dbo_Materias_dbo_Grados_GradoId" FromRole="Materias" ToRole="Grados" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK_dbo_Materias_dbo_Grupos_GrupoId" FromRole="Materias" ToRole="Grupos" />
+    <NavigationProperty Name="Jornadas" Relationship="Self.FK_dbo_Materias_dbo_Jornadas_JornadaId" FromRole="Materias" ToRole="Jornadas" />
+    <NavigationProperty Name="Juicios" Relationship="Self.FK_dbo_Juicios_dbo_Materias_MateriaId" FromRole="Materias" ToRole="Juicios" />
+    <NavigationProperty Name="Profesores" Relationship="Self.FK_dbo_Materias_dbo_Profesores_ProfesorId" FromRole="Materias" ToRole="Profesores" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Materias_dbo_Sedes_SedeId" FromRole="Materias" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="Metodologias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Metodologias_MetodologiaId" FromRole="Metodologias" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodigoUnificado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoId" Type="Int64" Nullable="false" />
+    <Property Name="DepartamentoCodigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Departamentos" Relationship="Self.FK_dbo_Municipios_dbo_Departamentos_DepartamentoId" FromRole="Municipios" ToRole="Departamentos" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Municipios_Municipios_Id" FromRole="Municipios" ToRole="Estudiantes" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Municipios_MunicipioId" FromRole="Municipios" ToRole="Instituciones" />
+    <NavigationProperty Name="Nucleos" Relationship="Self.FK_dbo_Nucleos_dbo_Municipios_MunicipioId" FromRole="Municipios" ToRole="Nucleos" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Sedes_dbo_Municipios_MunicipioId" FromRole="Municipios" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="NivelEducativoDocentes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="NivelEducativos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Nucleos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepartamentoId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioId" Type="Int64" Nullable="false" />
+    <Property Name="NombreDirector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelefonoDirector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Departamentos" Relationship="Self.FK_dbo_Nucleos_dbo_Departamentos_DepartamentoId" FromRole="Nucleos" ToRole="Departamentos" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Nucleos_NucleoId" FromRole="Nucleos" ToRole="Instituciones" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_dbo_Nucleos_dbo_Municipios_MunicipioId" FromRole="Nucleos" ToRole="Municipios" />
+  </EntityType>
+  <EntityType Name="Parentescos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Parentescos_ParentescoAcudienteId" FromRole="Parentescos" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Periodos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Juicios" Relationship="Self.FK_dbo_Juicios_dbo_Periodos_PeriodoId" FromRole="Periodos" ToRole="Juicios" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Periodos_dbo_Sedes_SedeId" FromRole="Periodos" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="PoblacionVictimaConflictos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_PoblacionVictimaConflictos_PoblacionVictimaId" FromRole="PoblacionVictimaConflictos" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Prestadores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Prestadores_PrestadorServicioId" FromRole="Prestadores" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="Profesiones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Profesores" Relationship="Self.FK_dbo_Profesores_dbo_Profesiones_ProfesionId" FromRole="Profesiones" ToRole="Profesores" />
+  </EntityType>
+  <EntityType Name="Profesores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoIdentificacionId" Type="Int64" Nullable="false" />
+    <Property Name="NumeroDocumento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerApellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SegundoApellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrimerNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SegundoNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProfesionId" Type="Int64" Nullable="false" />
+    <Property Name="EscalafonId" Type="Int64" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cursos" Relationship="Self.FK_dbo_Cursos_dbo_Profesores_ProfesorId" FromRole="Profesores" ToRole="Cursos" />
+    <NavigationProperty Name="Escalafones" Relationship="Self.FK_dbo_Profesores_dbo_Escalafones_EscalafonId" FromRole="Profesores" ToRole="Escalafones" />
+    <NavigationProperty Name="Materias" Relationship="Self.FK_dbo_Materias_dbo_Profesores_ProfesorId" FromRole="Profesores" ToRole="Materias" />
+    <NavigationProperty Name="Profesiones" Relationship="Self.FK_dbo_Profesores_dbo_Profesiones_ProfesionId" FromRole="Profesores" ToRole="Profesiones" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Profesores_dbo_Sedes_SedeId" FromRole="Profesores" ToRole="Sedes" />
+    <NavigationProperty Name="TipoIdentificaciones" Relationship="Self.FK_dbo_Profesores_dbo_TipoIdentificaciones_TipoIdentificacionId" FromRole="Profesores" ToRole="TipoIdentificaciones" />
+  </EntityType>
+  <EntityType Name="PropiedadJuridicas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_PropiedadJuridicas_PropiedadJuridicaId" FromRole="PropiedadJuridicas" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="RegimenCostos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_RegimenCostos_RegimenCostoId" FromRole="RegimenCostos" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="Resguardos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Resguardos_ResguardoId" FromRole="Resguardos" ToRole="Estudiantes" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Resguardos_ResguardosId" FromRole="Resguardos" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="Sedes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CodigoDaneNuevo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodigoDaneAntiguo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodigoConsecutivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartamentoId" Type="Int64" Nullable="false" />
+    <Property Name="MunicipioId" Type="Int64" Nullable="false" />
+    <Property Name="ZonaId" Type="Int64" Nullable="false" />
+    <Property Name="Barrio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Novedad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JornadaCompleta" Type="Boolean" Nullable="false" />
+    <Property Name="JornadaManana" Type="Boolean" Nullable="false" />
+    <Property Name="JornadaTarde" Type="Boolean" Nullable="false" />
+    <Property Name="JornadaNoche" Type="Boolean" Nullable="false" />
+    <Property Name="JornadaFinSemana" Type="Boolean" Nullable="false" />
+    <Property Name="EspecialidadId" Type="Int64" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Director" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Secretaria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EscalaValoracionNacional" Type="Boolean" Nullable="false" />
+    <Property Name="RangoNumerico" Type="Boolean" Nullable="false" />
+    <Property Name="NumeroInicial" Type="Int32" Nullable="false" />
+    <Property Name="NumeroFinal" Type="Int32" Nullable="false" />
+    <Property Name="ValoracionLetras" Type="Boolean" Nullable="false" />
+    <Property Name="Juicios" Type="Boolean" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Asignaturas" Relationship="Self.FK_dbo_Asignaturas_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Asignaturas" />
+    <NavigationProperty Name="Cursos" Relationship="Self.FK_dbo_Cursos_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Cursos" />
+    <NavigationProperty Name="Departamentos" Relationship="Self.FK_dbo_Sedes_dbo_Departamentos_DepartamentoId" FromRole="Sedes" ToRole="Departamentos" />
+    <NavigationProperty Name="Equivalencias" Relationship="Self.FK_dbo_Equivalencias_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Equivalencias" />
+    <NavigationProperty Name="EscalaNacionales" Relationship="Self.FK_dbo_EscalaNacionales_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="EscalaNacionales" />
+    <NavigationProperty Name="Especialidades" Relationship="Self.FK_dbo_Sedes_dbo_Especialidades_EspecialidadId" FromRole="Sedes" ToRole="Especialidades" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Estudiantes" />
+    <NavigationProperty Name="Grados" Relationship="Self.FK_dbo_Grados_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Grados" />
+    <NavigationProperty Name="Grupos" Relationship="Self.FK_dbo_Grupos_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Grupos" />
+    <NavigationProperty Name="Jornadas" Relationship="Self.FK_dbo_Jornadas_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Jornadas" />
+    <NavigationProperty Name="Juicios1" Relationship="Self.FK_dbo_Juicios_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Juicios" />
+    <NavigationProperty Name="Materias" Relationship="Self.FK_dbo_Materias_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Materias" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_dbo_Sedes_dbo_Municipios_MunicipioId" FromRole="Sedes" ToRole="Municipios" />
+    <NavigationProperty Name="Periodos" Relationship="Self.FK_dbo_Periodos_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Periodos" />
+    <NavigationProperty Name="Profesores" Relationship="Self.FK_dbo_Profesores_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="Profesores" />
+    <NavigationProperty Name="Zonas" Relationship="Self.FK_dbo_Sedes_dbo_Zonas_ZonaId" FromRole="Sedes" ToRole="Zonas" />
+    <NavigationProperty Name="TipoAcademicos" Relationship="Self.FK_dbo_TipoAcademicos_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="TipoAcademicos" />
+    <NavigationProperty Name="ValoracionLetras1" Relationship="Self.FK_dbo_ValoracionLetras_dbo_Sedes_SedeId" FromRole="Sedes" ToRole="ValoracionLetras" />
+  </EntityType>
+  <EntityType Name="Sisbenes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Sisbenes_SisbenId" FromRole="Sisbenes" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="SituacionAcademicas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TarifaAnuales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_TarifaAnuales_TarifaAnualId" FromRole="TarifaAnuales" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="TipoAcademicos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_TipoAcademicos_dbo_Sedes_SedeId" FromRole="TipoAcademicos" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="TipoCaracteres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TipoCondiciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TipoDevengos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TipoDiscapacidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_TipoDiscapacidades_DiscapacidadId" FromRole="TipoDiscapacidades" ToRole="Estudiantes" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_TipoDiscapacidades_DiscapacidadesId" FromRole="TipoDiscapacidades" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="TipoIdentificaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_TipoIdentificaciones_TipoIdentificacionId" FromRole="TipoIdentificaciones" ToRole="Estudiantes" />
+    <NavigationProperty Name="Profesores" Relationship="Self.FK_dbo_Profesores_dbo_TipoIdentificaciones_TipoIdentificacionId" FromRole="TipoIdentificaciones" ToRole="Profesores" />
+  </EntityType>
+  <EntityType Name="TipoNovedades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_TipoNovedades_NovedadId" FromRole="TipoNovedades" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="TipoRespuestas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TipoSectorEducaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_TipoSectorEducaciones_TipoSectorEducacionId" FromRole="TipoSectorEducaciones" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="TipoVinculaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ValoracionLetras">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ValorNumerico" Type="Int32" Nullable="false" />
+    <Property Name="SedeId" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Equivalencias" Relationship="Self.FK_dbo_Equivalencias_dbo_ValoracionLetras_ValoracionLetraId" FromRole="ValoracionLetras" ToRole="Equivalencias" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_ValoracionLetras_dbo_Sedes_SedeId" FromRole="ValoracionLetras" ToRole="Sedes" />
+  </EntityType>
+  <EntityType Name="Zonas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioRegistra" Type="Int64" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifica" Type="Int64" />
+    <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK_dbo_Estudiantes_dbo_Zonas_Zonas_Id" FromRole="Zonas" ToRole="Estudiantes" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_Zonas_ZonaId" FromRole="Zonas" ToRole="Instituciones" />
+    <NavigationProperty Name="Sedes" Relationship="Self.FK_dbo_Sedes_dbo_Zonas_ZonaId" FromRole="Zonas" ToRole="Sedes" />
+  </EntityType>
+  <Association Name="FK_dbo_Estudiantes_dbo_Ars_ArsId">
+    <End Role="Ars" Type="Self.Ars" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ars">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="ArsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Asignaturas_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asignaturas">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_AsociacionPrivadas_AsociacionId">
+    <End Role="AsociacionPrivadas" Type="Self.AsociacionPrivadas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AsociacionPrivadas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="AsociacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Calendarios_CalendarioId">
+    <End Role="Calendarios" Type="Self.Calendarios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Calendarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="CalendarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_CapacidadExcepcionales_CapacidadExcepcionalId">
+    <End Role="CapacidadExcepcionales" Type="Self.CapacidadExcepcionales" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapacidadExcepcionales">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="CapacidadExcepcionalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_CapacidadExcepcionales_CapacidadesExcepcionalesId">
+    <End Role="CapacidadExcepcionales" Type="Self.CapacidadExcepcionales" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapacidadExcepcionales">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="CapacidadesExcepcionalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materias_dbo_Clasificaciones_ClasificacionId">
+    <End Role="Clasificaciones" Type="Self.Clasificaciones" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Materias" Type="Self.Materias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clasificaciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materias">
+        <PropertyRef Name="ClasificacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Cursos_dbo_Grados_GradoId">
+    <End Role="Grados" Type="Self.Grados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cursos">
+        <PropertyRef Name="GradoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Cursos_dbo_Grupos_GrupoId">
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cursos">
+        <PropertyRef Name="GrupoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Cursos_dbo_Jornadas_JornadaId">
+    <End Role="Jornadas" Type="Self.Jornadas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jornadas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cursos">
+        <PropertyRef Name="JornadaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Cursos_dbo_Profesores_ProfesorId">
+    <End Role="Profesores" Type="Self.Profesores" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cursos">
+        <PropertyRef Name="ProfesorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Cursos_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cursos">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Departamentos_Departamentos_Id">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="0..1" />
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="Departamentos_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Departamentos_DepartamentoId">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Municipios_dbo_Departamentos_DepartamentoId">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Municipios">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Nucleos_dbo_Departamentos_DepartamentoId">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+    <End Role="Nucleos" Type="Self.Nucleos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Nucleos">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Sedes_dbo_Departamentos_DepartamentoId">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sedes">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Eps_EpsId">
+    <End Role="Eps" Type="Self.Eps" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Eps">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="EpsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Equivalencias_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Equivalencias" Type="Self.Equivalencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equivalencias">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Equivalencias_dbo_ValoracionLetras_ValoracionLetraId">
+    <End Role="ValoracionLetras" Type="Self.ValoracionLetras" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Equivalencias" Type="Self.Equivalencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ValoracionLetras">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equivalencias">
+        <PropertyRef Name="ValoracionLetraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Profesores_dbo_Escalafones_EscalafonId">
+    <End Role="Escalafones" Type="Self.Escalafones" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Profesores" Type="Self.Profesores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Escalafones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Profesores">
+        <PropertyRef Name="EscalafonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_EscalaNacionales_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EscalaNacionales" Type="Self.EscalaNacionales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EscalaNacionales">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Sedes_dbo_Especialidades_EspecialidadId">
+    <End Role="Especialidades" Type="Self.Especialidades" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sedes">
+        <PropertyRef Name="EspecialidadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Estratos_EstratoId">
+    <End Role="Estratos" Type="Self.Estratos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estratos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="EstratoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Etnias_EtniaId">
+    <End Role="Etnias" Type="Self.Etnias" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etnias">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="EtniaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_FactorRhs_FactorRhId">
+    <End Role="FactorRhs" Type="Self.FactorRhs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FactorRhs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="FactorRhId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Generos_GeneroId">
+    <End Role="Generos" Type="Self.Generos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Generos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="GeneroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Grupos_GrupoUsuarioId">
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="GrupoUsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Instituciones_InstitucionId">
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="1" />
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instituciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="InstitucionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Municipios_Municipios_Id">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="0..1" />
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="Municipios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Parentescos_ParentescoAcudienteId">
+    <End Role="Parentescos" Type="Self.Parentescos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parentescos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="ParentescoAcudienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_PoblacionVictimaConflictos_PoblacionVictimaId">
+    <End Role="PoblacionVictimaConflictos" Type="Self.PoblacionVictimaConflictos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PoblacionVictimaConflictos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="PoblacionVictimaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Resguardos_ResguardoId">
+    <End Role="Resguardos" Type="Self.Resguardos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resguardos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="ResguardoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Sisbenes_SisbenId">
+    <End Role="Sisbenes" Type="Self.Sisbenes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sisbenes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="SisbenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_TipoDiscapacidades_DiscapacidadId">
+    <End Role="TipoDiscapacidades" Type="Self.TipoDiscapacidades" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDiscapacidades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="DiscapacidadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_TipoIdentificaciones_TipoIdentificacionId">
+    <End Role="TipoIdentificaciones" Type="Self.TipoIdentificaciones" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoIdentificaciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="TipoIdentificacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Estudiantes_dbo_Zonas_Zonas_Id">
+    <End Role="Zonas" Type="Self.Zonas" Multiplicity="0..1" />
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zonas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estudiantes">
+        <PropertyRef Name="Zonas_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Etnias_EtniasId">
+    <End Role="Etnias" Type="Self.Etnias" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etnias">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="EtniasId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Generos_GeneroId">
+    <End Role="Generos" Type="Self.Generos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Generos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="GeneroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Grados_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1" />
+    <End Role="Grados" Type="Self.Grados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grados">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Juicios_dbo_Grados_GradoId">
+    <End Role="Grados" Type="Self.Grados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Juicios" Type="Self.Juicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Juicios">
+        <PropertyRef Name="GradoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materias_dbo_Grados_GradoId">
+    <End Role="Grados" Type="Self.Grados" Multiplicity="1" />
+    <End Role="Materias" Type="Self.Materias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materias">
+        <PropertyRef Name="GradoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Grupos_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1" />
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Juicios_dbo_Grupos_GrupoId">
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Juicios" Type="Self.Juicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Juicios">
+        <PropertyRef Name="GrupoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materias_dbo_Grupos_GrupoId">
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="1" />
+    <End Role="Materias" Type="Self.Materias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materias">
+        <PropertyRef Name="GrupoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Idiomas_IdiomaId">
+    <End Role="Idiomas" Type="Self.Idiomas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Idiomas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="IdiomaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Metodologias_MetodologiaId">
+    <End Role="Metodologias" Type="Self.Metodologias" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Metodologias">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="MetodologiaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Municipios_MunicipioId">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="MunicipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Nucleos_NucleoId">
+    <End Role="Nucleos" Type="Self.Nucleos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nucleos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="NucleoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Prestadores_PrestadorServicioId">
+    <End Role="Prestadores" Type="Self.Prestadores" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prestadores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="PrestadorServicioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_PropiedadJuridicas_PropiedadJuridicaId">
+    <End Role="PropiedadJuridicas" Type="Self.PropiedadJuridicas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropiedadJuridicas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="PropiedadJuridicaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_RegimenCostos_RegimenCostoId">
+    <End Role="RegimenCostos" Type="Self.RegimenCostos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegimenCostos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="RegimenCostoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Resguardos_ResguardosId">
+    <End Role="Resguardos" Type="Self.Resguardos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resguardos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="ResguardosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_TarifaAnuales_TarifaAnualId">
+    <End Role="TarifaAnuales" Type="Self.TarifaAnuales" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifaAnuales">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="TarifaAnualId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_TipoDiscapacidades_DiscapacidadesId">
+    <End Role="TipoDiscapacidades" Type="Self.TipoDiscapacidades" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDiscapacidades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="DiscapacidadesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_TipoNovedades_NovedadId">
+    <End Role="TipoNovedades" Type="Self.TipoNovedades" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoNovedades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="NovedadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_TipoSectorEducaciones_TipoSectorEducacionId">
+    <End Role="TipoSectorEducaciones" Type="Self.TipoSectorEducaciones" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoSectorEducaciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="TipoSectorEducacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_Zonas_ZonaId">
+    <End Role="Zonas" Type="Self.Zonas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zonas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="ZonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Jornadas_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1" />
+    <End Role="Jornadas" Type="Self.Jornadas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jornadas">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Juicios_dbo_Jornadas_JornadaId">
+    <End Role="Jornadas" Type="Self.Jornadas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Juicios" Type="Self.Juicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jornadas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Juicios">
+        <PropertyRef Name="JornadaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materias_dbo_Jornadas_JornadaId">
+    <End Role="Jornadas" Type="Self.Jornadas" Multiplicity="1" />
+    <End Role="Materias" Type="Self.Materias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jornadas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materias">
+        <PropertyRef Name="JornadaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Juicios_dbo_Materias_MateriaId">
+    <End Role="Materias" Type="Self.Materias" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Juicios" Type="Self.Juicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materias">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Juicios">
+        <PropertyRef Name="MateriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Juicios_dbo_Periodos_PeriodoId">
+    <End Role="Periodos" Type="Self.Periodos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Juicios" Type="Self.Juicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Juicios">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Juicios_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Juicios" Type="Self.Juicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Juicios">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materias_dbo_Profesores_ProfesorId">
+    <End Role="Profesores" Type="Self.Profesores" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Materias" Type="Self.Materias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materias">
+        <PropertyRef Name="ProfesorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materias_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1" />
+    <End Role="Materias" Type="Self.Materias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materias">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Nucleos_dbo_Municipios_MunicipioId">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+    <End Role="Nucleos" Type="Self.Nucleos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Nucleos">
+        <PropertyRef Name="MunicipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Sedes_dbo_Municipios_MunicipioId">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sedes">
+        <PropertyRef Name="MunicipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Periodos_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1" />
+    <End Role="Periodos" Type="Self.Periodos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Periodos">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Profesores_dbo_Profesiones_ProfesionId">
+    <End Role="Profesiones" Type="Self.Profesiones" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Profesores" Type="Self.Profesores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesiones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Profesores">
+        <PropertyRef Name="ProfesionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Profesores_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1" />
+    <End Role="Profesores" Type="Self.Profesores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Profesores">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Profesores_dbo_TipoIdentificaciones_TipoIdentificacionId">
+    <End Role="TipoIdentificaciones" Type="Self.TipoIdentificaciones" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Profesores" Type="Self.Profesores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoIdentificaciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Profesores">
+        <PropertyRef Name="TipoIdentificacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Sedes_dbo_Zonas_ZonaId">
+    <End Role="Zonas" Type="Self.Zonas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zonas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sedes">
+        <PropertyRef Name="ZonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TipoAcademicos_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TipoAcademicos" Type="Self.TipoAcademicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TipoAcademicos">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ValoracionLetras_dbo_Sedes_SedeId">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="1" />
+    <End Role="ValoracionLetras" Type="Self.ValoracionLetras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ValoracionLetras">
+        <PropertyRef Name="SedeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ThotMVCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AporteParafiscales" EntityType="Self.AporteParafiscales" />
+    <EntitySet Name="Ars" EntityType="Self.Ars" />
+    <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" />
+    <EntitySet Name="AsociacionPrivadas" EntityType="Self.AsociacionPrivadas" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="Calendarios" EntityType="Self.Calendarios" />
+    <EntitySet Name="CapacidadExcepcionales" EntityType="Self.CapacidadExcepcionales" />
+    <EntitySet Name="Cargos" EntityType="Self.Cargos" />
+    <EntitySet Name="ClasesFuncionarios" EntityType="Self.ClasesFuncionarios" />
+    <EntitySet Name="Clasificaciones" EntityType="Self.Clasificaciones" />
+    <EntitySet Name="Cursos" EntityType="Self.Cursos" />
+    <EntitySet Name="Departamentos" EntityType="Self.Departamentos" />
+    <EntitySet Name="Eps" EntityType="Self.Eps" />
+    <EntitySet Name="Equivalencias" EntityType="Self.Equivalencias" />
+    <EntitySet Name="Escalafones" EntityType="Self.Escalafones" />
+    <EntitySet Name="EscalaNacionales" EntityType="Self.EscalaNacionales" />
+    <EntitySet Name="Especialidades" EntityType="Self.Especialidades" />
+    <EntitySet Name="EstadoCiviles" EntityType="Self.EstadoCiviles" />
+    <EntitySet Name="Estratos" EntityType="Self.Estratos" />
+    <EntitySet Name="Estudiantes" EntityType="Self.Estudiantes" />
+    <EntitySet Name="Etnias" EntityType="Self.Etnias" />
+    <EntitySet Name="FactorRhs" EntityType="Self.FactorRhs" />
+    <EntitySet Name="FuenteRecursos" EntityType="Self.FuenteRecursos" />
+    <EntitySet Name="GeneroEstudiantes" EntityType="Self.GeneroEstudiantes" />
+    <EntitySet Name="Generos" EntityType="Self.Generos" />
+    <EntitySet Name="Grados" EntityType="Self.Grados" />
+    <EntitySet Name="Grupos" EntityType="Self.Grupos" />
+    <EntitySet Name="Idiomas" EntityType="Self.Idiomas" />
+    <EntitySet Name="Instituciones" EntityType="Self.Instituciones" />
+    <EntitySet Name="Jornadas" EntityType="Self.Jornadas" />
+    <EntitySet Name="Juicios" EntityType="Self.Juicios" />
+    <EntitySet Name="LibretaMilitares" EntityType="Self.LibretaMilitares" />
+    <EntitySet Name="Materias" EntityType="Self.Materias" />
+    <EntitySet Name="Metodologias" EntityType="Self.Metodologias" />
+    <EntitySet Name="Municipios" EntityType="Self.Municipios" />
+    <EntitySet Name="NivelEducativoDocentes" EntityType="Self.NivelEducativoDocentes" />
+    <EntitySet Name="NivelEducativos" EntityType="Self.NivelEducativos" />
+    <EntitySet Name="Nucleos" EntityType="Self.Nucleos" />
+    <EntitySet Name="Parentescos" EntityType="Self.Parentescos" />
+    <EntitySet Name="Periodos" EntityType="Self.Periodos" />
+    <EntitySet Name="PoblacionVictimaConflictos" EntityType="Self.PoblacionVictimaConflictos" />
+    <EntitySet Name="Prestadores" EntityType="Self.Prestadores" />
+    <EntitySet Name="Profesiones" EntityType="Self.Profesiones" />
+    <EntitySet Name="Profesores" EntityType="Self.Profesores" />
+    <EntitySet Name="PropiedadJuridicas" EntityType="Self.PropiedadJuridicas" />
+    <EntitySet Name="RegimenCostos" EntityType="Self.RegimenCostos" />
+    <EntitySet Name="Resguardos" EntityType="Self.Resguardos" />
+    <EntitySet Name="Sedes" EntityType="Self.Sedes" />
+    <EntitySet Name="Sisbenes" EntityType="Self.Sisbenes" />
+    <EntitySet Name="SituacionAcademicas" EntityType="Self.SituacionAcademicas" />
+    <EntitySet Name="TarifaAnuales" EntityType="Self.TarifaAnuales" />
+    <EntitySet Name="TipoAcademicos" EntityType="Self.TipoAcademicos" />
+    <EntitySet Name="TipoCaracteres" EntityType="Self.TipoCaracteres" />
+    <EntitySet Name="TipoCondiciones" EntityType="Self.TipoCondiciones" />
+    <EntitySet Name="TipoDevengos" EntityType="Self.TipoDevengos" />
+    <EntitySet Name="TipoDiscapacidades" EntityType="Self.TipoDiscapacidades" />
+    <EntitySet Name="TipoIdentificaciones" EntityType="Self.TipoIdentificaciones" />
+    <EntitySet Name="TipoNovedades" EntityType="Self.TipoNovedades" />
+    <EntitySet Name="TipoRespuestas" EntityType="Self.TipoRespuestas" />
+    <EntitySet Name="TipoSectorEducaciones" EntityType="Self.TipoSectorEducaciones" />
+    <EntitySet Name="TipoVinculaciones" EntityType="Self.TipoVinculaciones" />
+    <EntitySet Name="ValoracionLetras" EntityType="Self.ValoracionLetras" />
+    <EntitySet Name="Zonas" EntityType="Self.Zonas" />
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Ars_ArsId" Association="Self.FK_dbo_Estudiantes_dbo_Ars_ArsId">
+      <End Role="Ars" EntitySet="Ars" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Asignaturas_dbo_Sedes_SedeId" Association="Self.FK_dbo_Asignaturas_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Asignaturas" EntitySet="Asignaturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_AsociacionPrivadas_AsociacionId" Association="Self.FK_dbo_Instituciones_dbo_AsociacionPrivadas_AsociacionId">
+      <End Role="AsociacionPrivadas" EntitySet="AsociacionPrivadas" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Calendarios_CalendarioId" Association="Self.FK_dbo_Instituciones_dbo_Calendarios_CalendarioId">
+      <End Role="Calendarios" EntitySet="Calendarios" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_CapacidadExcepcionales_CapacidadExcepcionalId" Association="Self.FK_dbo_Estudiantes_dbo_CapacidadExcepcionales_CapacidadExcepcionalId">
+      <End Role="CapacidadExcepcionales" EntitySet="CapacidadExcepcionales" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_CapacidadExcepcionales_CapacidadesExcepcionalesId" Association="Self.FK_dbo_Instituciones_dbo_CapacidadExcepcionales_CapacidadesExcepcionalesId">
+      <End Role="CapacidadExcepcionales" EntitySet="CapacidadExcepcionales" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materias_dbo_Clasificaciones_ClasificacionId" Association="Self.FK_dbo_Materias_dbo_Clasificaciones_ClasificacionId">
+      <End Role="Clasificaciones" EntitySet="Clasificaciones" />
+      <End Role="Materias" EntitySet="Materias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Cursos_dbo_Grados_GradoId" Association="Self.FK_dbo_Cursos_dbo_Grados_GradoId">
+      <End Role="Grados" EntitySet="Grados" />
+      <End Role="Cursos" EntitySet="Cursos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Cursos_dbo_Grupos_GrupoId" Association="Self.FK_dbo_Cursos_dbo_Grupos_GrupoId">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="Cursos" EntitySet="Cursos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Cursos_dbo_Jornadas_JornadaId" Association="Self.FK_dbo_Cursos_dbo_Jornadas_JornadaId">
+      <End Role="Jornadas" EntitySet="Jornadas" />
+      <End Role="Cursos" EntitySet="Cursos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Cursos_dbo_Profesores_ProfesorId" Association="Self.FK_dbo_Cursos_dbo_Profesores_ProfesorId">
+      <End Role="Profesores" EntitySet="Profesores" />
+      <End Role="Cursos" EntitySet="Cursos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Cursos_dbo_Sedes_SedeId" Association="Self.FK_dbo_Cursos_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Cursos" EntitySet="Cursos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Departamentos_Departamentos_Id" Association="Self.FK_dbo_Estudiantes_dbo_Departamentos_Departamentos_Id">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Departamentos_DepartamentoId" Association="Self.FK_dbo_Instituciones_dbo_Departamentos_DepartamentoId">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Municipios_dbo_Departamentos_DepartamentoId" Association="Self.FK_dbo_Municipios_dbo_Departamentos_DepartamentoId">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Municipios" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Nucleos_dbo_Departamentos_DepartamentoId" Association="Self.FK_dbo_Nucleos_dbo_Departamentos_DepartamentoId">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Nucleos" EntitySet="Nucleos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Sedes_dbo_Departamentos_DepartamentoId" Association="Self.FK_dbo_Sedes_dbo_Departamentos_DepartamentoId">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Sedes" EntitySet="Sedes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Eps_EpsId" Association="Self.FK_dbo_Estudiantes_dbo_Eps_EpsId">
+      <End Role="Eps" EntitySet="Eps" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Equivalencias_dbo_Sedes_SedeId" Association="Self.FK_dbo_Equivalencias_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Equivalencias" EntitySet="Equivalencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Equivalencias_dbo_ValoracionLetras_ValoracionLetraId" Association="Self.FK_dbo_Equivalencias_dbo_ValoracionLetras_ValoracionLetraId">
+      <End Role="ValoracionLetras" EntitySet="ValoracionLetras" />
+      <End Role="Equivalencias" EntitySet="Equivalencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Profesores_dbo_Escalafones_EscalafonId" Association="Self.FK_dbo_Profesores_dbo_Escalafones_EscalafonId">
+      <End Role="Escalafones" EntitySet="Escalafones" />
+      <End Role="Profesores" EntitySet="Profesores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_EscalaNacionales_dbo_Sedes_SedeId" Association="Self.FK_dbo_EscalaNacionales_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="EscalaNacionales" EntitySet="EscalaNacionales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Sedes_dbo_Especialidades_EspecialidadId" Association="Self.FK_dbo_Sedes_dbo_Especialidades_EspecialidadId">
+      <End Role="Especialidades" EntitySet="Especialidades" />
+      <End Role="Sedes" EntitySet="Sedes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Estratos_EstratoId" Association="Self.FK_dbo_Estudiantes_dbo_Estratos_EstratoId">
+      <End Role="Estratos" EntitySet="Estratos" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Etnias_EtniaId" Association="Self.FK_dbo_Estudiantes_dbo_Etnias_EtniaId">
+      <End Role="Etnias" EntitySet="Etnias" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_FactorRhs_FactorRhId" Association="Self.FK_dbo_Estudiantes_dbo_FactorRhs_FactorRhId">
+      <End Role="FactorRhs" EntitySet="FactorRhs" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Generos_GeneroId" Association="Self.FK_dbo_Estudiantes_dbo_Generos_GeneroId">
+      <End Role="Generos" EntitySet="Generos" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Grupos_GrupoUsuarioId" Association="Self.FK_dbo_Estudiantes_dbo_Grupos_GrupoUsuarioId">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Instituciones_InstitucionId" Association="Self.FK_dbo_Estudiantes_dbo_Instituciones_InstitucionId">
+      <End Role="Instituciones" EntitySet="Instituciones" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Municipios_Municipios_Id" Association="Self.FK_dbo_Estudiantes_dbo_Municipios_Municipios_Id">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Parentescos_ParentescoAcudienteId" Association="Self.FK_dbo_Estudiantes_dbo_Parentescos_ParentescoAcudienteId">
+      <End Role="Parentescos" EntitySet="Parentescos" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_PoblacionVictimaConflictos_PoblacionVictimaId" Association="Self.FK_dbo_Estudiantes_dbo_PoblacionVictimaConflictos_PoblacionVictimaId">
+      <End Role="PoblacionVictimaConflictos" EntitySet="PoblacionVictimaConflictos" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Resguardos_ResguardoId" Association="Self.FK_dbo_Estudiantes_dbo_Resguardos_ResguardoId">
+      <End Role="Resguardos" EntitySet="Resguardos" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Sedes_SedeId" Association="Self.FK_dbo_Estudiantes_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Sisbenes_SisbenId" Association="Self.FK_dbo_Estudiantes_dbo_Sisbenes_SisbenId">
+      <End Role="Sisbenes" EntitySet="Sisbenes" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_TipoDiscapacidades_DiscapacidadId" Association="Self.FK_dbo_Estudiantes_dbo_TipoDiscapacidades_DiscapacidadId">
+      <End Role="TipoDiscapacidades" EntitySet="TipoDiscapacidades" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_TipoIdentificaciones_TipoIdentificacionId" Association="Self.FK_dbo_Estudiantes_dbo_TipoIdentificaciones_TipoIdentificacionId">
+      <End Role="TipoIdentificaciones" EntitySet="TipoIdentificaciones" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Estudiantes_dbo_Zonas_Zonas_Id" Association="Self.FK_dbo_Estudiantes_dbo_Zonas_Zonas_Id">
+      <End Role="Zonas" EntitySet="Zonas" />
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Etnias_EtniasId" Association="Self.FK_dbo_Instituciones_dbo_Etnias_EtniasId">
+      <End Role="Etnias" EntitySet="Etnias" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Generos_GeneroId" Association="Self.FK_dbo_Instituciones_dbo_Generos_GeneroId">
+      <End Role="Generos" EntitySet="Generos" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Grados_dbo_Sedes_SedeId" Association="Self.FK_dbo_Grados_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Grados" EntitySet="Grados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Juicios_dbo_Grados_GradoId" Association="Self.FK_dbo_Juicios_dbo_Grados_GradoId">
+      <End Role="Grados" EntitySet="Grados" />
+      <End Role="Juicios" EntitySet="Juicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materias_dbo_Grados_GradoId" Association="Self.FK_dbo_Materias_dbo_Grados_GradoId">
+      <End Role="Grados" EntitySet="Grados" />
+      <End Role="Materias" EntitySet="Materias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Grupos_dbo_Sedes_SedeId" Association="Self.FK_dbo_Grupos_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Juicios_dbo_Grupos_GrupoId" Association="Self.FK_dbo_Juicios_dbo_Grupos_GrupoId">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="Juicios" EntitySet="Juicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materias_dbo_Grupos_GrupoId" Association="Self.FK_dbo_Materias_dbo_Grupos_GrupoId">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="Materias" EntitySet="Materias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Idiomas_IdiomaId" Association="Self.FK_dbo_Instituciones_dbo_Idiomas_IdiomaId">
+      <End Role="Idiomas" EntitySet="Idiomas" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Metodologias_MetodologiaId" Association="Self.FK_dbo_Instituciones_dbo_Metodologias_MetodologiaId">
+      <End Role="Metodologias" EntitySet="Metodologias" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Municipios_MunicipioId" Association="Self.FK_dbo_Instituciones_dbo_Municipios_MunicipioId">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Nucleos_NucleoId" Association="Self.FK_dbo_Instituciones_dbo_Nucleos_NucleoId">
+      <End Role="Nucleos" EntitySet="Nucleos" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Prestadores_PrestadorServicioId" Association="Self.FK_dbo_Instituciones_dbo_Prestadores_PrestadorServicioId">
+      <End Role="Prestadores" EntitySet="Prestadores" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_PropiedadJuridicas_PropiedadJuridicaId" Association="Self.FK_dbo_Instituciones_dbo_PropiedadJuridicas_PropiedadJuridicaId">
+      <End Role="PropiedadJuridicas" EntitySet="PropiedadJuridicas" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_RegimenCostos_RegimenCostoId" Association="Self.FK_dbo_Instituciones_dbo_RegimenCostos_RegimenCostoId">
+      <End Role="RegimenCostos" EntitySet="RegimenCostos" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Resguardos_ResguardosId" Association="Self.FK_dbo_Instituciones_dbo_Resguardos_ResguardosId">
+      <End Role="Resguardos" EntitySet="Resguardos" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_TarifaAnuales_TarifaAnualId" Association="Self.FK_dbo_Instituciones_dbo_TarifaAnuales_TarifaAnualId">
+      <End Role="TarifaAnuales" EntitySet="TarifaAnuales" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_TipoDiscapacidades_DiscapacidadesId" Association="Self.FK_dbo_Instituciones_dbo_TipoDiscapacidades_DiscapacidadesId">
+      <End Role="TipoDiscapacidades" EntitySet="TipoDiscapacidades" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_TipoNovedades_NovedadId" Association="Self.FK_dbo_Instituciones_dbo_TipoNovedades_NovedadId">
+      <End Role="TipoNovedades" EntitySet="TipoNovedades" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_TipoSectorEducaciones_TipoSectorEducacionId" Association="Self.FK_dbo_Instituciones_dbo_TipoSectorEducaciones_TipoSectorEducacionId">
+      <End Role="TipoSectorEducaciones" EntitySet="TipoSectorEducaciones" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_Zonas_ZonaId" Association="Self.FK_dbo_Instituciones_dbo_Zonas_ZonaId">
+      <End Role="Zonas" EntitySet="Zonas" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Jornadas_dbo_Sedes_SedeId" Association="Self.FK_dbo_Jornadas_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Jornadas" EntitySet="Jornadas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Juicios_dbo_Jornadas_JornadaId" Association="Self.FK_dbo_Juicios_dbo_Jornadas_JornadaId">
+      <End Role="Jornadas" EntitySet="Jornadas" />
+      <End Role="Juicios" EntitySet="Juicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materias_dbo_Jornadas_JornadaId" Association="Self.FK_dbo_Materias_dbo_Jornadas_JornadaId">
+      <End Role="Jornadas" EntitySet="Jornadas" />
+      <End Role="Materias" EntitySet="Materias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Juicios_dbo_Materias_MateriaId" Association="Self.FK_dbo_Juicios_dbo_Materias_MateriaId">
+      <End Role="Materias" EntitySet="Materias" />
+      <End Role="Juicios" EntitySet="Juicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Juicios_dbo_Periodos_PeriodoId" Association="Self.FK_dbo_Juicios_dbo_Periodos_PeriodoId">
+      <End Role="Periodos" EntitySet="Periodos" />
+      <End Role="Juicios" EntitySet="Juicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Juicios_dbo_Sedes_SedeId" Association="Self.FK_dbo_Juicios_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Juicios" EntitySet="Juicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materias_dbo_Profesores_ProfesorId" Association="Self.FK_dbo_Materias_dbo_Profesores_ProfesorId">
+      <End Role="Profesores" EntitySet="Profesores" />
+      <End Role="Materias" EntitySet="Materias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materias_dbo_Sedes_SedeId" Association="Self.FK_dbo_Materias_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Materias" EntitySet="Materias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Nucleos_dbo_Municipios_MunicipioId" Association="Self.FK_dbo_Nucleos_dbo_Municipios_MunicipioId">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Nucleos" EntitySet="Nucleos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Sedes_dbo_Municipios_MunicipioId" Association="Self.FK_dbo_Sedes_dbo_Municipios_MunicipioId">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Sedes" EntitySet="Sedes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Periodos_dbo_Sedes_SedeId" Association="Self.FK_dbo_Periodos_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Periodos" EntitySet="Periodos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Profesores_dbo_Profesiones_ProfesionId" Association="Self.FK_dbo_Profesores_dbo_Profesiones_ProfesionId">
+      <End Role="Profesiones" EntitySet="Profesiones" />
+      <End Role="Profesores" EntitySet="Profesores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Profesores_dbo_Sedes_SedeId" Association="Self.FK_dbo_Profesores_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Profesores" EntitySet="Profesores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Profesores_dbo_TipoIdentificaciones_TipoIdentificacionId" Association="Self.FK_dbo_Profesores_dbo_TipoIdentificaciones_TipoIdentificacionId">
+      <End Role="TipoIdentificaciones" EntitySet="TipoIdentificaciones" />
+      <End Role="Profesores" EntitySet="Profesores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Sedes_dbo_Zonas_ZonaId" Association="Self.FK_dbo_Sedes_dbo_Zonas_ZonaId">
+      <End Role="Zonas" EntitySet="Zonas" />
+      <End Role="Sedes" EntitySet="Sedes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TipoAcademicos_dbo_Sedes_SedeId" Association="Self.FK_dbo_TipoAcademicos_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="TipoAcademicos" EntitySet="TipoAcademicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ValoracionLetras_dbo_Sedes_SedeId" Association="Self.FK_dbo_ValoracionLetras_dbo_Sedes_SedeId">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="ValoracionLetras" EntitySet="ValoracionLetras" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
