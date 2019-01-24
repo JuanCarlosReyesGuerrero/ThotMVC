@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Thoth.Repository
 {
@@ -10,17 +6,9 @@ namespace Thoth.Repository
     {
         void Insert(TEntity entity);
         void Update(TEntity entity);
-        void Delete(int Id);
+        void Delete(long Id);
         void Delete(TEntity entity);
-        TEntity GetByID(int id);
+        TEntity GetByID(long? id);
         IEnumerable<TEntity> GetAll();
-        //void Dispose();
-
-        //IEnumerable<TEntity> GetAll();
-        //TEntity GetById(int Id);
-        //void Insert(TEntity entity);
-        //void Delete(int Id);
-        //void Update(TEntity entity);
-        //void Save();
     }
 }

@@ -1,19 +1,18 @@
 ﻿using System;
-using Thoth.Infrastructure.Data;
+using Thoth.Data;
 using Thoth.Repository;
 
 namespace Thoth.Service
 {
     public class ServiceBase : IDisposable
     {
-        private ApplicationDbContext context = new ApplicationDbContext();
+        private ThothMVCDbContext context = new ThothMVCDbContext();
         private GenericRepository<Eps> epsRepository;
 
         public GenericRepository<Eps> EpsRepository
         {
             get
             {
-
                 if (this.epsRepository == null)
                 {
                     this.epsRepository = new GenericRepository<Eps>(context);

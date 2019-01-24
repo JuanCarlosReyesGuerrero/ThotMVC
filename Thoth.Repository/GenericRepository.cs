@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Thoth.Infrastructure.Data;
+using Thoth.Data;
 
 namespace Thoth.Repository
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        protected ApplicationDbContext _applicationDbContext;
+        protected ThothMVCDbContext _applicationDbContext;
         protected DbSet<TEntity> _DbSet;
                 
-        public GenericRepository(ApplicationDbContext applicationDbContext)
+        public GenericRepository(ThothMVCDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
             this._DbSet = applicationDbContext.Set<TEntity>();
@@ -61,7 +59,7 @@ namespace Thoth.Repository
             }
         }
 
-        public TEntity GetByID(int Id)
+        public TEntity GetByID(long? Id)
         {
             return _DbSet.Find(Id);
         }
@@ -98,7 +96,7 @@ namespace Thoth.Repository
         /// Delete
         /// </summary>
         /// <param name="Id"></param>
-        public void Delete(int Id)
+        public void Delete(long Id)
         {
             TEntity entityToDelete = _DbSet.Find(Id);
             Delete(entityToDelete);

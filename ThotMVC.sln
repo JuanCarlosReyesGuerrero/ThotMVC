@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thot.Web", "ThotMVC\Thot.Web.csproj", "{CF818AB0-8ABE-45E0-819E-F8A31C9A3BB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thoth.Web", "ThotMVC\Thoth.Web.csproj", "{CF818AB0-8ABE-45E0-819E-F8A31C9A3BB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThotMVC.Tests", "ThotMVC.Tests\ThotMVC.Tests.csproj", "{C6BDECB5-B5A3-47AF-B362-866BFE3A18E4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thoth.Infrastructure.Data", "Thoth.Infrastructure.Data\Thoth.Infrastructure.Data.csproj", "{19E3D48D-7B7C-40EA-832C-E52A66A16E65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thoth.Repository", "Thoth.Repository\Thoth.Repository.csproj", "{2E109301-603E-423B-8147-52E8D698CE67}"
 EndProject
@@ -29,10 +27,6 @@ Global
 		{C6BDECB5-B5A3-47AF-B362-866BFE3A18E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6BDECB5-B5A3-47AF-B362-866BFE3A18E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6BDECB5-B5A3-47AF-B362-866BFE3A18E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19E3D48D-7B7C-40EA-832C-E52A66A16E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19E3D48D-7B7C-40EA-832C-E52A66A16E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19E3D48D-7B7C-40EA-832C-E52A66A16E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19E3D48D-7B7C-40EA-832C-E52A66A16E65}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E109301-603E-423B-8147-52E8D698CE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E109301-603E-423B-8147-52E8D698CE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E109301-603E-423B-8147-52E8D698CE67}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -93,9 +93,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ThotMVC\Thot.Web.csproj">
+    <ProjectReference Include="..\ThotMVC\Thoth.Web.csproj">
       <Project>{CF818AB0-8ABE-45E0-819E-F8A31C9A3BB8}</Project>
-      <Name>Thot.Web</Name>
+      <Name>Thoth.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -1,15 +1,12 @@
 ﻿using PagedList;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using Thoth.Data;
 using Thoth.Service;
-using ThotMVC.Models;
-using Thoth.Infrastructure.Data;
 
 namespace ThotMVC.Controllers
 {
@@ -39,7 +36,7 @@ namespace ThotMVC.Controllers
             //            select s;
 
             var eps = serviceBase.EpsRepository.GetAll();
-            
+
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -69,17 +66,22 @@ namespace ThotMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Eps eps = db.Eps.Find(id);
+
+            //Eps eps = db.Eps.Find(id);
+            Eps eps = serviceBase.EpsRepository.GetByID(id);
+
             if (eps == null)
             {
                 return HttpNotFound();
             }
+
             return View(eps);
         }
 
         // GET: Eps/Create
         public ActionResult Create()
         {
+            //PopulateDepartmentsDropDownList();
             return View();
         }
 
@@ -92,8 +94,10 @@ namespace ThotMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Eps.Add(eps);
-                db.SaveChanges();
+                //db.Eps.Add(eps);
+                //db.SaveChanges();
+                serviceBase.EpsRepository.Insert(eps);
+                serviceBase.Save();
                 return RedirectToAction("Index");
             }
 
@@ -107,7 +111,11 @@ namespace ThotMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Eps eps = db.Eps.Find(id);
+
+            //Eps eps = db.Eps.Find(id);
+            Eps eps = serviceBase.EpsRepository.GetByID(id);
+            //PopulateDepartmentsDropDownList(course.DepartmentID);
+
             if (eps == null)
             {
                 return HttpNotFound();
@@ -124,8 +132,10 @@ namespace ThotMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(eps).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(eps).State = EntityState.Modified;
+                //db.SaveChanges();
+                serviceBase.EpsRepository.Update(eps);
+                serviceBase.Save();
                 return RedirectToAction("Index");
             }
             return View(eps);
@@ -138,7 +148,10 @@ namespace ThotMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Eps eps = db.Eps.Find(id);
+
+            //Eps eps = db.Eps.Find(id);
+            Eps eps = serviceBase.EpsRepository.GetByID(id);
+
             if (eps == null)
             {
                 return HttpNotFound();
@@ -151,9 +164,12 @@ namespace ThotMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Eps eps = db.Eps.Find(id);
-            db.Eps.Remove(eps);
-            db.SaveChanges();
+            //Eps eps = db.Eps.Find(id);
+            //db.Eps.Remove(eps);
+            //db.SaveChanges();
+            Eps eps = serviceBase.EpsRepository.GetByID(id);
+            serviceBase.EpsRepository.Delete(id);
+            serviceBase.Save();
             return RedirectToAction("Index");
         }
 
@@ -161,7 +177,7 @@ namespace ThotMVC.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                serviceBase.Dispose();
             }
             base.Dispose(disposing);
         }

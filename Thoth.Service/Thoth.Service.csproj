@@ -52,9 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Thoth.Infrastructure.Data\Thoth.Infrastructure.Data.csproj">
-      <Project>{19E3D48D-7B7C-40EA-832C-E52A66A16E65}</Project>
-      <Name>Thoth.Infrastructure.Data</Name>
+    <ProjectReference Include="..\Thoth.Data\Thoth.Data.csproj">
+      <Project>{CE0252EE-2675-4432-98C9-EECC908234B2}</Project>
+      <Name>Thoth.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Thoth.Repository\Thoth.Repository.csproj">
       <Project>{2e109301-603e-423b-8147-52e8d698ce67}</Project>
